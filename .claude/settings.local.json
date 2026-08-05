@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(curl -s \"https://api.github.com/repos/anthropics/skills/git/trees/main?recursive=1\")"
+      "Bash(curl -s \"https://api.github.com/repos/anthropics/skills/git/trees/main?recursive=1\")",
+      "mcp__claude_ai_Figma__get_metadata"
     ]
   }
 }
