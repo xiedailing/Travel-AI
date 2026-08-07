@@ -4,7 +4,13 @@
       "Bash(curl -s \"https://api.github.com/repos/anthropics/skills/git/trees/main?recursive=1\")",
       "mcp__claude_ai_Figma__get_metadata",
       "mcp__claude_ai_Google_Drive__read_file_content",
-      "WebSearch"
+      "WebSearch",
+      "mcp__claude_ai_Notion__notion-fetch",
+      "mcp__claude_ai_Notion__notion-create-pages"
     ]
-  }
+  },
+  "enabledMcpjsonServers": [
+    "playwright",
+    "context7"
+  ]
 }
