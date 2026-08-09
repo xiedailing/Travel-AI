@@ -6,7 +6,18 @@
       "mcp__claude_ai_Google_Drive__read_file_content",
       "WebSearch",
       "mcp__claude_ai_Notion__notion-fetch",
-      "mcp__claude_ai_Notion__notion-create-pages"
+      "mcp__claude_ai_Notion__notion-create-pages",
+      "mcp__claude_ai_Figma__get_figjam",
+      "mcp__claude_ai_Figma__get_screenshot",
+      "Bash(mkdir -p \"/c/Users/喵喵凌/AppData/Local/Temp/claude/C--Users-----Desktop-Travel-AI/8e34b007-e6fa-4161-b1ca-4d72e085ade3/scratchpad\")",
+      "Read(//c/Users/喵喵凌/AppData/Local/Temp/claude/C--Users-----Desktop-Travel-AI/8e34b007-e6fa-4161-b1ca-4d72e085ade3/scratchpad/**)",
+      "Bash(curl -sL -o cjm.png \"https://www.figma.com/api/mcp/asset/845ee697-ad58-4271-a1f1-d9ccc56be08d.png\")",
+      "Bash(curl -sL -o feature.png \"https://www.figma.com/api/mcp/asset/e5d20882-bef2-4fc8-a037-b6253b722ae3.png\")",
+      "Bash(curl -sL -o palette.png \"https://www.figma.com/api/mcp/asset/9896f620-f810-4efa-8d0d-ec534d45f52b.png\")",
+      "Bash(curl -sL -o arrow_check.png \"https://www.figma.com/api/mcp/asset/8c1111f9-c7eb-453d-8f66-0e0157046268.png\")",
+      "Bash(curl -sL -o arrow_check2.png \"https://www.figma.com/api/mcp/asset/fcee7f1e-5dca-42f9-aa22-57294912906c.png\")",
+      "Bash(curl -sL -o cjm_final.png \"https://www.figma.com/api/mcp/asset/998d96cf-93b1-41fd-932d-f7e5976381a7.png\")",
+      "Bash(curl -sL -o autolayout_final.png \"https://www.figma.com/api/mcp/asset/dd5f97e4-8157-4f15-8ecc-ab7f9e240b4d.png\")"
     ]
   },
   "enabledMcpjsonServers": [
