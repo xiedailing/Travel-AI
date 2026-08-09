@@ -17,7 +17,10 @@
       "Bash(curl -sL -o arrow_check.png \"https://www.figma.com/api/mcp/asset/8c1111f9-c7eb-453d-8f66-0e0157046268.png\")",
       "Bash(curl -sL -o arrow_check2.png \"https://www.figma.com/api/mcp/asset/fcee7f1e-5dca-42f9-aa22-57294912906c.png\")",
       "Bash(curl -sL -o cjm_final.png \"https://www.figma.com/api/mcp/asset/998d96cf-93b1-41fd-932d-f7e5976381a7.png\")",
-      "Bash(curl -sL -o autolayout_final.png \"https://www.figma.com/api/mcp/asset/dd5f97e4-8157-4f15-8ecc-ab7f9e240b4d.png\")"
+      "Bash(curl -sL -o autolayout_final.png \"https://www.figma.com/api/mcp/asset/dd5f97e4-8157-4f15-8ecc-ab7f9e240b4d.png\")",
+      "mcp__claude_ai_Figma__generate_diagram",
+      "Bash(curl *)",
+      "mcp__claude_ai_Figma__get_design_context"
     ]
   },
   "enabledMcpjsonServers": [
