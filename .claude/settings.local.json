@@ -20,7 +20,10 @@
       "Bash(curl -sL -o autolayout_final.png \"https://www.figma.com/api/mcp/asset/dd5f97e4-8157-4f15-8ecc-ab7f9e240b4d.png\")",
       "mcp__claude_ai_Figma__generate_diagram",
       "Bash(curl *)",
-      "mcp__claude_ai_Figma__get_design_context"
+      "mcp__claude_ai_Figma__get_design_context",
+      "Bash(claude --version)",
+      "Bash(npm -g config get prefix)",
+      "Bash(node *)"
     ]
   },
   "enabledMcpjsonServers": [
