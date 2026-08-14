@@ -29,5 +29,8 @@
   "enabledMcpjsonServers": [
     "playwright",
     "context7"
-  ]
+  ],
+  "skillOverrides": {
+    "frontend-design": "name-only"
+  }
 }
