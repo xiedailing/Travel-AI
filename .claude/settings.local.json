@@ -31,6 +31,9 @@
     "context7"
   ],
   "skillOverrides": {
-    "frontend-design": "name-only"
+    "frontend-design": "off",
+    "impeccable": "off",
+    "web-artifacts-builder": "off",
+    "webapp-testing": "off"
   }
 }
