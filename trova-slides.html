@@ -2835,6 +2835,235 @@
     .ai-demo.resolved .ai-demo-icon { background: rgba(126, 154, 130, .16); }
     .ai-demo.resolved .demo-copy strong { color: #58765d; }
 
+    /* Interactive prototype */
+    .prototype-slide {
+      grid-template-rows: auto 1fr;
+      gap: 3%;
+    }
+
+    .prototype-slide h2 {
+      max-width: none;
+      margin-bottom: .5rem;
+      font-size: clamp(1.9rem, 3.45vw, 4.15rem);
+      line-height: 1.06;
+      white-space: nowrap;
+    }
+
+    .prototype-lede {
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(.68rem, .9vw, .98rem);
+      line-height: 1.5;
+    }
+
+    .prototype-body {
+      display: grid;
+      grid-template-columns: minmax(18rem, .72fr) minmax(0, 1.28fr);
+      gap: clamp(1.2rem, 2.5vw, 2.8rem);
+      min-height: 0;
+      padding-top: clamp(1rem, 2vh, 1.5rem);
+      border-top: 1px solid var(--line);
+    }
+
+    .prototype-entry {
+      min-width: 0;
+      min-height: 0;
+    }
+
+    .import-entry {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      grid-template-rows: auto auto 1fr auto;
+      align-items: start;
+      column-gap: clamp(.75rem, 1.35vw, 1.25rem);
+      padding-right: clamp(.8rem, 1.7vw, 1.8rem);
+      border-right: 1px solid var(--line);
+    }
+
+    .prototype-flow-code {
+      color: var(--terracotta);
+      font-size: clamp(.56rem, .7vw, .76rem);
+      font-weight: 900;
+      letter-spacing: .16em;
+    }
+
+    .prototype-entry h3 {
+      margin: .45rem 0 .55rem;
+      font-family: var(--serif);
+      font-size: clamp(1.45rem, 2.25vw, 2.45rem);
+      line-height: 1.16;
+    }
+
+    .prototype-entry-copy {
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(.72rem, .92vw, 1rem);
+      line-height: 1.5;
+    }
+
+    .prototype-qr-link {
+      display: block;
+      width: clamp(10.5rem, 13.2vw, 14rem);
+      padding: .7rem;
+      border: 1px solid rgba(46, 42, 36, .14);
+      border-radius: .8rem;
+      background: white;
+      box-shadow: 0 12px 28px rgba(46, 42, 36, .09);
+    }
+
+    .prototype-qr-link img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .import-entry .prototype-qr-link {
+      grid-column: 2;
+      grid-row: 1 / 4;
+      align-self: center;
+    }
+
+    .prototype-steps {
+      align-self: end;
+      display: grid;
+      gap: .55rem;
+      margin: clamp(.9rem, 1.8vh, 1.35rem) 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .prototype-steps li {
+      display: grid;
+      grid-template-columns: 1.45rem 1fr;
+      align-items: center;
+      gap: .55rem;
+      color: var(--ink);
+      font-size: clamp(.7rem, .88vw, .96rem);
+      font-weight: 700;
+    }
+
+    .prototype-steps span {
+      display: grid;
+      place-items: center;
+      width: 1.7rem;
+      height: 1.7rem;
+      border-radius: 50%;
+      color: white;
+      background: var(--terracotta);
+      font-size: clamp(.46rem, .58vw, .64rem);
+      font-weight: 900;
+    }
+
+    .prototype-open {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .45rem;
+      width: fit-content;
+      margin-top: .85rem;
+      padding: .72rem .95rem;
+      border: 1px solid var(--terracotta);
+      border-radius: 999px;
+      color: var(--terracotta);
+      font-size: clamp(.58rem, .72vw, .8rem);
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-decoration: none;
+    }
+
+    .prototype-open::after { content: "↗"; font-size: 1.05em; }
+    .prototype-open:hover { color: white; background: var(--terracotta); }
+
+    .planning-entry {
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+      gap: clamp(.9rem, 1.8vh, 1.35rem);
+    }
+
+    .planning-entry .prototype-flow-code { color: var(--indigo); }
+
+    .planning-shell {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      align-items: center;
+      gap: clamp(.9rem, 1.7vw, 1.7rem);
+      min-height: 0;
+    }
+
+    .planning-launch {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .75rem;
+    }
+
+    .planning-launch .prototype-open {
+      margin-top: 0;
+      border-color: var(--indigo);
+      color: var(--indigo);
+    }
+
+    .planning-launch .prototype-open:hover { color: white; background: var(--indigo); }
+
+    .prototype-branches {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      gap: clamp(.8rem, 1.6vh, 1.2rem);
+      min-height: 0;
+    }
+
+    .prototype-branch {
+      display: grid;
+      grid-template-columns: minmax(9.5rem, .8fr) minmax(0, 1.2fr);
+      align-items: center;
+      gap: clamp(.8rem, 1.5vw, 1.45rem);
+      min-width: 0;
+      padding: clamp(.8rem, 1.2vw, 1.1rem);
+      border-left: 5px solid var(--indigo);
+      border-radius: 0 .8rem .8rem 0;
+      background: rgba(74, 95, 199, .07);
+    }
+
+    .prototype-branch.check {
+      border-left-color: var(--sage);
+      background: rgba(126, 154, 130, .09);
+    }
+
+    .branch-role {
+      display: block;
+      margin-bottom: .35rem;
+      color: var(--indigo);
+      font-size: clamp(.5rem, .62vw, .68rem);
+      font-weight: 900;
+      letter-spacing: .1em;
+    }
+
+    .prototype-branch.check .branch-role { color: var(--sage); }
+
+    .prototype-branch h4 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(1.05rem, 1.5vw, 1.65rem);
+      line-height: 1.15;
+    }
+
+    .branch-steps {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: .35rem;
+      color: var(--muted);
+      font-size: clamp(.62rem, .78vw, .86rem);
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .branch-steps span:not(:last-child)::after {
+      content: "→";
+      margin-left: .35rem;
+      color: rgba(46, 42, 36, .32);
+    }
+
     /* Validation plan */
     .validation-slide {
       grid-template-rows: auto 1fr;
@@ -3038,6 +3267,109 @@
 
     .validation-stage:first-child span { color: white; background: var(--terracotta); }
     .validation-stage:first-child { color: var(--ink); }
+
+    /* Conclusion */
+    .conclusion-slide {
+      display: grid;
+      grid-template-columns: minmax(0, 1.42fr) minmax(16rem, .58fr);
+      grid-template-rows: 1fr auto;
+      column-gap: clamp(2rem, 5vw, 5.5rem);
+      align-items: center;
+      background:
+        radial-gradient(circle at 87% 16%, rgba(193, 99, 61, .12), transparent 25%),
+        radial-gradient(circle at 72% 82%, rgba(74, 95, 199, .09), transparent 28%),
+        var(--paper);
+    }
+
+    .conclusion-copy {
+      align-self: center;
+      min-width: 0;
+    }
+
+    .conclusion-slide .eyebrow { margin-bottom: clamp(1rem, 2vh, 1.6rem); }
+
+    .conclusion-slide h2 {
+      max-width: 16em;
+      margin: 0;
+      font-size: clamp(1.75rem, 3.25vw, 3.95rem);
+      line-height: 1.28;
+      letter-spacing: .025em;
+      text-wrap: balance;
+    }
+
+    .conclusion-slide h2 .idea { color: var(--terracotta); }
+    .conclusion-slide h2 .outcome { color: var(--indigo); }
+    .conclusion-line { display: block; white-space: nowrap; }
+
+    .conclusion-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-width: 0;
+    }
+
+    .conclusion-logo {
+      display: block;
+      width: min(100%, 29rem);
+      height: auto;
+      filter: drop-shadow(0 18px 32px rgba(46, 42, 36, .1));
+    }
+
+    .conclusion-qa {
+      margin-top: clamp(1.2rem, 2.6vh, 2rem);
+      color: var(--ink);
+      font-size: clamp(.72rem, 1vw, 1.08rem);
+      font-weight: 900;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+    }
+
+    .conclusion-outcomes {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      padding-top: clamp(1rem, 2vh, 1.5rem);
+      border-top: 1px solid var(--line);
+    }
+
+    .conclusion-outcome {
+      position: relative;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: baseline;
+      gap: clamp(.65rem, 1.2vw, 1.1rem);
+      padding: clamp(.7rem, 1.2vw, 1rem) clamp(1rem, 2.2vw, 2.2rem);
+    }
+
+    .conclusion-outcome:first-child { padding-left: 0; }
+    .conclusion-outcome:last-child { padding-right: 0; }
+
+    .conclusion-outcome:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: .5rem;
+      right: 0;
+      bottom: .5rem;
+      width: 1px;
+      background: var(--line);
+    }
+
+    .conclusion-outcome small {
+      color: var(--terracotta);
+      font-size: clamp(.48rem, .62vw, .68rem);
+      font-weight: 900;
+      letter-spacing: .14em;
+    }
+
+    .conclusion-outcome:nth-child(2) small { color: var(--indigo); }
+    .conclusion-outcome:nth-child(3) small { color: var(--sage); }
+
+    .conclusion-outcome strong {
+      font-family: var(--serif);
+      font-size: clamp(1rem, 1.65vw, 1.75rem);
+      line-height: 1.15;
+    }
 
     @media (max-width: 700px) and (orientation: portrait) {
       .slide { padding: 8.5% 7% 13%; }
@@ -3756,6 +4088,84 @@
       .validation-stage span { width: 1.15rem; height: 1.15rem; font-size: .32rem; }
       .validation-stage:not(:last-child)::after { right: -.25rem; }
 
+      .prototype-slide { gap: 2%; }
+      .prototype-slide h2 {
+        max-width: 12em;
+        font-size: clamp(1.35rem, 6.3vw, 2rem);
+        white-space: normal;
+      }
+      .prototype-lede { font-size: .46rem; }
+      .prototype-body {
+        grid-template-columns: 1fr;
+        grid-template-rows: .8fr 1.2fr;
+        gap: .5rem;
+        padding-top: .55rem;
+      }
+      .import-entry {
+        grid-template-columns: 6.4rem 1fr auto;
+        grid-template-rows: auto auto 1fr;
+        align-items: center;
+        column-gap: .55rem;
+        padding: 0 0 .45rem;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .import-entry .prototype-qr-link {
+        grid-column: 1;
+        grid-row: 1 / 4;
+      }
+      .prototype-flow-code { font-size: .34rem; }
+      .prototype-entry h3 { margin: .2rem 0; font-size: .78rem; }
+      .prototype-entry-copy { font-size: .38rem; }
+      .prototype-qr-link { width: 6.4rem; padding: .35rem; border-radius: .45rem; }
+      .prototype-steps { grid-column: 2; gap: .25rem; margin: .3rem 0 0; }
+      .prototype-steps li { grid-template-columns: 1rem 1fr; gap: .3rem; font-size: .36rem; }
+      .prototype-steps span { width: 1rem; height: 1rem; font-size: .28rem; }
+      .import-entry .prototype-open { grid-column: 3; grid-row: 1 / 4; align-self: center; }
+      .prototype-open { margin-top: 0; padding: .4rem .52rem; font-size: .34rem; }
+      .planning-entry { grid-template-rows: auto 1fr; gap: .4rem; }
+      .planning-shell { grid-template-columns: auto 1fr; gap: .55rem; }
+      .planning-launch { gap: .35rem; }
+      .prototype-branches { gap: .35rem; }
+      .prototype-branch { grid-template-columns: 5.8rem 1fr; gap: .4rem; padding: .45rem; border-left-width: 3px; border-radius: 0 .45rem .45rem 0; }
+      .branch-role { margin-bottom: .18rem; font-size: .3rem; }
+      .prototype-branch h4 { font-size: .64rem; }
+      .branch-steps { gap: .2rem; font-size: .34rem; }
+      .branch-steps span:not(:last-child)::after { margin-left: .2rem; }
+
+      .conclusion-slide {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr auto auto;
+        gap: 3%;
+        background:
+          radial-gradient(circle at 78% 14%, rgba(193, 99, 61, .12), transparent 24%),
+          radial-gradient(circle at 30% 76%, rgba(74, 95, 199, .08), transparent 28%),
+          var(--paper);
+      }
+      .conclusion-slide .eyebrow { margin-bottom: .75rem; }
+      .conclusion-slide h2 {
+        max-width: 13em;
+        font-size: clamp(1.15rem, 5.2vw, 1.72rem);
+        line-height: 1.3;
+        letter-spacing: .02em;
+      }
+      .conclusion-line { white-space: normal; }
+      .conclusion-brand { flex-direction: row; justify-content: space-between; gap: .8rem; }
+      .conclusion-logo { width: 9rem; }
+      .conclusion-qa { margin-top: 0; font-size: .46rem; }
+      .conclusion-outcomes { grid-template-columns: 1fr; padding-top: .45rem; }
+      .conclusion-outcome { grid-template-columns: 2.2rem 1fr; gap: .45rem; padding: .45rem 0; }
+      .conclusion-outcome:not(:last-child)::after {
+        top: auto;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: auto;
+        height: 1px;
+      }
+      .conclusion-outcome small { font-size: .3rem; }
+      .conclusion-outcome strong { font-size: .68rem; }
+
       .controls {
         right: max(.6rem, env(safe-area-inset-right));
         bottom: max(.6rem, env(safe-area-inset-bottom));
@@ -4467,6 +4877,79 @@
       </div>
     </section>
 
+    <section class="slide prototype-slide" aria-label="Slide 15：Interactive Prototype">
+      <header class="slide-header">
+        <div>
+          <p class="eyebrow">Interactive Prototype</p>
+          <h2>兩個操作入口，完整體驗三條核心任務</h2>
+          <p class="prototype-lede">掃描 QR Code 或點擊連結，從指定起始畫面開始操作。</p>
+        </div>
+        <div class="slide-index">14 — PROTOTYPE</div>
+      </header>
+
+      <div class="prototype-body">
+        <article class="prototype-entry import-entry">
+          <div>
+            <small class="prototype-flow-code">FLOW A · IMPORT</small>
+            <h3>跨平台匯入收藏</h3>
+            <p class="prototype-entry-copy">從空收藏開始，把外部旅行靈感轉成可使用的景點資料。</p>
+          </div>
+
+          <a class="prototype-qr-link" href="https://www.figma.com/proto/P8P8AbsbsKqyPCSUFf32wj/%E6%99%BA%E6%85%A7%E6%97%85%E8%A1%8C%E8%A6%8F%E5%8A%83%E6%95%B4%E5%90%88%E5%B9%B3%E5%8F%B0%E5%B0%88%E6%A1%88_Wireframe--Copy-?node-id=1010-8563&amp;t=mexpldVmq1l2kP8p-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;page-id=1010%3A3506&amp;starting-point-node-id=1010%3A8563&amp;show-proto-sidebar=1" target="_blank" rel="noopener noreferrer" aria-label="開啟跨平台匯入收藏 Prototype">
+            <img src="assets/slide15/prototype-import-qr.png" alt="跨平台匯入收藏 Prototype QR Code">
+          </a>
+
+          <ol class="prototype-steps" aria-label="跨平台匯入收藏流程">
+            <li><span>01</span>空收藏</li>
+            <li><span>02</span>匯入外部連結</li>
+            <li><span>03</span>AI 擷取資訊</li>
+            <li><span>04</span>收藏成功</li>
+          </ol>
+
+          <a class="prototype-open" href="https://www.figma.com/proto/P8P8AbsbsKqyPCSUFf32wj/%E6%99%BA%E6%85%A7%E6%97%85%E8%A1%8C%E8%A6%8F%E5%8A%83%E6%95%B4%E5%90%88%E5%B9%B3%E5%8F%B0%E5%B0%88%E6%A1%88_Wireframe--Copy-?node-id=1010-8563&amp;t=mexpldVmq1l2kP8p-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;page-id=1010%3A3506&amp;starting-point-node-id=1010%3A8563&amp;show-proto-sidebar=1" target="_blank" rel="noopener noreferrer">OPEN PROTOTYPE</a>
+        </article>
+
+        <article class="prototype-entry planning-entry">
+          <div>
+            <small class="prototype-flow-code">FLOW B + C · PLANNING HUB</small>
+            <h3>行程規劃中心</h3>
+            <p class="prototype-entry-copy">從同一個行程詳情頁，依規劃習慣選擇 AI 安排或自主安排。</p>
+          </div>
+
+          <div class="planning-shell">
+            <div class="planning-launch">
+              <a class="prototype-qr-link" href="https://www.figma.com/proto/P8P8AbsbsKqyPCSUFf32wj/%E6%99%BA%E6%85%A7%E6%97%85%E8%A1%8C%E8%A6%8F%E5%8A%83%E6%95%B4%E5%90%88%E5%B9%B3%E5%8F%B0%E5%B0%88%E6%A1%88_Wireframe--Copy-?node-id=850-2335&amp;t=8rzF0aGjN3IgLsdy-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;page-id=311%3A1462&amp;starting-point-node-id=850%3A2335&amp;show-proto-sidebar=1" target="_blank" rel="noopener noreferrer" aria-label="開啟行程規劃中心 Prototype">
+                <img src="assets/slide15/prototype-planning-qr.png" alt="行程規劃中心 Prototype QR Code">
+              </a>
+              <a class="prototype-open" href="https://www.figma.com/proto/P8P8AbsbsKqyPCSUFf32wj/%E6%99%BA%E6%85%A7%E6%97%85%E8%A1%8C%E8%A6%8F%E5%8A%83%E6%95%B4%E5%90%88%E5%B9%B3%E5%8F%B0%E5%B0%88%E6%A1%88_Wireframe--Copy-?node-id=850-2335&amp;t=8rzF0aGjN3IgLsdy-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;page-id=311%3A1462&amp;starting-point-node-id=850%3A2335&amp;show-proto-sidebar=1" target="_blank" rel="noopener noreferrer">OPEN PROTOTYPE</a>
+            </div>
+
+            <div class="prototype-branches">
+              <section class="prototype-branch" aria-label="Flow B 交給 AI 安排">
+                <div>
+                  <small class="branch-role">FLOW B · AI 是安排者</small>
+                  <h4>交給 AI 安排</h4>
+                </div>
+                <div class="branch-steps">
+                  <span>選擇景點</span><span>設定條件</span><span>AI 建議順序</span><span>套用</span>
+                </div>
+              </section>
+
+              <section class="prototype-branch check" aria-label="Flow C 自己安排並由 AI 即時健檢">
+                <div>
+                  <small class="branch-role">FLOW C · AI 是協作者</small>
+                  <h4>自己安排，AI 即時健檢</h4>
+                </div>
+                <div class="branch-steps">
+                  <span>自行調整</span><span>偵測衝突</span><span>展開建議</span><span>手動修正</span>
+                </div>
+              </section>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
     <section class="slide validation-slide" aria-label="Slide 16：Validation Plan">
       <header class="slide-header">
         <div>
@@ -4533,6 +5016,37 @@
           <div class="validation-stage"><span>02</span>任務測試</div>
           <div class="validation-stage"><span>03</span>找出阻礙</div>
           <div class="validation-stage"><span>04</span>迭代介面</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide conclusion-slide" aria-label="Slide 17：Conclusion and Q&A">
+      <div class="conclusion-copy">
+        <p class="eyebrow">Conclusion</p>
+        <h2>
+          <span class="conclusion-line">Trova 不是幫使用者找到更多景點，</span>
+          <span class="conclusion-line">而是把<span class="idea">已收藏的旅行靈感</span>，</span>
+          <span class="conclusion-line">真正整理成<span class="outcome">可執行的行程</span>。</span>
+        </h2>
+      </div>
+
+      <div class="conclusion-brand">
+        <img class="conclusion-logo" src="assets/LOGO/Frame.png" alt="Trova Logo">
+        <p class="conclusion-qa">Thank you · Q&amp;A</p>
+      </div>
+
+      <div class="conclusion-outcomes" aria-label="Trova 三項核心成果">
+        <div class="conclusion-outcome">
+          <small>01</small>
+          <strong>整合散落收藏</strong>
+        </div>
+        <div class="conclusion-outcome">
+          <small>02</small>
+          <strong>降低排程負擔</strong>
+        </div>
+        <div class="conclusion-outcome">
+          <small>03</small>
+          <strong>即時避免衝突</strong>
         </div>
       </div>
     </section>
