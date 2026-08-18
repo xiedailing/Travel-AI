@@ -1356,107 +1356,130 @@
     /* Customer journey */
     .journey-slide {
       grid-template-rows: auto 1fr;
-      gap: 5%;
+      gap: 4%;
     }
 
     .journey-slide h2 {
-      max-width: 15em;
-      margin-bottom: 0;
-      font-size: clamp(2.2rem, 4.45vw, 5.3rem);
+      max-width: none;
+      margin-bottom: .65rem;
+      font-size: clamp(2.1rem, 4.15vw, 4.9rem);
       line-height: 1.08;
+      white-space: nowrap;
+    }
+
+    .journey-lede {
+      max-width: 47em;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(.7rem, .95vw, 1rem);
+      line-height: 1.55;
     }
 
     .journey-canvas {
       position: relative;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: clamp(1rem, 2.1vh, 1.8rem);
       min-height: 0;
-      padding: 3% 3.5% 2%;
+      padding: clamp(1.15rem, 2.4vw, 2.4rem) 0 clamp(.8rem, 1.6vw, 1.4rem);
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
     }
 
-    .intervention-zone {
-      position: absolute;
-      left: 27%;
-      right: 24%;
-      top: 5%;
-      bottom: 4%;
-      border-radius: 1.2rem;
-      background: linear-gradient(90deg, rgba(74, 95, 199, .035), rgba(74, 95, 199, .11));
+    .journey-context {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
     }
 
-    .intervention-zone span {
-      position: absolute;
-      left: 50%;
-      top: 4%;
-      color: var(--indigo);
+    .journey-context span {
+      color: var(--muted);
       font-size: clamp(.52rem, .7vw, .74rem);
       font-weight: 900;
       letter-spacing: .14em;
-      white-space: nowrap;
-      transform: translateX(-50%);
+      text-transform: uppercase;
     }
 
-    .emotion-chart {
-      position: absolute;
-      left: 4%;
-      right: 4%;
-      top: 10%;
-      height: 57%;
-      width: 92%;
-      overflow: visible;
+    .journey-context strong {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      color: var(--terracotta);
+      font-size: clamp(.58rem, .78vw, .82rem);
+      letter-spacing: .08em;
     }
 
-    .emotion-chart .baseline {
-      stroke: rgba(43, 36, 32, .1);
-      stroke-width: 2;
-      stroke-dasharray: 6 8;
-    }
-
-    .emotion-chart .curve {
-      fill: none;
-      stroke: var(--terracotta);
-      stroke-width: 8;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .emotion-chart .curve-shadow {
-      fill: none;
-      stroke: rgba(193, 99, 61, .12);
-      stroke-width: 24;
-      stroke-linecap: round;
-    }
-
-    .emotion-chart .point {
-      fill: var(--cream);
-      stroke: var(--sage);
-      stroke-width: 6;
-    }
-
-    .emotion-chart .point.low {
-      fill: #d64545;
-      stroke: var(--cream);
-      stroke-width: 7;
+    .journey-context strong::before {
+      content: "";
+      width: 1.6rem;
+      height: 1px;
+      background: currentColor;
     }
 
     .journey-stages {
-      position: absolute;
-      left: 3.5%;
-      right: 3.5%;
-      bottom: 4%;
+      position: relative;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 1.2rem;
+      align-items: start;
+      gap: clamp(.7rem, 1.35vw, 1.4rem);
+      min-height: 0;
+    }
+
+    .journey-stages::before {
+      content: "";
+      position: absolute;
+      left: 12.5%;
+      right: 12.5%;
+      top: 1.2rem;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(126, 154, 130, .45), var(--indigo) 42%, #d64545 68%, rgba(126, 154, 130, .45));
     }
 
     .journey-stage {
       position: relative;
-      padding-top: 1rem;
-      border-top: 3px solid rgba(126, 154, 130, .42);
+      z-index: 1;
+      margin-top: var(--drop, 0);
+      padding: clamp(1rem, 1.7vw, 1.5rem);
+      border: 1px solid var(--line);
+      border-top: 4px solid rgba(126, 154, 130, .55);
+      border-radius: .95rem;
+      background: rgba(255, 253, 249, .84);
+      box-shadow: 0 14px 34px rgba(43, 36, 32, .06);
     }
 
-    .journey-stage.highlight { border-top-color: var(--indigo); }
-    .journey-stage.lowest { border-top-color: #d64545; }
+    .journey-stage:nth-child(1) { --drop: 0; }
+    .journey-stage:nth-child(2) { --drop: clamp(1.5rem, 4.2vh, 3.4rem); }
+    .journey-stage:nth-child(3) { --drop: clamp(3.2rem, 9vh, 7.2rem); }
+    .journey-stage:nth-child(4) { --drop: clamp(1.2rem, 3.4vh, 2.8rem); }
+
+    .journey-stage.highlight {
+      border-top-color: var(--indigo);
+      background: linear-gradient(155deg, rgba(74, 95, 199, .11), rgba(255, 253, 249, .92) 58%);
+    }
+
+    .journey-stage.lowest {
+      border-color: rgba(214, 69, 69, .24);
+      border-top-color: #d64545;
+      background: linear-gradient(155deg, rgba(214, 69, 69, .13), rgba(255, 253, 249, .94) 62%);
+      box-shadow: 0 18px 44px rgba(214, 69, 69, .12);
+    }
+
+    .journey-node {
+      position: absolute;
+      left: 50%;
+      top: calc(-1.2rem - 7px);
+      width: 14px;
+      height: 14px;
+      border: 4px solid var(--cream);
+      border-radius: 50%;
+      background: var(--sage);
+      box-shadow: 0 0 0 1px rgba(43, 36, 32, .12);
+      transform: translateX(-50%);
+    }
+
+    .highlight .journey-node { background: var(--indigo); }
+    .lowest .journey-node { background: #d64545; }
 
     .journey-stage small {
       display: block;
@@ -1481,20 +1504,797 @@
 
     .journey-stage.lowest h3 { color: #d64545; }
 
-    .emotion-low-label {
-      position: absolute;
-      left: 62.4%;
-      top: 57%;
-      z-index: 3;
-      padding: .42em .68em;
+    .journey-state {
+      display: inline-flex;
+      margin-top: .85rem;
+      padding: .38em .65em;
       border-radius: 999px;
-      background: #d64545;
-      color: white;
+      background: rgba(74, 95, 199, .1);
+      color: var(--indigo);
       font-size: clamp(.5rem, .68vw, .72rem);
       font-weight: 950;
+      letter-spacing: .06em;
+    }
+
+    .lowest .journey-state {
+      background: #d64545;
+      color: white;
+    }
+
+    .journey-insight {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: clamp(.8rem, 1.3vw, 1.3rem);
+      max-width: 62rem;
+      margin: 0 auto;
+      padding: .85rem 1.1rem;
+      border-left: 4px solid var(--terracotta);
+      background: rgba(193, 99, 61, .065);
+    }
+
+    .journey-insight small {
+      color: var(--terracotta);
+      font-size: clamp(.5rem, .66vw, .7rem);
+      font-weight: 950;
+      letter-spacing: .13em;
+      white-space: nowrap;
+    }
+
+    .journey-insight p {
+      margin: 0;
+      font-size: clamp(.68rem, .9vw, .96rem);
+      font-weight: 750;
+      line-height: 1.45;
+    }
+
+    /* Design challenge / HMW */
+    .hmw-slide {
+      grid-template-rows: auto 1fr;
+      gap: 4%;
+    }
+
+    .hmw-slide h2 {
+      max-width: 15em;
+      margin-bottom: .65rem;
+      font-size: clamp(2.05rem, 4vw, 4.75rem);
+      line-height: 1.08;
+    }
+
+    .hmw-lede {
+      max-width: 46em;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(.7rem, .95vw, 1rem);
+      line-height: 1.55;
+    }
+
+    .hmw-canvas {
+      position: relative;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      min-height: 0;
+      padding-top: clamp(1.2rem, 2.6vw, 2.5rem);
+      border-top: 1px solid var(--line);
+    }
+
+    .hmw-paths {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: clamp(2.2rem, 6vw, 7rem);
+      min-height: 0;
+      padding: 0 clamp(.5rem, 2vw, 2rem) clamp(1rem, 2.5vh, 2rem);
+    }
+
+    .hmw-paths::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 7%;
+      bottom: 12%;
+      width: 1px;
+      background: linear-gradient(180deg, transparent, var(--line) 14%, var(--line) 86%, transparent);
+    }
+
+    .hmw-path {
+      position: relative;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      align-content: start;
+      min-width: 0;
+    }
+
+    .hmw-number {
+      margin: 0 0 clamp(.8rem, 1.7vh, 1.3rem);
+      color: rgba(74, 95, 199, .18);
+      font-size: clamp(3rem, 6.7vw, 7.8rem);
+      font-weight: 950;
+      letter-spacing: -.08em;
+      line-height: .82;
+    }
+
+    .hmw-path:nth-child(2) .hmw-number { color: rgba(193, 99, 61, .2); }
+
+    .hmw-path small {
+      display: flex;
+      align-items: center;
+      gap: .65rem;
+      margin-bottom: clamp(.8rem, 1.6vh, 1.25rem);
+      color: var(--indigo);
+      font-size: clamp(.52rem, .7vw, .74rem);
+      font-weight: 950;
+      letter-spacing: .14em;
+    }
+
+    .hmw-path:nth-child(2) small { color: var(--terracotta); }
+
+    .hmw-path small::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: currentColor;
+      opacity: .42;
+    }
+
+    .hmw-question {
+      max-width: 17em;
+      margin: 0;
+      font-size: clamp(1.2rem, 2.25vw, 2.65rem);
+      font-weight: 900;
+      letter-spacing: -.035em;
+      line-height: 1.35;
+    }
+
+    .hmw-direction {
+      align-self: end;
+      justify-self: start;
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      margin-top: clamp(1rem, 2vh, 1.7rem);
+      padding: .55em .82em;
+      border: 1px solid rgba(74, 95, 199, .2);
+      border-radius: 999px;
+      color: var(--indigo);
+      font-size: clamp(.56rem, .76vw, .8rem);
+      font-weight: 900;
+      letter-spacing: .06em;
+    }
+
+    .hmw-path:nth-child(2) .hmw-direction {
+      border-color: rgba(193, 99, 61, .24);
+      color: var(--terracotta);
+    }
+
+    .hmw-direction::before {
+      content: "↳";
+      font-size: 1.1em;
+    }
+
+    .hmw-convergence {
+      display: flex;
+      justify-content: flex-end;
+      padding-top: .5rem;
+    }
+
+    .hmw-next {
+      color: var(--sage);
+      font-size: clamp(.5rem, .66vw, .7rem);
+      font-weight: 950;
+      letter-spacing: .14em;
+      white-space: nowrap;
+    }
+
+    /* Solution */
+    .solution-slide {
+      grid-template-rows: auto 1fr;
+      gap: 4%;
+    }
+
+    .solution-slide h2 {
+      max-width: 14em;
+      margin-bottom: .65rem;
+      font-size: clamp(2.1rem, 4.1vw, 4.85rem);
+      line-height: 1.08;
+    }
+
+    .solution-lede {
+      max-width: 49em;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(.7rem, .95vw, 1rem);
+      line-height: 1.55;
+    }
+
+    .solution-canvas {
+      display: grid;
+      grid-template-rows: auto auto auto;
+      align-content: start;
+      gap: 0;
+      min-height: 0;
+      padding-top: clamp(1.2rem, 2.6vw, 2.5rem);
+      border-top: 1px solid var(--line);
+    }
+
+    .solution-engines {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      align-items: stretch;
+      align-self: start;
+      gap: clamp(.8rem, 1.6vw, 1.6rem);
+      min-height: 0;
+    }
+
+    .solution-engine {
+      position: relative;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: clamp(1.1rem, 2.4vh, 2rem);
+      min-width: 0;
+      padding: clamp(1.25rem, 2.25vw, 2.2rem);
+      border: 1px solid rgba(74, 95, 199, .18);
+      border-radius: 1.2rem;
+      background: linear-gradient(145deg, rgba(74, 95, 199, .105), rgba(255, 253, 249, .88) 62%);
+      overflow: hidden;
+    }
+
+    .solution-engine.plan {
+      border-color: rgba(193, 99, 61, .2);
+      background: linear-gradient(145deg, rgba(193, 99, 61, .115), rgba(255, 253, 249, .9) 62%);
+    }
+
+    .solution-engine::after {
+      content: attr(data-number);
+      position: absolute;
+      right: -.03em;
+      top: -.18em;
+      color: rgba(74, 95, 199, .07);
+      font-size: clamp(5rem, 10vw, 11.5rem);
+      font-weight: 950;
+      letter-spacing: -.1em;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .solution-engine.plan::after { color: rgba(193, 99, 61, .075); }
+
+    .solution-engine-header {
+      position: relative;
+      z-index: 1;
+    }
+
+    .solution-engine-header small {
+      display: block;
+      margin-bottom: .55rem;
+      color: var(--indigo);
+      font-size: clamp(.52rem, .7vw, .74rem);
+      font-weight: 950;
+      letter-spacing: .14em;
+    }
+
+    .plan .solution-engine-header small { color: var(--terracotta); }
+
+    .solution-engine-header h3 {
+      max-width: 11em;
+      margin: 0;
+      font-size: clamp(1.15rem, 2.05vw, 2.35rem);
+      letter-spacing: -.035em;
+      line-height: 1.2;
+    }
+
+    .solution-flow {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      align-items: end;
+      gap: clamp(.85rem, 1.35vw, 1.35rem);
+      min-width: 0;
+      border-top: 1px solid rgba(74, 95, 199, .2);
+    }
+
+    .plan .solution-flow { border-top-color: rgba(193, 99, 61, .24); }
+
+    .solution-step {
+      position: relative;
+      min-width: 0;
+      padding: clamp(.8rem, 1.4vw, 1.25rem) 0 0;
+    }
+
+    .solution-step:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: calc(-1 * clamp(.55rem, .85vw, .85rem));
+      top: clamp(.72rem, 1.35vw, 1.15rem);
+      color: var(--indigo);
+      font-size: clamp(.72rem, 1vw, 1.05rem);
+      font-weight: 950;
+      transform: translate(50%, -5%);
+    }
+
+    .plan .solution-step:not(:last-child)::after { color: var(--terracotta); }
+
+    .solution-step span {
+      display: block;
+      margin-bottom: .42rem;
+      color: var(--muted);
+      font-size: clamp(.52rem, .68vw, .72rem);
+      font-weight: 900;
+      letter-spacing: .09em;
+    }
+
+    .solution-step strong {
+      display: block;
+      max-width: 8em;
+      font-size: clamp(.78rem, 1.08vw, 1.14rem);
+      line-height: 1.35;
+    }
+
+    .solution-bridge {
+      align-self: center;
+      display: grid;
+      place-items: center;
+      width: clamp(2.3rem, 3.6vw, 3.8rem);
+      aspect-ratio: 1;
+      border: 1px solid rgba(43, 36, 32, .15);
+      border-radius: 50%;
+      background: var(--cream);
+      color: var(--terracotta);
+      font-size: clamp(1rem, 1.6vw, 1.7rem);
+      font-weight: 950;
+      box-shadow: 0 10px 24px rgba(43, 36, 32, .08);
+    }
+
+    .solution-insight {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: clamp(.8rem, 1.3vw, 1.3rem);
+      max-width: 68rem;
+      margin: 0 auto;
+      padding: clamp(1rem, 1.5vw, 1.35rem) clamp(1.2rem, 2vw, 2rem);
+      border: 1px solid rgba(193, 99, 61, .18);
+      border-left: 5px solid var(--terracotta);
+      border-radius: .8rem;
+      background: rgba(193, 99, 61, .075);
+      box-shadow: 0 12px 28px rgba(43, 36, 32, .055);
+    }
+
+    .solution-insight small {
+      color: var(--terracotta);
+      font-size: clamp(.78rem, 1vw, 1.06rem);
+      font-weight: 950;
+      letter-spacing: .13em;
+      white-space: nowrap;
+    }
+
+    .solution-insight p {
+      margin: 0;
+      font-size: clamp(1.05rem, 1.48vw, 1.6rem);
+      font-weight: 750;
+      line-height: 1.45;
+    }
+
+    .solution-value-links {
+      position: relative;
+      height: clamp(3.2rem, 7vh, 5.2rem);
+    }
+
+    .solution-value-links span {
+      position: absolute;
+      top: 0;
+      width: 1px;
+      height: calc(100% - .4rem);
+      background: rgba(43, 36, 32, .34);
+    }
+
+    .solution-value-links span:first-child { left: 24%; }
+    .solution-value-links span:last-child { left: 76%; }
+
+    .solution-value-links span::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: .42rem;
+      height: .42rem;
+      border-right: 2px solid var(--terracotta);
+      border-bottom: 2px solid var(--terracotta);
+      transform: translate(-50%, 0) rotate(45deg);
+    }
+
+    /* Competitive opportunity */
+    .competitive-slide {
+      grid-template-rows: auto 1fr;
+      gap: 4%;
+    }
+
+    .competitive-slide h2 {
+      max-width: 14em;
+      margin-bottom: .65rem;
+      font-size: clamp(2rem, 3.9vw, 4.65rem);
+      line-height: 1.08;
+    }
+
+    .competitive-lede {
+      max-width: 50em;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(.7rem, .95vw, 1rem);
+      line-height: 1.55;
+    }
+
+    .competitive-canvas {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: clamp(1.4rem, 3.2vw, 3.5rem);
+      min-height: 0;
+      padding: clamp(1.1rem, 2.4vw, 2.3rem) 0 clamp(1.35rem, 2.4vh, 1.8rem);
+      border-top: 1px solid var(--line);
+    }
+
+    .competitor-tracks {
+      display: grid;
+      grid-template-rows: repeat(3, 1fr);
+      gap: clamp(.65rem, 1.25vh, 1rem);
+      min-height: 0;
+    }
+
+    .competitor-track {
+      display: grid;
+      grid-template-columns: minmax(6rem, .52fr) 1fr auto 1fr;
+      align-items: center;
+      gap: clamp(.42rem, .75vw, .72rem);
+      min-width: 0;
+      padding: clamp(.75rem, 1.35vw, 1.15rem);
+      border: 1px solid var(--line);
+      border-radius: .85rem;
+      background: rgba(255, 253, 249, .68);
+    }
+
+    .competitor-name small {
+      display: block;
+      margin-bottom: .25rem;
+      color: var(--sage);
+      font-size: clamp(.44rem, .58vw, .62rem);
+      font-weight: 950;
+      letter-spacing: .12em;
+    }
+
+    .competitor-name strong {
+      display: block;
+      font-size: clamp(.72rem, 1vw, 1.06rem);
+      line-height: 1.25;
+    }
+
+    .capability {
+      display: grid;
+      place-items: center;
+      min-height: 3.4rem;
+      padding: .65rem .7rem;
+      border-radius: .65rem;
+      background: rgba(126, 154, 130, .085);
+      color: var(--warm-black);
+      font-size: clamp(.57rem, .76vw, .8rem);
+      font-weight: 800;
+      line-height: 1.35;
+      text-align: center;
+    }
+
+    .capability-link {
+      color: rgba(43, 36, 32, .38);
+      font-size: clamp(.72rem, 1vw, 1rem);
+      font-weight: 950;
+    }
+
+    .opportunity-panel {
+      position: relative;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      align-content: start;
+      min-height: 0;
+      padding: clamp(1.2rem, 2.25vw, 2.2rem);
+      border: 1px solid rgba(193, 99, 61, .2);
+      border-radius: 1rem;
+      background: linear-gradient(145deg, rgba(193, 99, 61, .105), rgba(74, 95, 199, .065) 72%, rgba(255, 253, 249, .9));
+      overflow: hidden;
+    }
+
+    .opportunity-panel::after {
+      content: "OPPORTUNITY";
+      position: absolute;
+      right: -.04em;
+      bottom: -.13em;
+      color: rgba(193, 99, 61, .055);
+      font-size: clamp(3.5rem, 6.7vw, 7.8rem);
+      font-weight: 950;
+      letter-spacing: -.08em;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .opportunity-label {
+      position: relative;
+      z-index: 1;
+      margin: 0 0 .7rem;
+      color: var(--terracotta);
+      font-size: clamp(.5rem, .66vw, .7rem);
+      font-weight: 950;
+      letter-spacing: .14em;
+    }
+
+    .opportunity-panel h3 {
+      position: relative;
+      z-index: 1;
+      max-width: none;
+      margin: 0 0 clamp(1rem, 2.2vh, 1.8rem);
+      font-size: clamp(1.12rem, 1.85vw, 2.08rem);
+      letter-spacing: -.04em;
+      line-height: 1.25;
+      white-space: nowrap;
+    }
+
+    .opportunity-flow {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: clamp(.55rem, 1vw, .9rem);
+      align-self: center;
+    }
+
+    .opportunity-node {
+      min-width: 0;
+      padding: clamp(.75rem, 1.2vw, 1.05rem);
+      border: 1px solid rgba(74, 95, 199, .18);
+      border-radius: .75rem;
+      background: rgba(255, 253, 249, .72);
+    }
+
+    .opportunity-node small {
+      display: block;
+      margin-bottom: .35rem;
+      color: var(--muted);
+      font-size: clamp(.42rem, .54vw, .58rem);
+      font-weight: 900;
       letter-spacing: .1em;
-      transform: translate(-50%, -50%);
-      box-shadow: 0 8px 20px rgba(214, 69, 69, .22);
+    }
+
+    .opportunity-node strong {
+      display: block;
+      font-size: clamp(.66rem, .92vw, .98rem);
+      line-height: 1.35;
+    }
+
+    .opportunity-arrow {
+      color: var(--terracotta);
+      font-size: clamp(1rem, 1.6vw, 1.7rem);
+      font-weight: 950;
+    }
+
+    .competitive-takeaway {
+      position: relative;
+      z-index: 1;
+      margin: clamp(1rem, 2.2vh, 1.8rem) 0 0;
+      padding-top: clamp(.85rem, 1.5vh, 1.2rem);
+      border-top: 1px solid rgba(43, 36, 32, .13);
+      font-size: clamp(.8rem, 1.06vw, 1.12rem);
+      font-weight: 750;
+      line-height: 1.48;
+    }
+
+    .competitive-takeaway strong { color: var(--terracotta); }
+
+    .competitive-source {
+      position: absolute;
+      left: 0;
+      bottom: -.15rem;
+      color: var(--muted);
+      font-size: clamp(.52rem, .62vw, .66rem);
+      font-weight: 700;
+      letter-spacing: .05em;
+    }
+
+    /* Product structure / IA */
+    .structure-slide {
+      grid-template-rows: auto 1fr;
+      gap: 4%;
+    }
+
+    .structure-slide h2 {
+      max-width: 15em;
+      margin-bottom: .65rem;
+      font-size: clamp(2rem, 3.9vw, 4.65rem);
+      line-height: 1.08;
+    }
+
+    .structure-lede {
+      max-width: 49em;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(.7rem, .95vw, 1rem);
+      line-height: 1.55;
+    }
+
+    .structure-canvas {
+      display: grid;
+      grid-template-rows: 1fr auto;
+      gap: clamp(1rem, 2vh, 1.7rem);
+      min-height: 0;
+      padding-top: clamp(1.1rem, 2.4vw, 2.3rem);
+      border-top: 1px solid var(--line);
+    }
+
+    .module-map {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1.08fr) auto minmax(0, 1fr);
+      align-items: stretch;
+      gap: clamp(.65rem, 1.25vw, 1.2rem);
+      min-height: 0;
+    }
+
+    .module-card {
+      position: relative;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      min-width: 0;
+      padding: clamp(1.15rem, 2vw, 2rem);
+      border: 1px solid rgba(74, 95, 199, .18);
+      border-top: 5px solid var(--indigo);
+      border-radius: 1rem;
+      background: linear-gradient(150deg, rgba(74, 95, 199, .09), rgba(255, 253, 249, .9) 58%);
+      overflow: hidden;
+    }
+
+    .module-card.ai {
+      border-color: rgba(193, 99, 61, .22);
+      border-top-color: var(--terracotta);
+      background: linear-gradient(150deg, rgba(193, 99, 61, .12), rgba(255, 253, 249, .92) 58%);
+      box-shadow: 0 18px 42px rgba(193, 99, 61, .1);
+    }
+
+    .module-card.trip {
+      border-color: rgba(126, 154, 130, .25);
+      border-top-color: var(--sage);
+      background: linear-gradient(150deg, rgba(126, 154, 130, .11), rgba(255, 253, 249, .92) 58%);
+    }
+
+    .module-card::after {
+      content: attr(data-number);
+      position: absolute;
+      right: -.03em;
+      top: -.18em;
+      color: rgba(74, 95, 199, .055);
+      font-size: clamp(5rem, 8vw, 9.2rem);
+      font-weight: 950;
+      letter-spacing: -.1em;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .module-card.ai::after { color: rgba(193, 99, 61, .06); }
+    .module-card.trip::after { color: rgba(126, 154, 130, .075); }
+
+    .module-kicker {
+      position: relative;
+      z-index: 1;
+      margin-bottom: .55rem;
+      color: var(--indigo);
+      font-size: clamp(.48rem, .64vw, .68rem);
+      font-weight: 950;
+      letter-spacing: .14em;
+    }
+
+    .ai .module-kicker { color: var(--terracotta); }
+    .trip .module-kicker { color: var(--sage); }
+
+    .module-card h3 {
+      position: relative;
+      z-index: 1;
+      margin: 0 0 clamp(.9rem, 1.8vh, 1.4rem);
+      font-size: clamp(1.25rem, 2.1vw, 2.4rem);
+      letter-spacing: -.04em;
+      line-height: 1.18;
+    }
+
+    .module-feature {
+      position: relative;
+      z-index: 1;
+      align-self: start;
+      padding-top: clamp(.8rem, 1.5vh, 1.15rem);
+      border-top: 1px solid rgba(43, 36, 32, .12);
+    }
+
+    .module-feature strong {
+      display: block;
+      margin-bottom: .55rem;
+      font-size: clamp(.72rem, 1vw, 1.06rem);
+      line-height: 1.35;
+    }
+
+    .module-feature p {
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(.58rem, .78vw, .82rem);
+      line-height: 1.52;
+    }
+
+    .module-output {
+      position: relative;
+      z-index: 1;
+      justify-self: start;
+      margin-top: clamp(1rem, 2vh, 1.6rem);
+      padding: .48em .72em;
+      border-radius: 999px;
+      background: rgba(74, 95, 199, .1);
+      color: var(--indigo);
+      font-size: clamp(.5rem, .67vw, .72rem);
+      font-weight: 900;
+      letter-spacing: .05em;
+    }
+
+    .ai .module-output {
+      background: rgba(193, 99, 61, .11);
+      color: var(--terracotta);
+    }
+
+    .trip .module-output {
+      background: rgba(126, 154, 130, .14);
+      color: #55765d;
+    }
+
+    .module-connector {
+      align-self: center;
+      display: grid;
+      grid-template-rows: auto auto;
+      justify-items: center;
+      gap: .35rem;
+      width: clamp(2.3rem, 3.4vw, 3.6rem);
+      color: var(--muted);
+    }
+
+    .module-connector span {
+      color: var(--terracotta);
+      font-size: clamp(1rem, 1.55vw, 1.65rem);
+      font-weight: 950;
+      line-height: 1;
+    }
+
+    .module-connector small {
+      font-size: clamp(.38rem, .48vw, .52rem);
+      font-weight: 850;
+      line-height: 1.25;
+      text-align: center;
+    }
+
+    .structure-insight {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: clamp(.8rem, 1.3vw, 1.3rem);
+      max-width: 68rem;
+      margin: 0 auto;
+      padding: .82rem 1.05rem;
+      border-left: 4px solid var(--terracotta);
+      background: rgba(193, 99, 61, .06);
+    }
+
+    .structure-insight small {
+      color: var(--terracotta);
+      font-size: clamp(.5rem, .66vw, .7rem);
+      font-weight: 950;
+      letter-spacing: .13em;
+      white-space: nowrap;
+    }
+
+    .structure-insight p {
+      margin: 0;
+      font-size: clamp(.72rem, .96vw, 1.02rem);
+      font-weight: 750;
+      line-height: 1.45;
     }
 
     .controls {
@@ -1758,39 +2558,45 @@
       .persona-insight p { font-size: .46rem; line-height: 1.3; }
 
       .journey-slide { gap: 3%; }
-      .journey-slide h2 { max-width: 12em; font-size: clamp(1.65rem, 8vw, 2.55rem); }
+      .journey-slide h2 {
+        max-width: 12em;
+        font-size: clamp(1.65rem, 8vw, 2.55rem);
+        white-space: normal;
+      }
+      .journey-lede { max-width: 32em; font-size: .52rem; line-height: 1.4; }
 
       .journey-canvas {
-        padding: 0;
+        grid-template-rows: auto 1fr auto;
+        gap: .5rem;
+        padding: .6rem 0 0;
         border: 0;
+        border-top: 1px solid var(--line);
       }
 
-      .intervention-zone,
-      .emotion-chart,
-      .emotion-low-label { display: none; }
+      .journey-context span { font-size: .4rem; }
+      .journey-context strong { font-size: .43rem; }
+      .journey-context strong::before { width: .8rem; }
 
       .journey-stages {
-        position: relative;
-        left: auto;
-        right: auto;
-        bottom: auto;
-        display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: .78fr .95fr 1.25fr .78fr;
-        height: 100%;
-        gap: .35rem;
+        grid-template-rows: repeat(4, 1fr);
+        gap: .28rem;
       }
+
+      .journey-stages::before { display: none; }
 
       .journey-stage {
         display: grid;
-        grid-template-columns: auto 1fr;
+        grid-template-columns: 3.8rem 1fr auto;
         grid-template-rows: auto 1fr;
-        column-gap: .7rem;
-        padding: .62rem .72rem .62rem 1rem;
+        column-gap: .55rem;
+        margin-top: 0;
+        padding: .48rem .62rem;
         border: 1px solid var(--line);
         border-left: 4px solid rgba(126, 154, 130, .42);
-        border-radius: .65rem;
+        border-radius: .6rem;
         background: var(--paper);
+        box-shadow: none;
       }
 
       .journey-stage.highlight {
@@ -1812,8 +2618,307 @@
         font-size: .42rem;
       }
 
+      .journey-node { display: none; }
       .journey-stage h3 { margin-bottom: .18rem; font-size: .78rem; }
       .journey-stage p { font-size: .5rem; line-height: 1.3; }
+      .journey-state {
+        grid-column: 3;
+        grid-row: 1 / 3;
+        align-self: center;
+        margin: 0;
+        font-size: .4rem;
+      }
+
+      .journey-insight {
+        gap: .55rem;
+        padding: .55rem .65rem;
+        border-left-width: 3px;
+      }
+
+      .journey-insight small { font-size: .38rem; }
+      .journey-insight p { font-size: .48rem; line-height: 1.35; }
+
+      .hmw-slide { gap: 3%; }
+      .hmw-slide h2 { max-width: 12em; font-size: clamp(1.55rem, 7.5vw, 2.4rem); }
+      .hmw-lede { max-width: 31em; font-size: .52rem; line-height: 1.4; }
+
+      .hmw-canvas {
+        padding-top: .65rem;
+      }
+
+      .hmw-paths {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        gap: .45rem;
+        padding: 0 0 .45rem;
+      }
+
+      .hmw-paths::after { display: none; }
+
+      .hmw-path {
+        grid-template-columns: 3.2rem 1fr;
+        grid-template-rows: auto 1fr auto;
+        align-items: start;
+        padding: .6rem .75rem;
+        border: 1px solid var(--line);
+        border-left: 4px solid var(--indigo);
+        border-radius: .65rem;
+        background: rgba(74, 95, 199, .04);
+      }
+
+      .hmw-path:nth-child(2) {
+        border-left-color: var(--terracotta);
+        background: rgba(193, 99, 61, .045);
+      }
+
+      .hmw-number {
+        grid-row: 1 / 4;
+        align-self: center;
+        margin: 0;
+        font-size: 2.5rem;
+      }
+
+      .hmw-path small {
+        margin-bottom: .35rem;
+        font-size: .4rem;
+      }
+
+      .hmw-path small::after { display: none; }
+      .hmw-question { max-width: 24em; font-size: .72rem; line-height: 1.35; }
+
+      .hmw-direction {
+        margin-top: .35rem;
+        padding: .35em .58em;
+        font-size: .4rem;
+      }
+
+      .hmw-convergence {
+        padding: .25rem 0 0;
+      }
+      .hmw-next { font-size: .36rem; }
+
+      .solution-slide { gap: 3%; }
+      .solution-slide h2 { max-width: 12em; font-size: clamp(1.55rem, 7.5vw, 2.4rem); }
+      .solution-lede { max-width: 31em; font-size: .52rem; line-height: 1.4; }
+
+      .solution-canvas {
+        gap: 0;
+        padding-top: .65rem;
+      }
+
+      .solution-engines {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr auto 1fr;
+        align-self: stretch;
+        gap: .35rem;
+      }
+
+      .solution-engine {
+        grid-template-columns: 7rem 1fr;
+        grid-template-rows: 1fr;
+        align-items: center;
+        gap: .5rem;
+        padding: .72rem;
+        border-radius: .7rem;
+      }
+
+      .solution-engine::after { font-size: 4.2rem; }
+      .solution-engine-header small { margin-bottom: .3rem; font-size: .4rem; }
+      .solution-engine-header h3 { font-size: .78rem; }
+
+      .solution-flow {
+        align-items: stretch;
+        gap: .38rem;
+      }
+
+      .solution-step {
+        display: grid;
+        align-content: center;
+        padding: .45rem 0 0;
+      }
+
+      .solution-step:not(:last-child)::after {
+        right: -.2rem;
+        top: 50%;
+        font-size: .56rem;
+        transform: translate(50%, -50%);
+      }
+
+      .solution-step span { margin-bottom: .2rem; font-size: .36rem; }
+      .solution-step strong { font-size: .52rem; line-height: 1.3; }
+
+      .solution-bridge {
+        justify-self: center;
+        width: 1.55rem;
+        font-size: 0;
+        transform: rotate(90deg);
+      }
+
+      .solution-bridge::after {
+        content: "→";
+        font-size: .72rem;
+      }
+
+      .solution-value-links { height: 1.85rem; }
+      .solution-value-links span { height: calc(100% - .3rem); }
+      .solution-value-links span:first-child { left: 35%; }
+      .solution-value-links span:last-child { left: 65%; }
+
+      .solution-insight {
+        gap: .55rem;
+        padding: .65rem .72rem;
+        border-left-width: 3px;
+        border-radius: .6rem;
+      }
+
+      .solution-insight small { font-size: .48rem; }
+      .solution-insight p { font-size: .64rem; line-height: 1.3; }
+
+      .competitive-slide { gap: 3%; }
+      .competitive-slide h2 { max-width: 12em; font-size: clamp(1.5rem, 7.2vw, 2.3rem); }
+      .competitive-lede { max-width: 31em; font-size: .5rem; line-height: 1.4; }
+
+      .competitive-canvas {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1.06fr .94fr;
+        gap: .5rem;
+        padding-top: .6rem;
+        padding-bottom: .85rem;
+      }
+
+      .competitor-tracks { gap: .3rem; }
+
+      .competitor-track {
+        grid-template-columns: 4.8rem 1fr auto 1fr;
+        gap: .3rem;
+        padding: .45rem .5rem;
+        border-radius: .55rem;
+      }
+
+      .competitor-name small { margin-bottom: .12rem; font-size: .34rem; }
+      .competitor-name strong { font-size: .5rem; }
+
+      .capability {
+        min-height: 2.25rem;
+        padding: .35rem .3rem;
+        border-radius: .42rem;
+        font-size: .39rem;
+      }
+
+      .capability-link { font-size: .48rem; }
+
+      .opportunity-panel {
+        grid-template-columns: 7.4rem 1fr;
+        grid-template-rows: auto 1fr auto;
+        column-gap: .65rem;
+        padding: .65rem .75rem;
+        border-radius: .65rem;
+      }
+
+      .opportunity-panel::after { font-size: 3.4rem; }
+      .opportunity-label { grid-column: 1; margin-bottom: .28rem; font-size: .36rem; }
+      .opportunity-panel h3 {
+        grid-column: 1;
+        grid-row: 2 / 4;
+        align-self: start;
+        margin: 0;
+        font-size: .78rem;
+        white-space: normal;
+      }
+
+      .opportunity-flow {
+        grid-column: 2;
+        grid-row: 1 / 3;
+        gap: .3rem;
+      }
+
+      .opportunity-node { padding: .45rem; border-radius: .48rem; }
+      .opportunity-node small { margin-bottom: .18rem; font-size: .3rem; }
+      .opportunity-node strong { font-size: .43rem; }
+      .opportunity-arrow { font-size: .68rem; }
+
+      .competitive-takeaway {
+        grid-column: 2;
+        grid-row: 3;
+        margin-top: .45rem;
+        padding-top: .4rem;
+        font-size: .5rem;
+        line-height: 1.35;
+      }
+
+      .competitive-source { bottom: 0; font-size: .36rem; }
+
+      .structure-slide { gap: 3%; }
+      .structure-slide h2 { max-width: 12em; font-size: clamp(1.5rem, 7.2vw, 2.3rem); }
+      .structure-lede { max-width: 31em; font-size: .5rem; line-height: 1.4; }
+
+      .structure-canvas {
+        gap: .45rem;
+        padding-top: .6rem;
+      }
+
+      .module-map {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr auto 1fr auto 1fr;
+        gap: .25rem;
+      }
+
+      .module-card {
+        grid-template-columns: 5.7rem 1fr auto;
+        grid-template-rows: auto 1fr;
+        column-gap: .55rem;
+        padding: .58rem .68rem;
+        border-top-width: 1px;
+        border-left: 4px solid var(--indigo);
+        border-radius: .62rem;
+      }
+
+      .module-card.ai { border-left-color: var(--terracotta); }
+      .module-card.trip { border-left-color: var(--sage); }
+      .module-card::after { font-size: 3.8rem; }
+
+      .module-kicker { grid-column: 1; margin-bottom: .22rem; font-size: .34rem; }
+      .module-card h3 { grid-column: 1; margin: 0; font-size: .78rem; }
+
+      .module-feature {
+        grid-column: 2;
+        grid-row: 1 / 3;
+        align-self: center;
+        padding: 0;
+        border-top: 0;
+      }
+
+      .module-feature strong { margin-bottom: .25rem; font-size: .5rem; }
+      .module-feature p { font-size: .4rem; line-height: 1.35; }
+
+      .module-output {
+        grid-column: 3;
+        grid-row: 1 / 3;
+        align-self: center;
+        margin: 0;
+        font-size: .36rem;
+      }
+
+      .module-connector {
+        justify-self: center;
+        grid-template-columns: auto auto;
+        grid-template-rows: 1fr;
+        width: auto;
+        gap: .35rem;
+      }
+
+      .module-connector span { font-size: 0; }
+      .module-connector span::after { content: "↓"; font-size: .68rem; }
+      .module-connector small { align-self: center; font-size: .3rem; }
+
+      .structure-insight {
+        gap: .5rem;
+        padding: .5rem .6rem;
+        border-left-width: 3px;
+      }
+
+      .structure-insight small { font-size: .36rem; }
+      .structure-insight p { font-size: .48rem; line-height: 1.3; }
 
       .controls {
         right: max(.6rem, env(safe-area-inset-right));
@@ -2094,47 +3199,245 @@
       <header class="slide-header">
         <div>
           <p class="eyebrow">Customer Journey</p>
-          <h2>情緒低點，集中在收藏之後的整理與排序</h2>
+          <h2>收藏完成，不代表行程就能開始</h2>
+          <p class="journey-lede">從靈感走向可執行行程，真正的負擔出現在收藏之後。</p>
         </div>
         <div class="slide-index">07 — CUSTOMER JOURNEY</div>
       </header>
 
       <div class="journey-canvas">
-        <div class="intervention-zone"><span>PRIMARY INTERVENTION ZONE</span></div>
-
-        <svg class="emotion-chart" viewBox="0 0 1000 340" role="img" aria-label="旅程情緒曲線在整理排序階段降至最低點">
-          <line class="baseline" x1="20" y1="170" x2="980" y2="170"></line>
-          <path class="curve-shadow" d="M75 90 C190 75, 275 115, 350 145 S545 280, 635 275 S790 155, 925 105"></path>
-          <path class="curve" d="M75 90 C190 75, 275 115, 350 145 S545 280, 635 275 S790 155, 925 105"></path>
-          <circle class="point" cx="75" cy="90" r="12"></circle>
-          <circle class="point" cx="350" cy="145" r="12"></circle>
-          <circle class="point low" cx="635" cy="275" r="15"></circle>
-          <circle class="point" cx="925" cy="105" r="12"></circle>
-        </svg>
-
-        <span class="emotion-low-label">情緒最低點</span>
+        <div class="journey-context" aria-hidden="true">
+          <span>PLANNING PROGRESS</span>
+          <strong>HIGH-FRICTION ZONE · 高摩擦區</strong>
+        </div>
 
         <div class="journey-stages">
           <article class="journey-stage">
+            <span class="journey-node" aria-hidden="true"></span>
             <small>01 · START</small>
             <h3>骨架抵定</h3>
-            <p>確認日期、地區與住宿位置。</p>
+            <p>日期、地區與住宿位置明確。</p>
+            <span class="journey-state">穩定</span>
           </article>
           <article class="journey-stage highlight">
+            <span class="journey-node" aria-hidden="true"></span>
             <small>02 · COLLECT</small>
             <h3>蒐集收藏</h3>
-            <p>收藏散落各平台，開始重新整理。</p>
+            <p>靈感增加，資訊開始堆積。</p>
+            <span class="journey-state">摩擦升高</span>
           </article>
           <article class="journey-stage lowest">
+            <span class="journey-node" aria-hidden="true"></span>
             <small>03 · ORGANIZE</small>
             <h3>整理排序</h3>
-            <p>距離、交通、營業時間與順序反覆調整。</p>
+            <p>多項條件互相牽動，難以一次定案。</p>
+            <span class="journey-state">情緒最低點</span>
           </article>
           <article class="journey-stage">
+            <span class="journey-node" aria-hidden="true"></span>
             <small>04 · CONFIRM</small>
             <h3>確認定案</h3>
-            <p>形成每日行程，情緒逐步回升。</p>
+            <p>行程成形，掌控感逐步回升。</p>
+            <span class="journey-state">回穩</span>
           </article>
+        </div>
+
+        <div class="journey-insight">
+          <small>KEY INSIGHT</small>
+          <p>痛點並非發生在尋找靈感，而是在收藏之後，使用者必須將資訊轉化為可執行行程。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide hmw-slide" aria-label="Slide 9：Design Challenge / HMW">
+      <header class="slide-header">
+        <div>
+          <p class="eyebrow">Design Challenge / HMW</p>
+          <h2>我們將旅程中的摩擦，轉化為<br>兩個設計挑戰</h2>
+          <p class="hmw-lede">從研究洞察收斂問題邊界，先定義值得解決的核心挑戰。</p>
+        </div>
+        <div class="slide-index">08 — DESIGN CHALLENGE</div>
+      </header>
+
+      <div class="hmw-canvas">
+        <div class="hmw-paths">
+          <article class="hmw-path">
+            <p class="hmw-number" aria-hidden="true">01</p>
+            <small>HOW MIGHT WE</small>
+            <p class="hmw-question">如何讓分散的跨平台收藏，順利延續到行程規劃？</p>
+            <span class="hmw-direction">資訊不再中斷</span>
+          </article>
+
+          <article class="hmw-path">
+            <p class="hmw-number" aria-hidden="true">02</p>
+            <small>HOW MIGHT WE</small>
+            <p class="hmw-question">如何減少使用者反覆調整景點順序與路線的時間？</p>
+            <span class="hmw-direction">降低安排負擔</span>
+          </article>
+        </div>
+
+        <div class="hmw-convergence">
+          <span class="hmw-next">NEXT · SOLUTION →</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide solution-slide" aria-label="Slide 10：Solution">
+      <header class="slide-header">
+        <div>
+          <p class="eyebrow">Solution / Core Experience</p>
+          <h2>從收藏到行程，不再斷線</h2>
+          <p class="solution-lede">Trova 將分散的旅行靈感，直接轉化為可執行的每日行程。</p>
+        </div>
+        <div class="slide-index">09 — SOLUTION</div>
+      </header>
+
+      <div class="solution-canvas">
+        <div class="solution-engines">
+          <article class="solution-engine collect" data-number="01">
+            <header class="solution-engine-header">
+              <small>01 · COLLECT</small>
+              <h3>跨平台收藏匯入</h3>
+            </header>
+            <div class="solution-flow" aria-label="收藏匯入流程">
+              <div class="solution-step"><span>STEP 01</span><strong>跨平台內容</strong></div>
+              <div class="solution-step"><span>STEP 02</span><strong>AI 擷取資訊</strong></div>
+              <div class="solution-step"><span>STEP 03</span><strong>統一收藏</strong></div>
+            </div>
+          </article>
+
+          <div class="solution-bridge" aria-label="收藏資料直接進入行程安排">→</div>
+
+          <article class="solution-engine plan" data-number="02">
+            <header class="solution-engine-header">
+              <small>02 · PLAN</small>
+              <h3>AI 行程安排助手</h3>
+            </header>
+            <div class="solution-flow" aria-label="AI 行程安排流程">
+              <div class="solution-step"><span>STEP 04</span><strong>選擇景點</strong></div>
+              <div class="solution-step"><span>STEP 05</span><strong>AI 安排行程</strong></div>
+              <div class="solution-step"><span>STEP 06</span><strong>可執行時間軸</strong></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="solution-value-links" aria-hidden="true">
+          <span></span>
+          <span></span>
+        </div>
+
+        <div class="solution-insight">
+          <small>CORE VALUE</small>
+          <p>不是增加另一個規劃工具，而是重新連接「收藏」與「行程」之間斷掉的旅程。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide competitive-slide" aria-label="Slide 11：Competitive Opportunity">
+      <header class="slide-header">
+        <div>
+          <p class="eyebrow">Competitive Opportunity</p>
+          <h2>工具很多，但收藏到行程的旅程仍然斷裂</h2>
+          <p class="competitive-lede">現有工具各自解決部分環節，差異在於能否把異質收藏直接延續為可執行行程。</p>
+        </div>
+        <div class="slide-index">10 — OPPORTUNITY</div>
+      </header>
+
+      <div class="competitive-canvas">
+        <div class="competitor-tracks" aria-label="競品能力範圍">
+          <article class="competitor-track">
+            <div class="competitor-name"><small>TRAVEL APP</small><strong>去趣 chicTrip</strong></div>
+            <div class="capability">Google Maps 匯入</div>
+            <span class="capability-link" aria-hidden="true">→</span>
+            <div class="capability">路線排序</div>
+          </article>
+
+          <article class="competitor-track">
+            <div class="competitor-name"><small>TRAVEL APP</small><strong>Funliday</strong></div>
+            <div class="capability">ChatGPT 行程匯入</div>
+            <span class="capability-link" aria-hidden="true">→</span>
+            <div class="capability">AI 行程生成</div>
+          </article>
+
+          <article class="competitor-track">
+            <div class="competitor-name"><small>WORKSPACE</small><strong>Notion</strong></div>
+            <div class="capability">彈性資訊整理</div>
+            <span class="capability-link" aria-hidden="true">→</span>
+            <div class="capability">通用 AI 協作</div>
+          </article>
+        </div>
+
+        <aside class="opportunity-panel">
+          <p class="opportunity-label">PRODUCT OPPORTUNITY</p>
+          <h3>把跨來源收藏，直接送進 AI 排程</h3>
+          <div class="opportunity-flow" aria-label="產品機會流程">
+            <div class="opportunity-node"><small>INPUT</small><strong>社群 · 地圖 · 網頁</strong></div>
+            <span class="opportunity-arrow" aria-hidden="true">→</span>
+            <div class="opportunity-node"><small>OUTPUT</small><strong>AI 可執行行程</strong></div>
+          </div>
+          <p class="competitive-takeaway">Trova 的差異不只是 AI 排程，而是讓<strong>異質收藏不必重新整理</strong>，就能繼續成為行程。</p>
+        </aside>
+
+        <small class="competitive-source">功能依官方產品資料整理 · 2026.08</small>
+      </div>
+    </section>
+
+    <section class="slide structure-slide" aria-label="Slide 12：Product Structure / IA">
+      <header class="slide-header">
+        <div>
+          <p class="eyebrow">Product Structure / IA</p>
+          <h2>三個核心模組，串起收藏、安排與檢查</h2>
+          <p class="structure-lede">每個模組各司其職，讓跨平台靈感能一路延續為可實際執行的行程。</p>
+        </div>
+        <div class="slide-index">11 — PRODUCT STRUCTURE</div>
+      </header>
+
+      <div class="structure-canvas">
+        <div class="module-map" aria-label="Trova 三個核心產品模組">
+          <article class="module-card collect" data-number="01">
+            <small class="module-kicker">CORE MODULE 01</small>
+            <h3>收藏</h3>
+            <div class="module-feature">
+              <strong>跨平台收藏匯入與 AI 資訊擷取</strong>
+              <p>從社群、短影音與地圖匯入內容，自動擷取景點資訊並統一整理。</p>
+            </div>
+            <span class="module-output">結構化景點</span>
+          </article>
+
+          <div class="module-connector" aria-hidden="true">
+            <span>→</span>
+            <small>SELECT</small>
+          </div>
+
+          <article class="module-card ai" data-number="02">
+            <small class="module-kicker">CORE MODULE 02</small>
+            <h3>AI 行程安排助手</h3>
+            <div class="module-feature">
+              <strong>AI 行程規劃引擎</strong>
+              <p>依位置、交通時間與營業時間，將選定收藏安排成順路且可執行的時間軸。</p>
+            </div>
+            <span class="module-output">可執行時間軸</span>
+          </article>
+
+          <div class="module-connector" aria-hidden="true">
+            <span>→</span>
+            <small>VALIDATE</small>
+          </div>
+
+          <article class="module-card trip" data-number="03">
+            <small class="module-kicker">CORE MODULE 03</small>
+            <h3>行程</h3>
+            <div class="module-feature">
+              <strong>行程可行性檢查</strong>
+              <p>新增或調整行程時，自動檢查交通、營業時間與時段衝突並即時提醒。</p>
+            </div>
+            <span class="module-output">即時衝突提醒</span>
+          </article>
+        </div>
+
+        <div class="structure-insight">
+          <small>PRODUCT LOGIC</small>
+          <p>讓旅行靈感從被收藏開始，一路成為可實際執行的行程。</p>
         </div>
       </div>
     </section>
