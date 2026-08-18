@@ -1,0 +1,26 @@
+- generic [active] [ref=e1]:
+  - main "Trova UX Case Study 簡報" [ref=e2]:
+    - region "Slide 1：封面" [ref=e3]:
+      - generic [ref=e4]:
+        - paragraph [ref=e5]: TROVA
+        - paragraph [ref=e7]: AI Travel Planning Platform
+        - heading "智慧旅行規劃整合平台" [level=1] [ref=e8]
+        - paragraph [ref=e9]:
+          - text: 把散落各平台的旅遊收藏，轉換成
+          - strong [ref=e10]: 順路、可執行又保有彈性
+          - text: 的每日行程。
+      - generic "跨平台收藏經 Trova 轉換為每日行程的示意圖" [ref=e11]:
+        - generic [ref=e13]: Instagram
+        - generic [ref=e14]: YouTube
+        - generic [ref=e15]: Google Maps
+        - generic [ref=e16]: 小紅書
+        - generic [ref=e18]:
+          - generic [ref=e19]: AI ORGANIZES
+          - strong [ref=e20]: 收藏 → 行程
+        - generic [ref=e21]:
+          - text: ✓
+          - generic [ref=e22]: 順路、可執行、保有候補彈性
+  - navigation "投影片控制" [ref=e23]:
+    - button "上一頁" [disabled] [ref=e24]: ←
+    - generic [ref=e25]: 1 / 8
+    - button "下一頁" [ref=e26] [cursor=pointer]: →
