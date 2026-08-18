@@ -2339,6 +2339,706 @@
       letter-spacing: .1em;
     }
 
+    /* Core flows / Wireflow */
+    .core-flow-slide {
+      grid-template-rows: auto 1fr;
+      gap: 2.5%;
+    }
+
+    .core-flow-slide h2 {
+      max-width: none;
+      margin-bottom: .55rem;
+      font-size: clamp(1.95rem, 3.5vw, 4.15rem);
+      line-height: 1.06;
+      white-space: nowrap;
+    }
+
+    .core-flow-lede {
+      max-width: 66em;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(.68rem, .9vw, .98rem);
+      line-height: 1.5;
+    }
+
+    .core-flow-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(1rem, 2.1vw, 2.25rem);
+      min-height: 0;
+      padding-top: clamp(.85rem, 1.8vh, 1.35rem);
+      border-top: 1px solid var(--line);
+    }
+
+    .flow-lane {
+      position: relative;
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr) auto;
+      gap: clamp(.55rem, 1.2vh, .95rem);
+      min-width: 0;
+      padding-right: clamp(.7rem, 1.3vw, 1.35rem);
+    }
+
+    .flow-lane:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(transparent, var(--line) 12%, var(--line) 88%, transparent);
+    }
+
+    .flow-lane:last-child { padding-right: 0; }
+
+    .flow-lane-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: .65rem;
+    }
+
+    .flow-lane-head div { min-width: 0; }
+
+    .flow-number {
+      display: block;
+      margin-bottom: .22rem;
+      color: var(--terracotta);
+      font-size: clamp(.42rem, .55vw, .62rem);
+      font-weight: 800;
+      letter-spacing: .17em;
+    }
+
+    .flow-lane.ai .flow-number { color: var(--indigo); }
+    .flow-lane.check .flow-number { color: var(--sage); }
+
+    .flow-lane h3 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(1rem, 1.65vw, 1.75rem);
+      line-height: 1.12;
+    }
+
+    .flow-role {
+      flex: 0 0 auto;
+      padding: .32rem .55rem;
+      border: 1px solid rgba(193, 99, 61, .24);
+      border-radius: 999px;
+      color: var(--terracotta);
+      background: rgba(193, 99, 61, .08);
+      font-size: clamp(.38rem, .48vw, .54rem);
+      font-weight: 800;
+      letter-spacing: .08em;
+      white-space: nowrap;
+    }
+
+    .flow-lane.ai .flow-role {
+      border-color: rgba(74, 95, 199, .24);
+      color: var(--indigo);
+      background: rgba(74, 95, 199, .08);
+    }
+
+    .flow-lane.check .flow-role {
+      border-color: rgba(126, 154, 130, .3);
+      color: var(--sage);
+      background: rgba(126, 154, 130, .1);
+    }
+
+    .mockup-pair {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(.45rem, .9vw, .9rem);
+      min-height: 0;
+      padding: .15rem 0;
+    }
+
+    .mockup-pair img {
+      display: block;
+      width: min(45%, 12.5rem);
+      max-height: 45vh;
+      object-fit: contain;
+      border: 1px solid rgba(46, 42, 36, .12);
+      border-radius: clamp(.75rem, 1.15vw, 1.2rem);
+      background: white;
+      box-shadow: 0 12px 30px rgba(46, 42, 36, .12);
+    }
+
+    .mockup-pair img:last-of-type { transform: translateY(.75rem); }
+
+    .pair-arrow {
+      position: absolute;
+      z-index: 2;
+      left: 50%;
+      top: 50%;
+      display: grid;
+      place-items: center;
+      width: clamp(1.35rem, 1.8vw, 1.8rem);
+      height: clamp(1.35rem, 1.8vw, 1.8rem);
+      border-radius: 50%;
+      color: white;
+      background: var(--terracotta);
+      box-shadow: 0 5px 14px rgba(193, 99, 61, .25);
+      font-size: clamp(.58rem, .7vw, .78rem);
+      transform: translate(-50%, -50%);
+    }
+
+    .flow-lane.ai .pair-arrow { background: var(--indigo); }
+    .flow-lane.check .pair-arrow { background: var(--sage); }
+
+    .flow-caption {
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(.58rem, .72vw, .78rem);
+      line-height: 1.45;
+    }
+
+    .flow-caption strong {
+      display: block;
+      margin-bottom: .18rem;
+      color: var(--ink);
+      font-size: clamp(.68rem, .84vw, .92rem);
+    }
+
+    /* Visual identity & UI system */
+    .visual-system-slide {
+      grid-template-rows: auto 1fr;
+      gap: 3%;
+    }
+
+    .visual-system-slide h2 {
+      max-width: none;
+      margin-bottom: .5rem;
+      font-size: clamp(1.9rem, 3.25vw, 3.9rem);
+      line-height: 1.06;
+      white-space: nowrap;
+    }
+
+    .visual-system-lede {
+      max-width: 64em;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(.68rem, .9vw, .98rem);
+      line-height: 1.5;
+    }
+
+    .visual-system-body {
+      display: grid;
+      grid-template-columns: minmax(15rem, .7fr) minmax(0, 1.3fr);
+      gap: clamp(1.5rem, 3.4vw, 4rem);
+      min-height: 0;
+      padding-top: clamp(1rem, 2vh, 1.6rem);
+      border-top: 1px solid var(--line);
+    }
+
+    .identity-focus {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 0;
+      padding-right: clamp(1rem, 2vw, 2rem);
+      border-right: 1px solid var(--line);
+    }
+
+    .identity-logo {
+      display: block;
+      width: min(100%, 26rem);
+      height: auto;
+      margin-bottom: clamp(1.1rem, 2.2vh, 1.8rem);
+      filter: drop-shadow(0 14px 28px rgba(46, 42, 36, .08));
+    }
+
+    .identity-kicker,
+    .system-section-label {
+      color: var(--terracotta);
+      font-size: clamp(.42rem, .55vw, .62rem);
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .identity-focus h3 {
+      max-width: 12em;
+      margin: .5rem 0 .75rem;
+      font-family: var(--serif);
+      font-size: clamp(1.15rem, 2vw, 2.15rem);
+      line-height: 1.2;
+    }
+
+    .identity-focus p {
+      max-width: 31em;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(.62rem, .82vw, .88rem);
+      line-height: 1.6;
+    }
+
+    .logo-symbols {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .45rem;
+      margin-top: clamp(.9rem, 1.8vh, 1.4rem);
+    }
+
+    .logo-symbols span {
+      padding: .38rem .62rem;
+      border: 1px solid rgba(193, 99, 61, .2);
+      border-radius: 999px;
+      color: var(--terracotta);
+      background: rgba(193, 99, 61, .07);
+      font-size: clamp(.48rem, .62vw, .68rem);
+      font-weight: 700;
+    }
+
+    .system-evidence {
+      display: grid;
+      grid-template-rows: auto auto minmax(0, 1fr);
+      gap: clamp(.85rem, 1.8vh, 1.4rem);
+      min-width: 0;
+      min-height: 0;
+    }
+
+    .palette-block,
+    .type-block {
+      padding-bottom: clamp(.7rem, 1.4vh, 1.05rem);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .palette-head,
+    .type-content {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .palette-principle,
+    .type-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(.5rem, .68vw, .74rem);
+      line-height: 1.45;
+    }
+
+    .palette-principle strong { color: var(--ink); }
+
+    .swatch-row {
+      display: grid;
+      grid-template-columns: 1.15fr 1.15fr repeat(3, .8fr);
+      gap: clamp(.45rem, .8vw, .8rem);
+      margin-top: .65rem;
+    }
+
+    .swatch {
+      position: relative;
+      min-height: clamp(3.3rem, 6.2vh, 5.2rem);
+      padding: .65rem;
+      border: 1px solid rgba(46, 42, 36, .12);
+      border-radius: .75rem;
+      overflow: hidden;
+    }
+
+    .swatch strong,
+    .swatch small {
+      position: relative;
+      z-index: 1;
+      display: block;
+    }
+
+    .swatch strong { font-size: clamp(.52rem, .7vw, .78rem); }
+    .swatch small { margin-top: .2rem; font-size: clamp(.38rem, .48vw, .54rem); opacity: .76; }
+    .swatch.cream { color: var(--ink); background: #fbfaf7; }
+    .swatch.terra { color: white; background: #8d432a; }
+    .swatch.indigo { color: white; background: #4a5fc7; }
+    .swatch.ink { color: white; background: #2e2a24; }
+    .swatch.neutral { color: white; background: #6b6357; }
+
+    .type-content { margin-top: .45rem; }
+
+    .type-sample {
+      display: flex;
+      align-items: baseline;
+      gap: clamp(.65rem, 1.2vw, 1.2rem);
+      min-width: 0;
+    }
+
+    .type-sample strong {
+      font-family: "Noto Sans TC", sans-serif;
+      font-size: clamp(1.1rem, 2vw, 2.15rem);
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .type-weights {
+      color: var(--muted);
+      font-family: "Noto Sans TC", sans-serif;
+      font-size: clamp(.48rem, .64vw, .7rem);
+      line-height: 1.5;
+    }
+
+    .component-block {
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+      gap: .55rem;
+      min-height: 0;
+    }
+
+    .component-specimens {
+      display: grid;
+      grid-template-columns: .86fr 1.07fr 1.07fr;
+      align-items: stretch;
+      gap: clamp(.65rem, 1.1vw, 1.1rem);
+      min-height: 0;
+    }
+
+    .specimen {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: .55rem;
+      min-width: 0;
+      padding: clamp(.7rem, 1.1vw, 1rem);
+      border-top: 3px solid var(--terracotta);
+      border-radius: .8rem;
+      background: rgba(255, 255, 255, .62);
+      box-shadow: 0 10px 24px rgba(46, 42, 36, .07);
+    }
+
+    .specimen.ai-specimen { border-top-color: var(--indigo); }
+    .specimen small { color: var(--muted); font-size: clamp(.4rem, .52vw, .58rem); font-weight: 700; }
+
+    .state-stack {
+      display: grid;
+      gap: clamp(.35rem, .65vh, .55rem);
+      min-height: 0;
+    }
+
+    .state-row {
+      display: grid;
+      grid-template-columns: 3.6rem minmax(0, 1fr);
+      align-items: center;
+      gap: .45rem;
+      min-width: 0;
+    }
+
+    .state-label {
+      color: var(--muted);
+      font-size: clamp(.34rem, .45vw, .5rem);
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .primary-demo {
+      display: grid;
+      place-items: center;
+      min-height: 2.65rem;
+      padding: .6rem .8rem;
+      border-radius: 999px;
+      color: white;
+      background: #8d432a;
+      font-size: clamp(.55rem, .72vw, .8rem);
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .primary-demo.pressed {
+      background: #56291a;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, .2);
+      transform: translateY(1px);
+    }
+
+    .primary-demo.disabled {
+      color: #6b6357;
+      background: #e3e3e3;
+    }
+
+    .trip-demo,
+    .ai-demo {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: .6rem;
+      align-items: start;
+      padding: .7rem;
+      border: 1px solid rgba(46, 42, 36, .1);
+      border-radius: .7rem;
+      background: white;
+    }
+
+    .trip-demo.selected {
+      border: 1.5px solid #8d432a;
+      background: rgba(193, 99, 61, .05);
+    }
+
+    .trip-demo.conflict {
+      border-color: rgba(198, 63, 63, .42);
+      background: #fff7f5;
+    }
+
+    .trip-demo.conflict .trip-demo-icon { background: rgba(198, 63, 63, .12); }
+
+    .state-mark {
+      display: inline-block;
+      margin-top: .25rem;
+      color: var(--terracotta);
+      font-family: "Noto Sans TC", sans-serif;
+      font-size: clamp(.34rem, .45vw, .5rem);
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    .trip-demo.conflict .state-mark { color: #b23b32; }
+
+    .trip-demo-icon,
+    .ai-demo-icon {
+      display: grid;
+      place-items: center;
+      width: 1.8rem;
+      height: 1.8rem;
+      border-radius: .5rem;
+      background: rgba(193, 99, 61, .1);
+      font-size: .8rem;
+    }
+
+    .ai-demo-icon { background: rgba(74, 95, 199, .1); }
+
+    .demo-copy strong {
+      display: block;
+      margin-bottom: .2rem;
+      font-family: "Noto Sans TC", sans-serif;
+      font-size: clamp(.5rem, .68vw, .75rem);
+    }
+
+    .demo-copy span {
+      display: block;
+      color: var(--muted);
+      font-family: "Noto Sans TC", sans-serif;
+      font-size: clamp(.4rem, .52vw, .58rem);
+      line-height: 1.4;
+    }
+
+    .ai-demo .demo-copy strong { color: var(--indigo); }
+
+    .ai-demo.detected { border-color: rgba(74, 95, 199, .3); background: #f8f9ff; }
+
+    .ai-demo.expanded {
+      border-color: rgba(74, 95, 199, .42);
+      background: #eef0fb;
+    }
+
+    .ai-demo.resolved {
+      border-color: rgba(126, 154, 130, .42);
+      background: rgba(126, 154, 130, .08);
+    }
+
+    .ai-demo.resolved .ai-demo-icon { background: rgba(126, 154, 130, .16); }
+    .ai-demo.resolved .demo-copy strong { color: #58765d; }
+
+    /* Validation plan */
+    .validation-slide {
+      grid-template-rows: auto 1fr;
+      gap: 3%;
+    }
+
+    .validation-slide h2 {
+      max-width: 18em;
+      margin-bottom: .55rem;
+      font-size: clamp(1.85rem, 3.35vw, 4rem);
+      line-height: 1.08;
+    }
+
+    .validation-header-meta {
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+      margin-top: .75rem;
+    }
+
+    .validation-status {
+      display: inline-flex;
+      align-items: center;
+      gap: .42rem;
+      padding: .38rem .65rem;
+      border: 1px solid rgba(74, 95, 199, .24);
+      border-radius: 999px;
+      color: var(--indigo);
+      background: rgba(74, 95, 199, .07);
+      font-size: clamp(.42rem, .55vw, .62rem);
+      font-weight: 800;
+      letter-spacing: .1em;
+    }
+
+    .validation-status::before {
+      content: "";
+      width: .42rem;
+      height: .42rem;
+      border-radius: 50%;
+      background: var(--indigo);
+      box-shadow: 0 0 0 .22rem rgba(74, 95, 199, .1);
+    }
+
+    .validation-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(.54rem, .7vw, .76rem);
+    }
+
+    .validation-body {
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) auto;
+      gap: clamp(1rem, 2.1vh, 1.6rem);
+      min-height: 0;
+      padding-top: clamp(1rem, 2.1vh, 1.6rem);
+      border-top: 1px solid var(--line);
+    }
+
+    .validation-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      min-height: 0;
+    }
+
+    .validation-column {
+      position: relative;
+      display: grid;
+      grid-template-rows: auto auto 1fr;
+      gap: clamp(.75rem, 1.5vh, 1.1rem);
+      min-width: 0;
+      padding: clamp(.7rem, 1.3vw, 1.25rem) clamp(1.1rem, 2.2vw, 2.25rem);
+    }
+
+    .validation-column:first-child { padding-left: 0; }
+    .validation-column:last-child { padding-right: 0; }
+
+    .validation-column:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(transparent, var(--line) 8%, var(--line) 92%, transparent);
+    }
+
+    .validation-number {
+      color: var(--terracotta);
+      font-size: clamp(.46rem, .6vw, .66rem);
+      font-weight: 900;
+      letter-spacing: .17em;
+    }
+
+    .validation-column:nth-child(2) .validation-number { color: var(--indigo); }
+    .validation-column:nth-child(3) .validation-number { color: var(--sage); }
+
+    .validation-column h3 {
+      max-width: 12em;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(1.35rem, 2.05vw, 2.2rem);
+      line-height: 1.18;
+    }
+
+    .validation-content {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: clamp(.85rem, 1.7vh, 1.25rem);
+      padding-top: clamp(.8rem, 1.6vh, 1.2rem);
+      border-top: 3px solid rgba(193, 99, 61, .48);
+    }
+
+    .validation-column:nth-child(2) .validation-content { border-top-color: rgba(74, 95, 199, .48); }
+    .validation-column:nth-child(3) .validation-content { border-top-color: rgba(126, 154, 130, .56); }
+
+    .validation-question small,
+    .validation-observe small {
+      display: block;
+      margin-bottom: .45rem;
+      color: var(--muted);
+      font-size: clamp(.5rem, .62vw, .68rem);
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .validation-question p {
+      margin: 0;
+      color: var(--ink);
+      font-size: clamp(.82rem, 1.08vw, 1.18rem);
+      font-weight: 750;
+      line-height: 1.48;
+    }
+
+    .validation-observe {
+      align-self: end;
+      padding: clamp(.75rem, 1.1vw, 1rem);
+      border-left: 4px solid var(--terracotta);
+      border-radius: 0 .65rem .65rem 0;
+      background: rgba(193, 99, 61, .07);
+    }
+
+    .validation-column:nth-child(2) .validation-observe {
+      border-left-color: var(--indigo);
+      background: rgba(74, 95, 199, .07);
+    }
+
+    .validation-column:nth-child(3) .validation-observe {
+      border-left-color: var(--sage);
+      background: rgba(126, 154, 130, .09);
+    }
+
+    .validation-observe p {
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(.72rem, .92vw, 1rem);
+      line-height: 1.5;
+    }
+
+    .validation-roadmap {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      align-items: center;
+      min-height: clamp(4rem, 7.2vh, 5.2rem);
+      padding: clamp(.9rem, 1.45vw, 1.2rem) clamp(1.1rem, 2vw, 1.8rem);
+      border-radius: .8rem;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, .72);
+    }
+
+    .validation-stage {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      color: #9a948b;
+      font-size: clamp(.72rem, .9vw, .98rem);
+      font-weight: 750;
+      text-align: center;
+    }
+
+    .validation-stage:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: -.45rem;
+      color: #c7c2ba;
+    }
+
+    .validation-stage span {
+      display: grid;
+      place-items: center;
+      width: 1.9rem;
+      height: 1.9rem;
+      border-radius: 50%;
+      color: #8b857d;
+      background: #edebe9;
+      font-size: clamp(.54rem, .68vw, .74rem);
+      font-weight: 900;
+    }
+
+    .validation-stage:first-child span { color: white; background: var(--terracotta); }
+    .validation-stage:first-child { color: var(--ink); }
+
     @media (max-width: 700px) and (orientation: portrait) {
       .slide { padding: 8.5% 7% 13%; }
 
@@ -2920,6 +3620,142 @@
       .structure-insight small { font-size: .36rem; }
       .structure-insight p { font-size: .48rem; line-height: 1.3; }
 
+      .core-flow-slide { gap: 2%; }
+      .core-flow-slide h2 {
+        max-width: 12em;
+        font-size: clamp(1.45rem, 6.8vw, 2.15rem);
+        white-space: normal;
+      }
+      .core-flow-lede { font-size: .48rem; line-height: 1.4; }
+      .core-flow-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, minmax(0, 1fr));
+        gap: .4rem;
+        padding-top: .55rem;
+      }
+      .flow-lane {
+        grid-template-columns: 5.7rem minmax(0, 1fr) 7rem;
+        grid-template-rows: 1fr;
+        align-items: center;
+        gap: .5rem;
+        padding: .35rem 0;
+      }
+      .flow-lane:not(:last-child)::after {
+        top: auto;
+        right: 0;
+        bottom: -.2rem;
+        left: 0;
+        width: auto;
+        height: 1px;
+      }
+      .flow-lane-head { display: block; }
+      .flow-number { font-size: .32rem; }
+      .flow-lane h3 { font-size: .72rem; }
+      .flow-role { display: inline-block; margin-top: .28rem; padding: .2rem .35rem; font-size: .28rem; }
+      .mockup-pair { height: 100%; gap: .28rem; }
+      .mockup-pair img { width: auto; height: min(100%, 16vh); max-height: none; border-radius: .48rem; }
+      .mockup-pair img:last-of-type { transform: translateY(.25rem); }
+      .pair-arrow { width: .95rem; height: .95rem; font-size: .42rem; }
+      .flow-caption { font-size: .32rem; }
+      .flow-caption strong { font-size: .4rem; }
+
+      .visual-system-slide { gap: 2%; }
+      .visual-system-slide h2 {
+        max-width: 12em;
+        font-size: clamp(1.35rem, 6.3vw, 2rem);
+        white-space: normal;
+      }
+      .visual-system-lede { font-size: .46rem; }
+      .visual-system-body {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+        gap: .55rem;
+        padding-top: .55rem;
+      }
+      .identity-focus {
+        display: grid;
+        grid-template-columns: 7rem 1fr;
+        align-items: center;
+        column-gap: .7rem;
+        padding: 0 0 .5rem;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .identity-logo { grid-row: 1 / 5; width: 100%; margin: 0; }
+      .identity-kicker { font-size: .3rem; }
+      .identity-focus h3 { margin: .2rem 0; font-size: .68rem; }
+      .identity-focus p { font-size: .34rem; line-height: 1.35; }
+      .logo-symbols { gap: .25rem; margin-top: .3rem; }
+      .logo-symbols span { padding: .18rem .3rem; font-size: .28rem; }
+      .system-evidence { gap: .45rem; }
+      .palette-block, .type-block { padding-bottom: .4rem; }
+      .system-section-label { font-size: .3rem; }
+      .palette-principle, .type-note { font-size: .3rem; }
+      .swatch-row { gap: .3rem; margin-top: .35rem; }
+      .swatch { min-height: 2.15rem; padding: .38rem; border-radius: .45rem; }
+      .swatch strong { font-size: .34rem; }
+      .swatch small { font-size: .26rem; }
+      .type-content { margin-top: .25rem; }
+      .type-sample strong { font-size: .78rem; }
+      .type-weights { font-size: .28rem; }
+      .component-block { gap: .3rem; }
+      .component-specimens { gap: .35rem; }
+      .specimen { gap: .3rem; padding: .4rem; border-top-width: 2px; border-radius: .5rem; }
+      .specimen small { font-size: .26rem; }
+      .state-stack { gap: .22rem; }
+      .state-row { grid-template-columns: 2.25rem minmax(0, 1fr); gap: .25rem; }
+      .state-label { font-size: .22rem; }
+      .primary-demo { min-height: 1.7rem; padding: .3rem; font-size: .34rem; }
+      .trip-demo, .ai-demo { gap: .3rem; padding: .38rem; border-radius: .42rem; }
+      .trip-demo-icon, .ai-demo-icon { width: 1.15rem; height: 1.15rem; border-radius: .3rem; font-size: .46rem; }
+      .demo-copy strong { font-size: .32rem; }
+      .demo-copy span { font-size: .26rem; }
+      .state-mark { margin-top: .12rem; font-size: .22rem; }
+
+      .validation-slide { gap: 2%; }
+      .validation-slide h2 { max-width: 12em; font-size: clamp(1.35rem, 6.2vw, 2rem); }
+      .validation-header-meta { gap: .4rem; margin-top: .4rem; }
+      .validation-status { gap: .25rem; padding: .22rem .38rem; font-size: .28rem; }
+      .validation-status::before { width: .28rem; height: .28rem; }
+      .validation-note { font-size: .3rem; }
+      .validation-body { gap: .5rem; padding-top: .55rem; }
+      .validation-grid { grid-template-columns: 1fr; grid-template-rows: repeat(3, minmax(0, 1fr)); }
+      .validation-column {
+        grid-template-columns: 4.8rem 6.6rem 1fr;
+        grid-template-rows: 1fr;
+        align-items: center;
+        gap: .45rem;
+        padding: .35rem 0;
+      }
+      .validation-column:not(:last-child)::after {
+        top: auto;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: auto;
+        height: 1px;
+      }
+      .validation-number { font-size: .3rem; }
+      .validation-column h3 { font-size: .68rem; }
+      .validation-content {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        gap: .4rem;
+        padding: .35rem 0 0 .45rem;
+        border-top: 0;
+        border-left: 2px solid rgba(193, 99, 61, .48);
+      }
+      .validation-column:nth-child(2) .validation-content { border-left-color: rgba(74, 95, 199, .48); }
+      .validation-column:nth-child(3) .validation-content { border-left-color: rgba(126, 154, 130, .56); }
+      .validation-question small, .validation-observe small { margin-bottom: .2rem; font-size: .29rem; }
+      .validation-question p { font-size: .4rem; line-height: 1.35; }
+      .validation-observe { align-self: stretch; padding: .35rem; border-left-width: 2px; border-radius: 0 .35rem .35rem 0; }
+      .validation-observe p { font-size: .36rem; line-height: 1.35; }
+      .validation-roadmap { min-height: 2.7rem; padding: .5rem .58rem; border-radius: .48rem; }
+      .validation-stage { gap: .25rem; font-size: .36rem; }
+      .validation-stage span { width: 1.15rem; height: 1.15rem; font-size: .32rem; }
+      .validation-stage:not(:last-child)::after { right: -.25rem; }
+
       .controls {
         right: max(.6rem, env(safe-area-inset-right));
         bottom: max(.6rem, env(safe-area-inset-bottom));
@@ -3438,6 +4274,265 @@
         <div class="structure-insight">
           <small>PRODUCT LOGIC</small>
           <p>讓旅行靈感從被收藏開始，一路成為可實際執行的行程。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide core-flow-slide" aria-label="Slide 13：核心操作流程">
+      <header class="slide-header">
+        <div>
+          <p class="eyebrow">Core User Flows</p>
+          <h2>同一批旅行靈感，兩種規劃方式</h2>
+          <p class="core-flow-lede">先把外部景點整理進收藏，再依使用者偏好，選擇交給 AI 安排，或自行規劃並接受即時健檢。</p>
+        </div>
+        <div class="slide-index">12 — CORE FLOWS</div>
+      </header>
+
+      <div class="core-flow-grid" aria-label="Trova 三個核心操作階段">
+        <article class="flow-lane collect">
+          <div class="flow-lane-head">
+            <div>
+              <small class="flow-number">01 · SHARED START</small>
+              <h3>收藏旅行靈感</h3>
+            </div>
+            <span class="flow-role">共同起點</span>
+          </div>
+          <div class="mockup-pair" aria-label="貼上連結並由 AI 辨識景點">
+            <img src="assets/slide13/slide13-01-import-link.png" alt="貼上外部景點連結的畫面">
+            <span class="pair-arrow" aria-hidden="true">→</span>
+            <img src="assets/slide13/slide13-02-ai-recognized.png" alt="AI 成功辨識景點資訊的畫面">
+          </div>
+          <p class="flow-caption"><strong>從分散內容變成可用資料</strong>貼上連結，AI 自動擷取並整理景點資訊。</p>
+        </article>
+
+        <article class="flow-lane ai">
+          <div class="flow-lane-head">
+            <div>
+              <small class="flow-number">02 · AI PLANS</small>
+              <h3>交給 AI 安排</h3>
+            </div>
+            <span class="flow-role">AI 是安排者</span>
+          </div>
+          <div class="mockup-pair" aria-label="設定條件並取得 AI 建議順序">
+            <img src="assets/slide13/slide13-03-route-settings.png" alt="設定 AI 順路安排條件的畫面">
+            <span class="pair-arrow" aria-hidden="true">→</span>
+            <img src="assets/slide13/slide13-04-ai-route-result.png" alt="AI 產生建議行程順序的畫面">
+          </div>
+          <p class="flow-caption"><strong>快速產生可執行的順路安排</strong>依地點、交通與時間條件提出建議順序。</p>
+        </article>
+
+        <article class="flow-lane check">
+          <div class="flow-lane-head">
+            <div>
+              <small class="flow-number">03 · YOU PLAN</small>
+              <h3>自己排，AI 即時健檢</h3>
+            </div>
+            <span class="flow-role">AI 是協作者</span>
+          </div>
+          <div class="mockup-pair" aria-label="AI 偵測行程衝突並提供調整建議">
+            <img src="assets/slide13/slide13-05-conflict-detected.png" alt="行程中出現交通衝突提醒的畫面">
+            <span class="pair-arrow" aria-hidden="true">→</span>
+            <img src="assets/slide13/slide13-06-conflict-suggestion.png" alt="展開 AI 衝突原因與調整建議的畫面">
+          </div>
+          <p class="flow-caption"><strong>保留自主權，也避免不合理安排</strong>規劃過程即時指出衝突，展開即可查看建議。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide visual-system-slide" aria-label="Slide 14：Visual Identity and UI System">
+      <header class="slide-header">
+        <div>
+          <p class="eyebrow">Visual Identity &amp; UI System</p>
+          <h2>視覺不只建立品牌，也區分人與 AI 的角色</h2>
+          <p class="visual-system-lede">將旅行的溫度與 AI 的辨識度放進同一套系統，讓每一次操作都能看出背後的角色。</p>
+        </div>
+        <div class="slide-index">13 — VISUAL SYSTEM</div>
+      </header>
+
+      <div class="visual-system-body">
+        <section class="identity-focus" aria-label="Trova 品牌識別">
+          <img class="identity-logo" src="assets/LOGO/Frame.png" alt="Trova 定位標記與星芒 Logo">
+          <small class="identity-kicker">Brand Idea</small>
+          <h3>定位旅行靈感，讓 AI 把它整理成旅程</h3>
+          <p>定位標記代表旅行地點，星芒則象徵 AI 協助探索與整理。</p>
+          <div class="logo-symbols" aria-label="Logo 概念">
+            <span>定位 · Place</span>
+            <span>星芒 · AI</span>
+          </div>
+        </section>
+
+        <section class="system-evidence" aria-label="Trova UI 視覺系統">
+          <div class="palette-block">
+            <div class="palette-head">
+              <small class="system-section-label">01 · Color Roles</small>
+              <p class="palette-principle"><strong>暖陶土色</strong>承載使用者操作，<strong>靛藍色</strong>專門標示 AI 介入。</p>
+            </div>
+            <div class="swatch-row" aria-label="Trova 核心色票">
+              <div class="swatch terra"><strong>Terracotta</strong><small>#8D432A · ACTION</small></div>
+              <div class="swatch indigo"><strong>Indigo</strong><small>#4A5FC7 · AI</small></div>
+              <div class="swatch cream"><strong>Cream</strong><small>#FBFAF7</small></div>
+              <div class="swatch ink"><strong>Warm Black</strong><small>#2E2A24</small></div>
+              <div class="swatch neutral"><strong>Neutral</strong><small>#6B6357</small></div>
+            </div>
+          </div>
+
+          <div class="type-block">
+            <small class="system-section-label">02 · Typography</small>
+            <div class="type-content">
+              <div class="type-sample">
+                <strong>行程規劃 Trova</strong>
+                <span class="type-weights">Bold 700<br>Medium 500</span>
+              </div>
+              <p class="type-note">Noto Sans TC<br>清楚、友善，適合資訊密集介面。</p>
+            </div>
+          </div>
+
+          <div class="component-block">
+            <small class="system-section-label">03 · UI Language</small>
+            <div class="component-specimens" aria-label="三個代表性 UI 元件的九種狀態">
+              <div class="specimen">
+                <small>PRIMARY ACTION</small>
+                <div class="state-stack">
+                  <div class="state-row">
+                    <span class="state-label">Default</span>
+                    <div class="primary-demo">＋ 加入行程</div>
+                  </div>
+                  <div class="state-row">
+                    <span class="state-label">Pressed</span>
+                    <div class="primary-demo pressed">＋ 加入行程</div>
+                  </div>
+                  <div class="state-row">
+                    <span class="state-label">Disabled</span>
+                    <div class="primary-demo disabled">＋ 加入行程</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="specimen">
+                <small>TRIP ITEM</small>
+                <div class="state-stack">
+                  <div class="state-row">
+                    <span class="state-label">Default</span>
+                    <div class="trip-demo">
+                      <span class="trip-demo-icon" aria-hidden="true">📍</span>
+                      <div class="demo-copy"><strong>清水寺</strong><span>09:30 · 停留 90 分鐘</span></div>
+                    </div>
+                  </div>
+                  <div class="state-row">
+                    <span class="state-label">Selected</span>
+                    <div class="trip-demo selected">
+                      <span class="trip-demo-icon" aria-hidden="true">✓</span>
+                      <div class="demo-copy"><strong>清水寺</strong><span>已選入本日行程</span></div>
+                    </div>
+                  </div>
+                  <div class="state-row">
+                    <span class="state-label">Conflict</span>
+                    <div class="trip-demo conflict">
+                      <span class="trip-demo-icon" aria-hidden="true">!</span>
+                      <div class="demo-copy"><strong>伏見稻荷大社</strong><span>交通時間不足</span><em class="state-mark">查看衝突</em></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="specimen ai-specimen">
+                <small>AI SUGGESTION</small>
+                <div class="state-stack">
+                  <div class="state-row">
+                    <span class="state-label">Detected</span>
+                    <div class="ai-demo detected">
+                      <span class="ai-demo-icon" aria-hidden="true">✦</span>
+                      <div class="demo-copy"><strong>偵測到行程衝突</strong><span>兩個景點間僅預留 10 分鐘</span></div>
+                    </div>
+                  </div>
+                  <div class="state-row">
+                    <span class="state-label">Expanded</span>
+                    <div class="ai-demo expanded">
+                      <span class="ai-demo-icon" aria-hidden="true">✦</span>
+                      <div class="demo-copy"><strong>建議延後 20 分鐘</strong><span>步行與轉乘約需 30 分鐘</span><em class="state-mark">查看調整方式</em></div>
+                    </div>
+                  </div>
+                  <div class="state-row">
+                    <span class="state-label">Resolved</span>
+                    <div class="ai-demo resolved">
+                      <span class="ai-demo-icon" aria-hidden="true">✓</span>
+                      <div class="demo-copy"><strong>衝突已排除</strong><span>調整後的交通時間充足</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="slide validation-slide" aria-label="Slide 16：Validation Plan">
+      <header class="slide-header">
+        <div>
+          <p class="eyebrow">Validation Plan</p>
+          <h2>下一步不是增加功能，而是驗證三個核心流程是否真的好用</h2>
+          <div class="validation-header-meta">
+            <span class="validation-status">PLANNED · USABILITY TESTING</span>
+            <p class="validation-note">以任務操作與訪談，觀察理解度、阻礙與決策原因。</p>
+          </div>
+        </div>
+        <div class="slide-index">15 — VALIDATION</div>
+      </header>
+
+      <div class="validation-body">
+        <div class="validation-grid" aria-label="三條核心流程的驗證問題與觀察重點">
+          <article class="validation-column">
+            <small class="validation-number">01 · IMPORT</small>
+            <h3>跨平台匯入收藏</h3>
+            <div class="validation-content">
+              <div class="validation-question">
+                <small>Question</small>
+                <p>使用者是否理解如何貼上連結，並確認 AI 擷取結果？</p>
+              </div>
+              <div class="validation-observe">
+                <small>Observe</small>
+                <p>是否能自行完成，以及在哪個步驟猶豫或出錯。</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="validation-column">
+            <small class="validation-number">02 · AI PLANNING</small>
+            <h3>AI 安排行程</h3>
+            <div class="validation-content">
+              <div class="validation-question">
+                <small>Question</small>
+                <p>使用者是否理解 AI 的排序依據，並願意採用建議？</p>
+              </div>
+              <div class="validation-observe">
+                <small>Observe</small>
+                <p>是否理解結果、是否需要調整，以及不採用的原因。</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="validation-column">
+            <small class="validation-number">03 · LIVE CHECK</small>
+            <h3>自主規劃＋即時健檢</h3>
+            <div class="validation-content">
+              <div class="validation-question">
+                <small>Question</small>
+                <p>使用者是否注意並理解行程中的衝突提醒？</p>
+              </div>
+              <div class="validation-observe">
+                <small>Observe</small>
+                <p>是否知道問題原因，以及下一步該如何調整。</p>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="validation-roadmap" aria-label="下一階段驗證流程">
+          <div class="validation-stage"><span>01</span>Prototype</div>
+          <div class="validation-stage"><span>02</span>任務測試</div>
+          <div class="validation-stage"><span>03</span>找出阻礙</div>
+          <div class="validation-stage"><span>04</span>迭代介面</div>
         </div>
       </div>
     </section>
