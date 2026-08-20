@@ -87,10 +87,12 @@
 
     /* Cover */
     .cover {
-      grid-template-columns: 1.03fr .97fr;
+      grid-template-columns: minmax(0, 1.03fr) minmax(0, .97fr);
       align-items: center;
       gap: 7%;
     }
+
+    .cover-content { min-width: 0; }
 
     .brand {
       display: flex;
@@ -120,10 +122,11 @@
     }
 
     .cover h1 {
-      max-width: 8.4em;
+      max-width: none;
       margin-bottom: clamp(1.2rem, 2.4vh, 2rem);
-      font-size: clamp(2.8rem, 5.35vw, 6.4rem);
+      font-size: clamp(2.25rem, 4vw, 4.8rem);
       line-height: 1.03;
+      white-space: nowrap;
     }
 
     .cover-copy {
@@ -168,27 +171,37 @@
       box-shadow: 0 10px 24px rgba(43, 36, 32, .09);
     }
 
-    .source-dot:nth-of-type(1) { left: 0; top: 15%; transform: rotate(-5deg); }
-    .source-dot:nth-of-type(2) { right: 5%; top: 2%; transform: rotate(5deg); }
-    .source-dot:nth-of-type(3) { left: -2%; bottom: 19%; transform: rotate(3deg); }
-    .source-dot:nth-of-type(4) { right: -1%; bottom: 13%; transform: rotate(-4deg); }
+    .source-dot:nth-of-type(1) { left: 16%; top: 20%; transform: translate(-50%, -50%) rotate(-5deg); }
+    .source-dot:nth-of-type(2) { left: 82%; top: 18%; transform: translate(-50%, -50%) rotate(5deg); }
+    .source-dot:nth-of-type(3) { left: 17%; top: 76%; transform: translate(-50%, -50%) rotate(3deg); }
+    .source-dot:nth-of-type(4) { left: 84%; top: 73%; transform: translate(-50%, -50%) rotate(-4deg); }
 
     .trova-engine {
       position: absolute;
       left: 50%;
-      top: 47%;
+      top: 50%;
       z-index: 2;
-      display: grid;
-      place-items: center;
-      width: 39%;
+      width: 55%;
       aspect-ratio: 1;
-      padding: 8%;
+      padding: 0;
+      box-sizing: border-box;
       border-radius: 50%;
       background: var(--indigo);
       color: white;
       text-align: center;
       box-shadow: 0 25px 55px rgba(74, 95, 199, .28);
       transform: translate(-50%, -50%);
+    }
+
+    .trova-engine > div {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
     }
 
     .trova-engine small {
@@ -204,6 +217,7 @@
       display: block;
       font-size: clamp(1.2rem, 2.2vw, 2.45rem);
       line-height: 1.22;
+      white-space: nowrap;
     }
 
     .route-output {
@@ -2121,11 +2135,50 @@
 
     .structure-canvas {
       display: grid;
-      grid-template-rows: 1fr auto;
+      grid-template-rows: auto 1fr auto;
       gap: clamp(1rem, 2vh, 1.7rem);
       min-height: 0;
       padding-top: clamp(1.1rem, 2.4vw, 2.3rem);
       border-top: 1px solid var(--line);
+    }
+
+    .ia-secondary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(.65rem, 1.2vw, 1.15rem);
+      min-width: 0;
+    }
+
+    .ia-secondary > small {
+      color: var(--muted);
+      font-size: clamp(.48rem, .62vw, .66rem);
+      font-weight: 900;
+      letter-spacing: .14em;
+      white-space: nowrap;
+    }
+
+    .ia-secondary-node {
+      display: flex;
+      align-items: baseline;
+      gap: .55rem;
+      min-width: 0;
+      padding: .58rem .9rem;
+      border: 1px solid rgba(43, 36, 32, .12);
+      border-radius: 999px;
+      background: rgba(255, 253, 249, .74);
+    }
+
+    .ia-secondary-node strong {
+      color: var(--ink);
+      font-size: clamp(.72rem, .92vw, 1rem);
+      white-space: nowrap;
+    }
+
+    .ia-secondary-node span {
+      color: var(--muted);
+      font-size: clamp(.56rem, .72vw, .76rem);
+      white-space: nowrap;
     }
 
     .module-map {
@@ -2894,6 +2947,8 @@
       line-height: 1.16;
     }
 
+    .import-entry h3 { white-space: nowrap; }
+
     .prototype-entry-copy {
       margin: 0;
       color: var(--muted);
@@ -2917,10 +2972,14 @@
       height: auto;
     }
 
-    .import-entry .prototype-qr-link {
+    .import-launch {
       grid-column: 2;
-      grid-row: 1 / 4;
+      grid-row: 1 / 5;
       align-self: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .75rem;
     }
 
     .prototype-steps {
@@ -2984,13 +3043,14 @@
 
     .planning-shell {
       display: grid;
-      grid-template-columns: auto minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1fr) auto;
       align-items: center;
       gap: clamp(.9rem, 1.7vw, 1.7rem);
       min-height: 0;
     }
 
     .planning-launch {
+      order: 2;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -3006,6 +3066,7 @@
     .planning-launch .prototype-open:hover { color: white; background: var(--indigo); }
 
     .prototype-branches {
+      order: 1;
       display: grid;
       grid-template-rows: 1fr 1fr;
       gap: clamp(.8rem, 1.6vh, 1.2rem);
@@ -3025,8 +3086,142 @@
     }
 
     .prototype-branch.check {
+      grid-template-columns: minmax(13.5rem, 1fr) minmax(0, 1fr);
       border-left-color: var(--sage);
       background: rgba(126, 154, 130, .09);
+    }
+
+    .prototype-branch.check h4 {
+      font-size: clamp(.95rem, 1.25vw, 1.38rem);
+      white-space: nowrap;
+    }
+
+    .prototype-card-grid {
+      display: grid;
+      grid-template-columns: minmax(12rem, .64fr) minmax(15rem, .82fr) minmax(0, 1.54fr);
+      gap: clamp(.8rem, 1.45vw, 1.4rem);
+      min-height: 0;
+      padding-top: clamp(1rem, 2vh, 1.5rem);
+      border-top: 1px solid var(--line);
+    }
+
+    .prototype-card {
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      min-width: 0;
+      padding: clamp(1rem, 1.55vw, 1.5rem);
+      border: 1px solid rgba(43, 36, 32, .12);
+      border-radius: 1rem;
+      background: rgba(255, 253, 249, .82);
+    }
+
+    .prototype-card.onboarding {
+      border-style: dashed;
+      background: rgba(43, 36, 32, .025);
+    }
+
+    .prototype-card.import { border-top: 5px solid var(--terracotta); }
+    .prototype-card.planning { border-top: 5px solid var(--indigo); }
+    .prototype-card.onboarding .prototype-flow-code { color: var(--muted); }
+    .prototype-card.planning .prototype-flow-code { color: var(--indigo); }
+
+    .prototype-card h3 {
+      margin: .42rem 0 .5rem;
+      font-family: var(--serif);
+      font-size: clamp(1.25rem, 1.75vw, 2rem);
+      line-height: 1.16;
+    }
+
+    .prototype-card-copy {
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(.65rem, .78vw, .86rem);
+      line-height: 1.5;
+    }
+
+    .prototype-card-steps {
+      display: grid;
+      align-content: center;
+      gap: .65rem;
+      margin: 1rem 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .prototype-card-steps li {
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+      font-size: clamp(.65rem, .8vw, .88rem);
+      font-weight: 750;
+    }
+
+    .prototype-card-steps span {
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      width: 1.6rem;
+      height: 1.6rem;
+      border-radius: 50%;
+      color: white;
+      background: var(--terracotta);
+      font-size: .56rem;
+      font-weight: 900;
+    }
+
+    .onboarding .prototype-card-steps span { background: #8a8580; }
+    .planning .prototype-open { border-color: var(--indigo); color: var(--indigo); }
+    .planning .prototype-open:hover { color: white; background: var(--indigo); }
+
+    .prototype-card .prototype-open {
+      width: 100%;
+      margin-top: 0;
+      box-sizing: border-box;
+    }
+
+    .prototype-card-branches {
+      display: grid;
+      align-content: center;
+      gap: clamp(.7rem, 1.25vh, 1rem);
+      margin: 1rem 0;
+    }
+
+    .prototype-card-branches .prototype-branch {
+      grid-template-columns: minmax(9rem, .9fr) minmax(0, 1.1fr);
+      padding: clamp(.7rem, 1vw, .95rem);
+    }
+
+    .prototype-card-branches .prototype-branch.check {
+      grid-template-columns: minmax(12rem, 1fr) minmax(0, 1fr);
+    }
+
+    .prototype-legacy { display: none; }
+
+    @media (max-width: 700px) {
+      .prototype-card-grid {
+        grid-template-columns: .72fr .9fr 1.38fr;
+        gap: .45rem;
+        padding-top: .55rem;
+      }
+
+      .prototype-card { padding: .58rem; border-radius: .6rem; }
+      .prototype-card.import,
+      .prototype-card.planning { border-top-width: 3px; }
+      .prototype-card h3 { margin: .2rem 0 .25rem; font-size: .72rem; }
+      .prototype-card-copy { font-size: .34rem; line-height: 1.35; }
+      .prototype-card-steps { gap: .3rem; margin: .45rem 0; }
+      .prototype-card-steps li { gap: .28rem; font-size: .34rem; }
+      .prototype-card-steps span { width: .9rem; height: .9rem; font-size: .28rem; }
+      .prototype-card .prototype-flow-code { font-size: .3rem; }
+      .prototype-card .prototype-open { padding: .38rem .42rem; font-size: .31rem; }
+      .prototype-card-branches { gap: .35rem; margin: .45rem 0; }
+      .prototype-card-branches .prototype-branch,
+      .prototype-card-branches .prototype-branch.check {
+        grid-template-columns: 5.8rem 1fr;
+        gap: .38rem;
+        padding: .4rem;
+      }
+      .prototype-card-branches .prototype-branch.check h4 { font-size: .5rem; }
     }
 
     .branch-role {
@@ -3382,11 +3577,11 @@
 
       .brand { margin-bottom: .8rem; font-size: .72rem; }
       .cover .eyebrow { font-size: .52rem; margin-bottom: .5rem; }
-      .cover h1 { max-width: 7.5em; margin-bottom: .7rem; font-size: clamp(2.25rem, 11vw, 3.5rem); }
+      .cover h1 { max-width: 7.5em; margin-bottom: .7rem; font-size: clamp(2.25rem, 11vw, 3.5rem); white-space: normal; }
       .cover-copy { max-width: 23em; font-size: clamp(.74rem, 3.25vw, .95rem); line-height: 1.5; }
       .hero-flow { justify-self: center; width: min(92%, 37vh); }
       .source-dot { min-width: 3.1rem; padding: .48rem .62rem; font-size: .5rem; }
-      .trova-engine { width: 36%; }
+      .trova-engine { width: 52%; }
       .trova-engine small { font-size: .4rem; }
       .trova-engine strong { font-size: clamp(.82rem, 4.1vw, 1.2rem); }
       .route-output { width: 68%; padding: .62rem .72rem; border-radius: .7rem; }
@@ -3889,6 +4084,12 @@
         padding-top: .6rem;
       }
 
+      .ia-secondary { gap: .3rem; }
+      .ia-secondary > small { font-size: .29rem; }
+      .ia-secondary-node { gap: .25rem; padding: .3rem .46rem; }
+      .ia-secondary-node strong { font-size: .42rem; }
+      .ia-secondary-node span { font-size: .3rem; }
+
       .module-map {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr auto 1fr auto 1fr;
@@ -4110,9 +4311,10 @@
         border-right: 0;
         border-bottom: 1px solid var(--line);
       }
-      .import-entry .prototype-qr-link {
+      .import-launch {
         grid-column: 1;
-        grid-row: 1 / 4;
+        grid-row: 1 / 5;
+        gap: .35rem;
       }
       .prototype-flow-code { font-size: .34rem; }
       .prototype-entry h3 { margin: .2rem 0; font-size: .78rem; }
@@ -4121,15 +4323,17 @@
       .prototype-steps { grid-column: 2; gap: .25rem; margin: .3rem 0 0; }
       .prototype-steps li { grid-template-columns: 1rem 1fr; gap: .3rem; font-size: .36rem; }
       .prototype-steps span { width: 1rem; height: 1rem; font-size: .28rem; }
-      .import-entry .prototype-open { grid-column: 3; grid-row: 1 / 4; align-self: center; }
+      .import-launch .prototype-open { margin-top: 0; }
       .prototype-open { margin-top: 0; padding: .4rem .52rem; font-size: .34rem; }
       .planning-entry { grid-template-rows: auto 1fr; gap: .4rem; }
-      .planning-shell { grid-template-columns: auto 1fr; gap: .55rem; }
+      .planning-shell { grid-template-columns: 1fr auto; gap: .55rem; }
       .planning-launch { gap: .35rem; }
       .prototype-branches { gap: .35rem; }
       .prototype-branch { grid-template-columns: 5.8rem 1fr; gap: .4rem; padding: .45rem; border-left-width: 3px; border-radius: 0 .45rem .45rem 0; }
+      .prototype-branch.check { grid-template-columns: 7.8rem 1fr; }
       .branch-role { margin-bottom: .18rem; font-size: .3rem; }
       .prototype-branch h4 { font-size: .64rem; }
+      .prototype-branch.check h4 { font-size: .54rem; }
       .branch-steps { gap: .2rem; font-size: .34rem; }
       .branch-steps span:not(:last-child)::after { margin-left: .2rem; }
 
@@ -4211,7 +4415,7 @@
         <p class="brand"><span class="brand-mark" aria-hidden="true"></span>TROVA</p>
         <p class="eyebrow">AI Travel Planning Platform</p>
         <h1>智慧旅行規劃整合平台</h1>
-        <p class="cover-copy">把散落各平台的旅遊收藏，轉換成<strong>順路、可執行又保有彈性</strong>的每日行程。</p>
+        <p class="cover-copy">把散落各平台的旅遊收藏，<br>轉換成<strong>順路、可執行又保有彈性</strong>的每日行程。</p>
       </div>
 
       <div class="hero-flow" aria-label="跨平台收藏經 Trova 轉換為每日行程的示意圖">
@@ -4223,7 +4427,7 @@
         <div class="trova-engine">
           <div><small>AI ORGANIZES</small><strong>收藏 → 行程</strong></div>
         </div>
-        <div class="route-output"><span>順路、可執行、保有候補彈性</span></div>
+        <div class="route-output"><span>順路、可執行、符合偏好</span></div>
       </div>
     </section>
 
@@ -4628,17 +4832,29 @@
       </div>
     </section>
 
-    <section class="slide structure-slide" aria-label="Slide 12：Product Structure / IA">
+    <section class="slide structure-slide" aria-label="Slide 12：Information Architecture">
       <header class="slide-header">
         <div>
-          <p class="eyebrow">Product Structure / IA</p>
-          <h2>三個核心模組，串起收藏、安排與檢查</h2>
-          <p class="structure-lede">每個模組各司其職，讓跨平台靈感能一路延續為可實際執行的行程。</p>
+          <p class="eyebrow">Information Architecture</p>
+          <h2>從收藏到行程，資訊如何被組織</h2>
+          <p class="structure-lede">以三個核心模組承接規劃任務，並透過探索與個人設定補足完整使用情境。</p>
         </div>
-        <div class="slide-index">11 — PRODUCT STRUCTURE</div>
+        <div class="slide-index">11 — INFORMATION ARCHITECTURE</div>
       </header>
 
       <div class="structure-canvas">
+        <nav class="ia-secondary" aria-label="Trova 次要資訊入口">
+          <small>SUPPORTING ENTRY</small>
+          <div class="ia-secondary-node">
+            <strong>探索</strong>
+            <span>搜尋景點 · 景點詳情</span>
+          </div>
+          <div class="ia-secondary-node">
+            <strong>個人</strong>
+            <span>偏好 · 帳號設定</span>
+          </div>
+        </nav>
+
         <div class="module-map" aria-label="Trova 三個核心產品模組">
           <article class="module-card collect" data-number="01">
             <small class="module-kicker">CORE MODULE 01</small>
@@ -4881,13 +5097,62 @@
       <header class="slide-header">
         <div>
           <p class="eyebrow">Interactive Prototype</p>
-          <h2>兩個操作入口，完整體驗三條核心任務</h2>
-          <p class="prototype-lede">掃描 QR Code 或點擊連結，從指定起始畫面開始操作。</p>
+          <h2>三個操作入口，體驗完整產品流程</h2>
+          <p class="prototype-lede">點擊連結，從指定起始畫面開始操作。</p>
         </div>
         <div class="slide-index">14 — PROTOTYPE</div>
       </header>
 
-      <div class="prototype-body">
+      <div class="prototype-card-grid">
+        <article class="prototype-card onboarding">
+          <div>
+            <small class="prototype-flow-code">FLOW 0 · ONBOARDING</small>
+            <h3>登入／註冊</h3>
+            <p class="prototype-card-copy">建立帳號或登入，進入個人化的旅行規劃空間。</p>
+          </div>
+          <ol class="prototype-card-steps" aria-label="登入註冊流程">
+            <li><span>01</span>選擇登入或註冊</li>
+            <li><span>02</span>輸入帳號資料</li>
+            <li><span>03</span>進入平台</li>
+          </ol>
+          <a class="prototype-open" href="https://www.figma.com/proto/P8P8AbsbsKqyPCSUFf32wj/%E6%99%BA%E6%85%A7%E6%97%85%E8%A1%8C%E8%A6%8F%E5%8A%83%E6%95%B4%E5%90%88%E5%B9%B3%E5%8F%B0%E5%B0%88%E6%A1%88_Wireframe--Copy-?node-id=1010-16597&amp;p=f&amp;t=EDMtuD9WQnIYpXCE-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;page-id=1010%3A16129&amp;starting-point-node-id=1010%3A16597" target="_blank" rel="noopener noreferrer">OPEN PROTOTYPE</a>
+        </article>
+
+        <article class="prototype-card import">
+          <div>
+            <small class="prototype-flow-code">FLOW A · IMPORT</small>
+            <h3>跨平台匯入收藏</h3>
+            <p class="prototype-card-copy">從空收藏開始，把外部旅行靈感轉成可使用的景點資料。</p>
+          </div>
+          <ol class="prototype-card-steps" aria-label="跨平台匯入收藏流程">
+            <li><span>01</span>匯入外部連結</li>
+            <li><span>02</span>AI 擷取資訊</li>
+            <li><span>03</span>確認並收藏</li>
+          </ol>
+          <a class="prototype-open" href="https://www.figma.com/proto/P8P8AbsbsKqyPCSUFf32wj/%E6%99%BA%E6%85%A7%E6%97%85%E8%A1%8C%E8%A6%8F%E5%8A%83%E6%95%B4%E5%90%88%E5%B9%B3%E5%8F%B0%E5%B0%88%E6%A1%88_Wireframe--Copy-?node-id=1010-8563&amp;t=ztQyWOwbQydHEElx-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;page-id=1010%3A3506&amp;starting-point-node-id=1010%3A8563&amp;show-proto-sidebar=1" target="_blank" rel="noopener noreferrer">OPEN PROTOTYPE</a>
+        </article>
+
+        <article class="prototype-card planning">
+          <div>
+            <small class="prototype-flow-code">FLOW B + C · PLANNING HUB</small>
+            <h3>行程規劃中心</h3>
+            <p class="prototype-card-copy">從同一個行程詳情頁，選擇交給 AI 安排或自行規劃。</p>
+          </div>
+          <div class="prototype-card-branches">
+            <section class="prototype-branch" aria-label="Flow B 交給 AI 安排">
+              <div><small class="branch-role">FLOW B · AI 是安排者</small><h4>交給 AI 安排</h4></div>
+              <div class="branch-steps"><span>選擇景點</span><span>設定條件</span><span>AI 建議順序</span><span>套用</span></div>
+            </section>
+            <section class="prototype-branch check" aria-label="Flow C 自己安排並由 AI 即時健檢">
+              <div><small class="branch-role">FLOW C · AI 是協作者</small><h4>自己安排，AI 即時健檢</h4></div>
+              <div class="branch-steps"><span>自行調整</span><span>偵測衝突</span><span>展開建議</span><span>手動修正</span></div>
+            </section>
+          </div>
+          <a class="prototype-open" href="https://www.figma.com/proto/P8P8AbsbsKqyPCSUFf32wj/%E6%99%BA%E6%85%A7%E6%97%85%E8%A1%8C%E8%A6%8F%E5%8A%83%E6%95%B4%E5%90%88%E5%B9%B3%E5%8F%B0%E5%B0%88%E6%A1%88_Wireframe--Copy-?node-id=850-2335&amp;p=f&amp;t=8YlaVL55zQo1KmJU-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;page-id=311%3A1462&amp;starting-point-node-id=850%3A2335&amp;show-proto-sidebar=1" target="_blank" rel="noopener noreferrer">OPEN PROTOTYPE</a>
+        </article>
+      </div>
+
+      <div class="prototype-body prototype-legacy" aria-hidden="true">
         <article class="prototype-entry import-entry">
           <div>
             <small class="prototype-flow-code">FLOW A · IMPORT</small>
@@ -4895,9 +5160,9 @@
             <p class="prototype-entry-copy">從空收藏開始，把外部旅行靈感轉成可使用的景點資料。</p>
           </div>
 
-          <a class="prototype-qr-link" href="https://www.figma.com/proto/P8P8AbsbsKqyPCSUFf32wj/%E6%99%BA%E6%85%A7%E6%97%85%E8%A1%8C%E8%A6%8F%E5%8A%83%E6%95%B4%E5%90%88%E5%B9%B3%E5%8F%B0%E5%B0%88%E6%A1%88_Wireframe--Copy-?node-id=1010-8563&amp;t=mexpldVmq1l2kP8p-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;page-id=1010%3A3506&amp;starting-point-node-id=1010%3A8563&amp;show-proto-sidebar=1" target="_blank" rel="noopener noreferrer" aria-label="開啟跨平台匯入收藏 Prototype">
-            <img src="assets/slide15/prototype-import-qr.png" alt="跨平台匯入收藏 Prototype QR Code">
-          </a>
+          <div class="import-launch">
+          <a class="prototype-open" href="https://www.figma.com/proto/P8P8AbsbsKqyPCSUFf32wj/%E6%99%BA%E6%85%A7%E6%97%85%E8%A1%8C%E8%A6%8F%E5%8A%83%E6%95%B4%E5%90%88%E5%B9%B3%E5%8F%B0%E5%B0%88%E6%A1%88_Wireframe--Copy-?node-id=1010-8563&amp;t=ztQyWOwbQydHEElx-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;page-id=1010%3A3506&amp;starting-point-node-id=1010%3A8563&amp;show-proto-sidebar=1" target="_blank" rel="noopener noreferrer">OPEN PROTOTYPE</a>
+          </div>
 
           <ol class="prototype-steps" aria-label="跨平台匯入收藏流程">
             <li><span>01</span>空收藏</li>
@@ -4906,7 +5171,6 @@
             <li><span>04</span>收藏成功</li>
           </ol>
 
-          <a class="prototype-open" href="https://www.figma.com/proto/P8P8AbsbsKqyPCSUFf32wj/%E6%99%BA%E6%85%A7%E6%97%85%E8%A1%8C%E8%A6%8F%E5%8A%83%E6%95%B4%E5%90%88%E5%B9%B3%E5%8F%B0%E5%B0%88%E6%A1%88_Wireframe--Copy-?node-id=1010-8563&amp;t=mexpldVmq1l2kP8p-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;page-id=1010%3A3506&amp;starting-point-node-id=1010%3A8563&amp;show-proto-sidebar=1" target="_blank" rel="noopener noreferrer">OPEN PROTOTYPE</a>
         </article>
 
         <article class="prototype-entry planning-entry">
@@ -4918,10 +5182,7 @@
 
           <div class="planning-shell">
             <div class="planning-launch">
-              <a class="prototype-qr-link" href="https://www.figma.com/proto/P8P8AbsbsKqyPCSUFf32wj/%E6%99%BA%E6%85%A7%E6%97%85%E8%A1%8C%E8%A6%8F%E5%8A%83%E6%95%B4%E5%90%88%E5%B9%B3%E5%8F%B0%E5%B0%88%E6%A1%88_Wireframe--Copy-?node-id=850-2335&amp;t=8rzF0aGjN3IgLsdy-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;page-id=311%3A1462&amp;starting-point-node-id=850%3A2335&amp;show-proto-sidebar=1" target="_blank" rel="noopener noreferrer" aria-label="開啟行程規劃中心 Prototype">
-                <img src="assets/slide15/prototype-planning-qr.png" alt="行程規劃中心 Prototype QR Code">
-              </a>
-              <a class="prototype-open" href="https://www.figma.com/proto/P8P8AbsbsKqyPCSUFf32wj/%E6%99%BA%E6%85%A7%E6%97%85%E8%A1%8C%E8%A6%8F%E5%8A%83%E6%95%B4%E5%90%88%E5%B9%B3%E5%8F%B0%E5%B0%88%E6%A1%88_Wireframe--Copy-?node-id=850-2335&amp;t=8rzF0aGjN3IgLsdy-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;page-id=311%3A1462&amp;starting-point-node-id=850%3A2335&amp;show-proto-sidebar=1" target="_blank" rel="noopener noreferrer">OPEN PROTOTYPE</a>
+          <a class="prototype-open" href="https://www.figma.com/proto/P8P8AbsbsKqyPCSUFf32wj/%E6%99%BA%E6%85%A7%E6%97%85%E8%A1%8C%E8%A6%8F%E5%8A%83%E6%95%B4%E5%90%88%E5%B9%B3%E5%8F%B0%E5%B0%88%E6%A1%88_Wireframe--Copy-?node-id=850-2335&amp;p=f&amp;t=8YlaVL55zQo1KmJU-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;page-id=311%3A1462&amp;starting-point-node-id=850%3A2335&amp;show-proto-sidebar=1" target="_blank" rel="noopener noreferrer">OPEN PROTOTYPE</a>
             </div>
 
             <div class="prototype-branches">
