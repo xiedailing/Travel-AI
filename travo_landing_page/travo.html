@@ -1,19 +1,241 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Travo</title>
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <a href="#" class="scroll-top">↑</a>
+  <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="#">Logo</a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#">功能</a></li>
-                <li><a href="#">下載App</a></li>
-        </nav>
+      <nav>
+        <a href="#" class="brand">
+          <img src="./asset/Pin_Sparkle_Logo.svg" alt="Trova" />
+          <span>trova</span>
+        </a>
+        <ul>
+          <li><a href="#core-features" class="nav-link">核心功能</a></li>
+          <li><a href="#experience" class="nav-link">旅遊體驗</a></li>
+          <li><a href="#final-cta" class="cta-btn">下載App</a></li>
+        </ul>
+      </nav>
     </header>
-</body>
+
+    <main>
+      <section class="hero">
+        <div class="hero-text">
+          <h1>把散落各處的旅行想法<br />串成真正屬於你的旅程</h1>
+          <p>從發現景點到規劃行程，讓每個想去的地方都不再只是收藏。</p>
+          <a href="#how-it-works" class="cta-btn">開始探索 →</a>
+        </div>
+        <img
+          class="hero-img-mobile"
+          src="./asset/Hero_img_mobile.png"
+          alt="Hero Image"
+        />
+        <img
+          class="hero-img-desktop"
+          src="./asset/Hero_img_full.png"
+          alt="Hero Image"
+        />
+      </section>
+
+      <section class="how-it-works" id="how-it-works">
+        <p>HOW IT WORKS</p>
+        <h2>三步，把收藏變成行程</h2>
+        <div class="cards">
+          <div class="card">
+            <div class="tag-row">
+              <p class="badge">01</p>
+              <p class="label">INPUT｜收藏來源</p>
+            </div>
+            <h3>匯入收藏</h3>
+            <p class="desc">貼上連結，AI 自動辨識內容，並將內容景點收藏</p>
+            <img
+              src="./asset/step1-sources.png"
+              alt="Instagram、小紅書、Threads 三個平台的貼文縮圖疊在一起"
+            />
+          </div>
+          <div class="card">
+            <div class="tag-row">
+              <p class="badge">02</p>
+              <p class="label">AI PROCESS｜整理與排序</p>
+            </div>
+            <h3>✦ AI 整理與排序</h3>
+            <p class="desc">依位置、時間與停留條件，重新形成順路安排</p>
+            <img
+              src="./asset/step2-ai-route.png"
+              alt="依距離、營業時間、停留條件重新排序的時間軸示意圖"
+            />
+          </div>
+          <div class="card">
+            <div class="card-text">
+              <div class="tag-row">
+                <p class="badge">03</p>
+                <p class="label">OUTPUT｜每日行程</p>
+              </div>
+              <h3>確認出發</h3>
+              <p class="desc">確認結果，隨時準備出發</p>
+            </div>
+            <img
+              src="./asset/step3-ready-to-go.png"
+              alt="手拿著顯示旅遊行程的手機"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="core-features" id="core-features">
+        <p>CORE FEATURES</p>
+        <h2>整理靈感、排出路線，出發前一次準備好</h2>
+        <div class="features">
+          <div class="feature">
+            <div class="feature-text">
+              <p class="eyebrow">01 / TROVA</p>
+              <h3>AI 景點辨識</h3>
+              <p class="intro">
+                貼上連結或截圖，AI 自動辨識景點資訊， 直接收藏、不用手動輸入。
+              </p>
+              <p class="overview">跨平台匯入・AI自動辨識・免手動輸入</p>
+            </div>
+            <div class="phone-frame">
+              <img src="./asset/feature1-phone.png" alt="AI 景點辨識示意圖" />
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-text">
+              <p class="eyebrow">02 / TROVA</p>
+              <h3>AI 一鍵順路</h3>
+              <p class="intro">
+                選擇你想去的景點，設定旅程的條件，AI
+                為你生成將景點生成順路、可執行的旅程。
+              </p>
+              <p class="overview">順路排序・硬性條件排除・一鍵生成</p>
+            </div>
+            <div class="phone-frame">
+              <img src="./asset/feature2-phone.png" alt="AI 一鍵順路示意圖" />
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-text">
+              <p class="eyebrow">03 / TROVA</p>
+              <h3>行程衝突提醒</h3>
+              <p class="intro">
+                行程異動時自動偵測交通、營業時間等衝突，第一時間提醒你。
+              </p>
+              <p class="overview">異動觸發・衝突偵測・即時提醒</p>
+            </div>
+            <div class="phone-frame">
+              <img src="./asset/feature3-phone.png" alt="行程衝突提醒示意圖" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="experience" id="experience">
+        <div class="experience-text">
+          <p class="eyebrow">TRAVEL WITH FLEXIBILITY</p>
+          <h2>出發前整理好，<br />旅途中更從容</h2>
+          <p>
+            Trova 將散落的收藏整理成順路的每日行程，
+            讓你在旅途中清楚掌握時間、地點與下一站。
+          </p>
+
+          <div class="checklist">
+            <div class="check-item">
+              <p>✓ 整合不同平台的旅遊收藏</p>
+            </div>
+            <div class="check-item">
+              <p>✓ 依位置與時間形成每日安排</p>
+            </div>
+            <div class="check-item">
+              <p>✓ 透過時間軸與地圖查看行程</p>
+            </div>
+          </div>
+        </div>
+        <div class="visual">
+          <img
+            src="./asset/experience-photo.png"
+            alt="一對情侶使用trova旅行的圖片"
+          />
+          <div class="itinerary-card">
+            <div class="card-header">
+            <h3>大阪 · Day 2</h3>
+            <p class="checked">✓ 今日行程已整理</p>
+            </div>
+            <hr />
+            <div class="schedule">
+              <p class="time">09:00</p>
+              <span class="dot"></span>
+              <div class="spot-info">
+                <p class="spot">大阪城</p>
+                <p class="note">天守閣與公園</p>
+              </div>
+            </div>
+            <div class="schedule">
+              <p class="time">11:00</p>
+              <span class="dot"></span>
+              <div class="spot-info">
+                <p class="spot">黑門市場</p>
+                <p class="note">午餐與市場散策</p>
+              </div>
+            </div>
+            <div class="schedule">
+              <p class="time">14:00</p>
+              <span class="dot"></span>
+              <div class="spot-info">
+                <p class="spot">中之島</p>
+                <p class="note">河岸與美術館</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="final-cta" id="final-cta">
+        <div class="final-cta-inner">
+        <div class="icon-badge">
+          <img src="./asset/Pin_Sparkle_Logo.svg" alt="Trova icon pin" />
+        </div>
+        <h2>下一趟旅行<br />從已收藏的靈感開始</h2>
+        <p>Trova 幫你整理與排序，把時間留給體驗旅程。</p>
+        <div class="cta-buttons">
+          <a href="#" class="store-btn">從 ios 下載</a>
+          <a href="#" class="store-btn">從 Android 下載</a>
+        </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+      <p class="footer-logo">trova</p>
+      <p class="footer-desc">把散落的旅行靈感，整理成能真正出發的每日行程。</p>
+      <div class="footer-links">
+        <div class="footer-row">
+          <a href="">旅遊體驗</a>
+          <a href="">核心功能</a>
+        </div>
+        <div class="footer-row">
+          <a href="#">常見問題</a>
+          <a href="#">隱私權</a>
+          <a href="#">服務條款</a>
+        </div>
+        <div class="footer-row">
+          <a href="#">iOS App</a>
+          <a href="#">Android App</a>
+          <a href="#">聯絡我們</a>
+        </div>
+      </div>
+      <p class="copyright">© 2026 Trova. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
 </html>
