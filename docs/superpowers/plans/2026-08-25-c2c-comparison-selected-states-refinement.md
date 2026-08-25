@@ -102,18 +102,22 @@
 
   Keep `再選 1 個景點` visually non-primary using the existing disabled/incomplete treatment and verify sufficient text contrast.
 
-- [ ] **Step 2: Refine the two-selected CTA**
+- [ ] **Step 2: Replace the plain selection hint with a two-slot tray**
+
+  In both refined frames, replace the existing centered `已選數量提示` text with a 361 × 40px horizontal auto-layout tray containing two equal-width 176.5px slots separated by 8px. Use 10px corner radii, Noto Sans TC Medium 13px centered single-line labels, selected and pending treatments defined in the spec, and preserve the tray at x=16, y=720 above the fixed CTA.
+
+- [ ] **Step 3: Refine the two-selected CTA**
 
   Keep `比較 2 個景點` clearly actionable using the existing primary-button treatment; do not introduce a new color.
 
-- [ ] **Step 3: Capture refined screenshots**
+- [ ] **Step 4: Capture refined screenshots**
 
   Render both duplicates and compare them side-by-side with their source frames for selection clarity, consistent placement, clipping, overlap, bottom safety, and brand continuity.
 
-- [ ] **Step 4: Run structural acceptance checks**
+- [ ] **Step 5: Run structural acceptance checks**
 
   Confirm both originals retain their IDs and names, both refined frames exist exactly once, all four frames are 393 × 852px, and no text or node is hidden unintentionally.
 
-- [ ] **Step 5: Apply one bounded correction pass if needed**
+- [ ] **Step 6: Apply one bounded correction pass if needed**
 
   Fix only defects visible in the verification screenshots, then capture one final confirmation screenshot for each refined frame.
