@@ -130,7 +130,7 @@ section.hero .cta-btn {
 }
 
 section.how-it-works {
-    padding: 0px 20px 0 20px;
+    padding: 40px 20px;
 }
 
 .how-it-works > p {
@@ -214,7 +214,7 @@ section.how-it-works div.cards .card img {
 }
 
 section.core-features {
-    padding: 40px 20px 0 20px;
+    padding: 40px 20px;
 }
 
 .core-features > p {
@@ -315,7 +315,7 @@ section.core-features {
 }
 
 .experience {
-    padding: 40px 20px 0 20px;
+    padding: 40px 20px;
 }
 
 .experience-text > p.eyebrow {
@@ -338,9 +338,9 @@ section.core-features {
 .check-item {
     background-color: white;
     border: 1px solid #b14f30;
-    border-radius: 16px;
-    padding: 13px 18px;
-    box-shadow: 0 3px 0 rgba(230, 181, 165, 0.25);
+    border-radius: 20px;
+    padding: 12px 16px;
+    box-shadow: 0 3px 6px rgba(230, 181, 165, 0.25);
     font-size: 14px;
     font-weight: 700;
     color: #2e2a24;
@@ -551,6 +551,7 @@ footer {
 h2 {
     font-size: 48px;
     line-height: 60px;
+    margin-bottom: 24px;
 }
 
 .nav-link {
@@ -603,13 +604,13 @@ section.hero {
 .hero-text {
     display: flex;
     flex-direction: column;
-    gap: 28px;
+    gap: 8px;
     align-items: flex-start;
 }
 
 .hero-text h1 {
     font-size: 56px;
-    line-height: 80px;
+    line-height: 72px;
 }
 
 .hero-text p {
@@ -617,11 +618,10 @@ section.hero {
     line-height: 36px;
 }
 
-.how-it-works {
+section.how-it-works {
     max-width: 1200px;
     margin: 0 auto;
     padding: 100px 20px;
-
 }
 
 section.how-it-works div.cards {
@@ -642,7 +642,7 @@ section.how-it-works div.cards .card {
 }
 
 .features {
-    gap: 40px;
+    gap: 8px;
 }
 
 .feature {
@@ -657,11 +657,11 @@ section.how-it-works div.cards .card {
 }
 
 .feature-text {
-    gap: 18px;
+    gap: 16px;
 }
 
 .eyebrow {
-    font-size: 15px;
+    font-size: 16px;
 }
 
 .feature h3 {
@@ -674,7 +674,7 @@ section.how-it-works div.cards .card {
 }
 
 .overview {
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .phone-frame {
@@ -701,11 +701,7 @@ section.how-it-works div.cards .card {
 
 .experience-text > p {
     font-size: 20px;
-}
-
-.visual {
-    flex:1; 
-    min-width: 0;
+    line-height: 32px;
 }
 
 .checklist {
@@ -715,6 +711,12 @@ section.how-it-works div.cards .card {
 .check-item {
     font-size: 18px;
 }
+
+.visual {
+    flex:1; 
+    min-width: 0;
+}
+
 .itinerary-card{
     min-width: 280px;
 }
@@ -734,11 +736,12 @@ section.how-it-works div.cards .card {
 .dot {
     height: 8px;
     width: 8px;
-    margin-top: 0;
+    margin-top: 3px;
 }
 
 .spot {
     font-size: 14px;
+    margin-top: 3px;
 }
 
 .note {
@@ -764,17 +767,20 @@ section.how-it-works div.cards .card {
 .cta-buttons {
     flex-direction: row;
     justify-content: center;
-    margin-top: 24px;
+}
+
+.store-btn {
+    font-size: 20px;
 }
 
 footer {
-    padding: 40px 20px;
+    padding: 0 20px;
 }
 
 .footer-inner {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 100px 20px;
+    padding: 80px 20px;
 }
 
 .footer-col-title {
