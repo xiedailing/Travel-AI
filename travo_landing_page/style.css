@@ -172,7 +172,7 @@ section.how-it-works div.cards .card:nth-child(2) {
     font-size: 12px;
     font-weight: 700;
     padding: 4px 10px;
-    border-radius: 999px;
+    border-radius: 20px;
     background-color: #B14F30;
 }
 
@@ -189,8 +189,9 @@ section.how-it-works div.cards .card:nth-child(2) {
 }
 
 .desc {
-    font-size: 16px;
+    font-size: 14px;
     color: #6b6357;
+    margin-top: 4px;
 }
 
 .card:nth-child(2) .badge {
@@ -348,11 +349,14 @@ section.core-features {
 }
 
 .visual {
-    position: relative;
-    background-color: #deedea;
     border-radius: 24px;
     padding: 12px;
-    margin-bottom: 220px;
+}
+
+.gbg {
+    background-color: #deedea; 
+    border-radius: 24px;
+    padding: 12px;
 }
 
 .visual img {
@@ -363,9 +367,9 @@ section.core-features {
 }
 
 .itinerary-card {
-    position: absolute;
-    left: 23px;
-    bottom: -130px;
+    position: relative;
+    left: 36px;
+    bottom: 64px;
     width: 50%;
     background-color: white;
     border: 1px solid #d9d4c6;
