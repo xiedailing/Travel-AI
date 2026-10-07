@@ -100,7 +100,7 @@ h2 {
     margin-bottom: 16px;
 }
 
-.hero-img-desktop {
+.hero-visual {
     display: none;
 }
 
@@ -582,7 +582,7 @@ nav ul {
     display: none;
 }
 
-.hero-img-desktop {
+.hero-visual {
     display: block;
 }
 
@@ -597,12 +597,15 @@ section.hero {
 }
 
 .hero-text {
-    flex: 1;
+    flex: 4;
+    min-width: 0;
 }
 
-.hero-img-desktop {
-    flex: 1;
+.hero-visual {
+    flex: 6;
     min-width: 0;
+    position: relative;
+    aspect-ratio: 928 / 816;
 }
 
 .hero-text {
@@ -613,8 +616,9 @@ section.hero {
 }
 
 .hero-text h1 {
-    font-size: 56px;
-    line-height: 72px;
+    /* 文字欄寬約為視窗寬的 40%；標題一行 10 字，字級隨寬度縮放以維持兩行 */
+    font-size: clamp(26px, 4vw - 6px, 44px);
+    line-height: 1.32;
 }
 
 .hero-text p {
@@ -815,4 +819,492 @@ footer {
     gap: 12px;
 }
 
+}
+
+/* ------------------------------------------------------------
+   Hero 右側：分層場景
+   座標以 Figma Hero Visual 的 928 x 816 為基準，
+   由 script.js 依容器寬度等比縮放
+   ------------------------------------------------------------ */
+.hv {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 928px;
+    height: 816px;
+    transform-origin: 0 0;
+    transform: scale(var(--hv-scale, 0.6));
+}
+
+.hv img {
+    max-width: none;
+}
+
+.hv-group,
+.hv-par,
+.hv-float {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hv-glow {
+    position: absolute;
+    left: 60px;
+    top: 0;
+    width: 816px;
+    height: 816px;
+}
+
+/* 手機本體：以 271.44 x 565.2 的設計尺寸擺放後旋轉 */
+.hv-body {
+    position: absolute;
+    width: 271.44px;
+    height: 565.2px;
+}
+
+.hv-body-a {
+    left: 198.874px;
+    top: 67.95px;
+    transform: rotate(-8.19deg);
+    filter: drop-shadow(3px 6px 2px rgba(102, 102, 102, 0.2));
+}
+
+.hv-body-b {
+    left: 475.5185px;
+    top: 188.757px;
+    transform: rotate(3.8deg);
+    filter: drop-shadow(3px 8px 2px rgba(113, 113, 113, 0.15));
+}
+
+/* 側邊按鈕 */
+.hv-btns {
+    position: absolute;
+    left: -2.16px;
+    top: 107.28px;
+    width: 275.76px;
+    height: 457.92px;
+}
+
+.hv-btn {
+    position: absolute;
+    width: 3.6px;
+    border-radius: 1.44px 0 0 1.44px;
+    background:
+        linear-gradient(to bottom, rgba(0, 0, 0, 0) var(--b), rgba(0, 0, 0, 0.48)),
+        linear-gradient(-90deg, #000 0%, rgba(174, 174, 174, 0) 70%),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.76), rgba(0, 0, 0, 0) var(--t)),
+        #f0ece3;
+}
+
+.hv-btn-r {
+    transform: rotate(180deg);
+}
+
+/* 鈦金屬外框 */
+.hv-ti {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 271.44px;
+    height: 565.2px;
+    border-radius: 44.64px;
+    overflow: hidden;
+}
+
+.hv-ti > span {
+    position: absolute;
+}
+
+.hv-ti .hl {
+    inset: 0;
+    border-radius: 44.64px;
+    background: #e7e3bf;
+}
+
+.hv-ti .so1 {
+    inset: 0;
+    border: 2.16px solid #c3c3c3;
+    border-radius: 44.64px;
+    filter: blur(1.44px);
+}
+
+.hv-ti .so2 {
+    inset: 0;
+    border: 0.72px solid #524b40;
+    border-radius: 44.64px;
+    filter: blur(0.72px);
+}
+
+.hv-ti .si {
+    left: 3.6px;
+    top: 3.6px;
+    width: 264.96px;
+    height: 558.72px;
+    border: 0.72px solid #fff;
+    border-radius: 41.76px;
+    filter: blur(0.72px);
+}
+
+.hv-ti .hi {
+    left: 2.88px;
+    top: 2.88px;
+    width: 265.68px;
+    height: 559.44px;
+    border: 0.288px solid #fff;
+    border-radius: 41.76px;
+}
+
+.hv-ti .cut.c1 {
+    left: 210.96px;
+    top: 0;
+    width: 4.32px;
+    height: 2.88px;
+    background: linear-gradient(to bottom, #817e73, #c3beac);
+}
+
+.hv-ti .cut.c2 {
+    left: 0;
+    top: 58.32px;
+    width: 2.88px;
+    height: 4.32px;
+    background: linear-gradient(to right, #817e73, #c3beac);
+}
+
+.hv-ti .cut.c3 {
+    left: 0;
+    top: 502.56px;
+    width: 2.88px;
+    height: 4.32px;
+    background: linear-gradient(to right, #817e73, #c3beac);
+}
+
+.hv-ti .cut.c4 {
+    left: 45.36px;
+    top: 562.32px;
+    width: 3.6px;
+    height: 2.88px;
+    background: linear-gradient(to top, #817e73, #c3beac);
+}
+
+.hv-ti .cut.c5 {
+    left: 268.56px;
+    top: 502.56px;
+    width: 2.88px;
+    height: 4.32px;
+    background: linear-gradient(to left, #817e73, #c3beac);
+}
+
+/* 螢幕邊框、螢幕、動態島 */
+.hv-sf {
+    position: absolute;
+    left: 2.88px;
+    top: 2.88px;
+    width: 265.68px;
+    height: 559.44px;
+    border-radius: 41.76px;
+    overflow: hidden;
+    background: #000100;
+}
+
+.hv-sf::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 2.88px solid #879194;
+    border-radius: 41.76px;
+    filter: blur(2.52px);
+}
+
+.hv-screen {
+    position: absolute;
+    width: 254.16px;
+    height: 547.92px;
+    border-radius: 37.44px;
+    overflow: hidden;
+    background: #f7f2ea;
+}
+
+.hv-body-a .hv-screen {
+    left: 7.48px;
+    top: 11.22px;
+}
+
+.hv-body-b .hv-screen {
+    left: 8.64px;
+    top: 8.64px;
+}
+
+.hv-island {
+    position: absolute;
+    left: calc(50% - 39.96px);
+    top: 17.28px;
+    width: 79.92px;
+    height: 22.32px;
+}
+
+/* 左手機：收藏卡片、平台 icon、資料夾 */
+.hv-card {
+    position: absolute;
+    width: 104.4px;
+    height: 132px;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #ded9d1;
+}
+
+.hv-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0.72));
+}
+
+.hv-card img {
+    position: absolute;
+}
+
+.hv-card--osaka img {
+    left: 0;
+    top: -2.73%;
+    width: 100%;
+    height: 105.45%;
+}
+
+.hv-card--lost img,
+.hv-card--stay img {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hv-card--kyoto img {
+    left: -1.32%;
+    top: -3.74%;
+    width: 101.72%;
+    height: 120.68%;
+    z-index: 1;
+}
+
+.hv-icon {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 4px 0 rgba(159, 159, 159, 0.25);
+}
+
+.hv-icon img {
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    width: 24px;
+    height: 24px;
+}
+
+.hv-icon--tiktok,
+.hv-icon--threads {
+    box-shadow: 0 3px 4px 4px rgba(159, 159, 159, 0.25);
+}
+
+.hv-icon--threads {
+    background: #fff;
+}
+
+.hv-icon--rednote > span {
+    position: absolute;
+    left: -0.59px;
+    top: -1.91px;
+    width: 24px;
+    height: 24px;
+    overflow: hidden;
+}
+
+.hv-icon--rednote img {
+    left: -33.33%;
+    top: -33.33%;
+    width: 166.67%;
+    height: 166.67%;
+}
+
+.hv-folder {
+    position: absolute;
+    left: 36px;
+    top: 407px;
+    width: 199px;
+    height: 124px;
+}
+
+.hv-folder img {
+    position: absolute;
+}
+
+.hv-folder-glass {
+    left: -20px;
+    top: -20px;
+    width: 239px;
+    height: 164px;
+}
+
+.hv-folder-outline {
+    left: -6.01px;
+    top: -4px;
+    width: 211.02px;
+    height: 136px;
+}
+
+.hv-folder-logo {
+    left: 44px;
+    top: 47px;
+    width: 39.2px;
+    height: 39.2px;
+}
+
+.hv-folder-name {
+    position: absolute;
+    left: 86px;
+    top: 49.1px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -0.35px;
+    color: #2e2a24;
+    white-space: nowrap;
+}
+
+/* 右手機：每日行程（真實 HTML 文字） */
+.hv-trip-title {
+    position: absolute;
+    left: 34.84px;
+    top: 44.6px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: normal;
+    color: #000;
+    white-space: nowrap;
+}
+
+.hv-timeline {
+    position: absolute;
+    left: 16.84px;
+    top: 87.6px;
+    width: 219.6px;
+    display: flex;
+    flex-direction: column;
+    gap: 10.08px;
+}
+
+.hv-row {
+    display: flex;
+    align-items: center;
+    gap: 8.64px;
+    flex: none;
+    width: 100%;
+    height: 70px;
+    overflow: hidden;
+}
+
+.hv-time {
+    flex: none;
+    width: 31.68px;
+    font-size: 7.92px;
+    font-weight: 700;
+    line-height: normal;
+    color: #756b64;
+}
+
+.hv-dot {
+    flex: none;
+    width: 7.2px;
+    height: 7.2px;
+}
+
+.hv-stop {
+    position: relative;
+    flex: none;
+    width: 164px;
+    height: 70px;
+    border-radius: 10.08px;
+    overflow: hidden;
+    background: #fffdf9;
+}
+
+.hv-thumb {
+    position: absolute;
+    left: 8.84px;
+    top: 11.5px;
+    width: 49px;
+    height: 48px;
+    border-radius: 2.88px;
+    overflow: hidden;
+    background: #ddd8d0;
+}
+
+.hv-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hv-name,
+.hv-stay {
+    position: absolute;
+    left: 64.84px;
+    font-weight: 400;
+    line-height: normal;
+    color: #000;
+    white-space: nowrap;
+}
+
+.hv-name {
+    top: 14.5px;
+    font-size: 15px;
+}
+
+.hv-stay {
+    top: 40.5px;
+    font-size: 11px;
+}
+
+.hv-transit {
+    position: relative;
+    flex: none;
+    width: 220px;
+    height: 30px;
+    overflow: hidden;
+}
+
+.hv-line {
+    position: absolute;
+    left: 68px;
+    top: -4.58px;
+    width: 2px;
+    height: 40px;
+    background: #ccc;
+}
+
+.hv-transit-text {
+    position: absolute;
+    left: 81px;
+    top: -1.58px;
+    width: 135px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    line-height: normal;
+    color: #737373;
+    white-space: nowrap;
+}
+
+.hv-spark {
+    position: absolute;
 }
