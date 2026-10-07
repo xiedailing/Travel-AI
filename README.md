@@ -95,7 +95,7 @@ Travel-AI/
 ├── README.md
 ├── assets/                  簡報與 Landing Page 使用的圖像資源（LOGO、Persona、流程截圖等）
 ├── wireframe-screens/       12 個核心畫面 Wireframe
-├── travo_landing_page/      Landing Page（index.html、style.css、asset/）
+├── trova_landing_page/      Landing Page（index.html、style.css、asset/）
 └── docs/
     └── trova-slides.html    專題簡報
 ```
