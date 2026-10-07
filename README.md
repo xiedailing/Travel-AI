@@ -104,9 +104,5 @@ Travel-AI/
 
 - IA 資訊架構（FigJam）：https://www.figma.com/board/9w3W4MR3tHUweYCY1a2bqX/智慧旅行規劃整合平台-IA資訊架構
 - Wireframe（Figma Design）：https://www.figma.com/design/xmcXH10RGmggz6fz6Z5NUK
-- Interactive Prototype
-  - [Flow 0：登入／註冊](https://www.figma.com/proto/P8P8AbsbsKqyPCSUFf32wj/%E6%99%BA%E6%85%A7%E6%97%85%E8%A1%8C%E8%A6%8F%E5%8A%83%E6%95%B4%E5%90%88%E5%B9%B3%E5%8F%B0%E5%B0%88%E6%A1%88_Wireframe--Copy-?node-id=1010-16597&p=f&t=EDMtuD9WQnIYpXCE-1&scaling=scale-down&content-scaling=fixed&page-id=1010%3A16129&starting-point-node-id=1010%3A16597)
-  - [Flow A：跨平台匯入收藏](https://www.figma.com/proto/P8P8AbsbsKqyPCSUFf32wj/%E6%99%BA%E6%85%A7%E6%97%85%E8%A1%8C%E8%A6%8F%E5%8A%83%E6%95%B4%E5%90%88%E5%B9%B3%E5%8F%B0%E5%B0%88%E6%A1%88_Wireframe--Copy-?node-id=1010-8563&t=ztQyWOwbQydHEElx-1&scaling=scale-down&content-scaling=fixed&page-id=1010%3A3506&starting-point-node-id=1010%3A8563&show-proto-sidebar=1)
-  - [Flow B + C：行程規劃中心](https://www.figma.com/proto/P8P8AbsbsKqyPCSUFf32wj/%E6%99%BA%E6%85%A7%E6%97%85%E8%A1%8C%E8%A6%8F%E5%8A%83%E6%95%B4%E5%90%88%E5%B9%B3%E5%8F%B0%E5%B0%88%E6%A1%88_Wireframe--Copy-?node-id=850-2335&p=f&t=8YlaVL55zQo1KmJU-1&scaling=scale-down&content-scaling=fixed&page-id=311%3A1462&starting-point-node-id=850%3A2335&show-proto-sidebar=1)
 
 > 截圖僅為當下快照，若 Figma 持續編輯，請以連結內的最新版本為準。
