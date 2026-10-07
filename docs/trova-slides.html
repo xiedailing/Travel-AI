@@ -2889,31 +2889,51 @@
     .ai-demo.resolved .demo-copy strong { color: #58765d; }
 
     /* Interactive prototype */
+    /* 左欄寬度貼合內容、與手機成為一組並整組置中，空白留在兩側而不是中間 */
     .prototype-slide {
-      grid-template-rows: auto 1fr;
-      gap: 3%;
+      grid-template-columns: fit-content(46rem) auto;
+      grid-template-rows: minmax(0, 1fr);
+      align-items: center;
+      justify-content: center;
+      gap: clamp(3rem, 7vw, 9rem);
+      padding-top: clamp(1.2rem, 3.2vw, 4rem);
+      padding-bottom: clamp(2.4rem, 5.6vh, 4rem);
     }
+
+    .prototype-side {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-width: 0;
+    }
+
+    .prototype-head { margin-bottom: clamp(1.6rem, 4vh, 2.8rem); }
+
+    /* 小標題與頁碼標籤同一列，頁碼跟著左欄走 */
+    .prototype-meta {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-bottom: .85rem;
+    }
+
+    .prototype-meta .eyebrow { margin: 0; }
 
     .prototype-slide h2 {
       max-width: none;
-      margin-bottom: .5rem;
-      font-size: clamp(1.9rem, 3.45vw, 4.15rem);
-      line-height: 1.06;
+      margin-bottom: .7rem;
+      font-size: clamp(2rem, 3.5vw, 3.4rem);
+      line-height: 1.1;
       white-space: nowrap;
     }
 
     .prototype-lede {
+      max-width: 36em;
       margin: 0;
       color: var(--muted);
-      font-size: clamp(.68rem, .9vw, .98rem);
-      line-height: 1.5;
-    }
-
-    .prototype-flow-code {
-      color: var(--terracotta);
-      font-size: clamp(.56rem, .7vw, .76rem);
-      font-weight: 900;
-      letter-spacing: .16em;
+      font-size: clamp(.78rem, 1vw, 1.1rem);
+      line-height: 1.6;
     }
 
     .prototype-open {
@@ -2922,7 +2942,6 @@
       justify-content: center;
       gap: .45rem;
       width: fit-content;
-      margin-top: .85rem;
       padding: .72rem .95rem;
       border: 1px solid var(--terracotta);
       border-radius: 999px;
@@ -2936,188 +2955,251 @@
     .prototype-open::after { content: "↗"; font-size: 1.05em; }
     .prototype-open:hover { color: white; background: var(--terracotta); }
 
-    .prototype-branch {
-      display: grid;
-      grid-template-columns: minmax(9.5rem, .8fr) minmax(0, 1.2fr);
+    .prototype-actions {
+      display: flex;
+      flex-wrap: wrap;
       align-items: center;
-      gap: clamp(.8rem, 1.5vw, 1.45rem);
-      min-width: 0;
-      padding: clamp(.8rem, 1.2vw, 1.1rem);
-      border-left: 5px solid var(--indigo);
-      border-radius: 0 .8rem .8rem 0;
-      background: rgba(74, 95, 199, .07);
+      gap: .7rem;
     }
 
-    .prototype-branch.check {
-      grid-template-columns: minmax(13.5rem, 1fr) minmax(0, 1fr);
-      border-left-color: var(--sage);
-      background: rgba(126, 154, 130, .09);
+    .prototype-restart,
+    .prototype-fullscreen {
+      padding: .72rem .95rem;
+      border: 1px solid rgba(43, 36, 32, .28);
+      border-radius: 999px;
+      color: var(--warm-black);
+      background: transparent;
+      font-size: clamp(.58rem, .72vw, .8rem);
+      font-weight: 900;
+      letter-spacing: .08em;
+      cursor: pointer;
     }
 
-    .prototype-branch.check h4 {
-      font-size: clamp(.95rem, 1.25vw, 1.38rem);
-      white-space: nowrap;
-    }
+    .prototype-restart::before { content: "↻"; margin-right: .45rem; }
+    .prototype-fullscreen::before { content: "⤢"; margin-right: .45rem; }
+    .prototype-restart:hover,
+    .prototype-fullscreen:hover { color: white; background: var(--warm-black); }
+    .prototype-restart:focus-visible,
+    .prototype-fullscreen:focus-visible { outline: 3px solid var(--indigo); outline-offset: 3px; }
+    .prototype-restart[hidden],
+    .prototype-fullscreen[hidden] { display: none; }
 
-    .prototype-card-grid {
+    .prototype-path {
       display: grid;
-      grid-template-columns: minmax(12rem, .64fr) minmax(15rem, .82fr) minmax(0, 1.54fr);
-      gap: clamp(.8rem, 1.45vw, 1.4rem);
-      min-height: 0;
-      padding-top: clamp(1rem, 2vh, 1.5rem);
-      border-top: 1px solid var(--line);
-    }
-
-    .prototype-card {
-      display: grid;
-      grid-template-rows: auto 1fr auto;
-      min-width: 0;
-      padding: clamp(1rem, 1.55vw, 1.5rem);
-      border: 1px solid rgba(43, 36, 32, .12);
-      border-radius: 1rem;
-      background: rgba(255, 253, 249, .82);
-    }
-
-    .prototype-card.onboarding {
-      border-style: dashed;
-      background: rgba(43, 36, 32, .025);
-    }
-
-    .prototype-card.import { border-top: 5px solid var(--terracotta); }
-    .prototype-card.planning { border-top: 5px solid var(--indigo); }
-    .prototype-card.onboarding .prototype-flow-code { color: var(--muted); }
-    .prototype-card.planning .prototype-flow-code { color: var(--indigo); }
-
-    .prototype-card h3 {
-      margin: .42rem 0 .5rem;
-      font-family: var(--serif);
-      font-size: clamp(1.25rem, 1.75vw, 2rem);
-      line-height: 1.16;
-    }
-
-    .prototype-card-copy {
-      margin: 0;
-      color: var(--muted);
-      font-size: clamp(.65rem, .78vw, .86rem);
-      line-height: 1.5;
-    }
-
-    .prototype-card-steps {
-      display: grid;
-      align-content: center;
-      gap: .65rem;
-      margin: 1rem 0;
+      gap: clamp(1rem, 2.6vh, 1.7rem);
+      margin: 0 0 clamp(1.1rem, 2.4vh, 1.8rem);
       padding: 0;
       list-style: none;
     }
 
-    .prototype-card-steps li {
-      display: flex;
-      align-items: center;
-      gap: .55rem;
-      font-size: clamp(.65rem, .8vw, .88rem);
-      font-weight: 750;
+    .prototype-path li {
+      display: grid;
+      grid-template-columns: 2.4rem minmax(0, 1fr);
+      align-items: start;
+      gap: 1.05rem;
     }
 
-    .prototype-card-steps span {
+    .prototype-path li > span {
       display: grid;
       place-items: center;
-      flex: 0 0 auto;
-      width: 1.6rem;
-      height: 1.6rem;
+      width: 2.4rem;
+      height: 2.4rem;
       border-radius: 50%;
       color: white;
       background: var(--terracotta);
-      font-size: .56rem;
+      font-size: clamp(.56rem, .7vw, .78rem);
       font-weight: 900;
     }
 
-    .onboarding .prototype-card-steps span { background: #8a8580; }
-    .planning .prototype-open { border-color: var(--indigo); color: var(--indigo); }
-    .planning .prototype-open:hover { color: white; background: var(--indigo); }
+    .prototype-path li:nth-child(2) > span { background: var(--indigo); }
+    .prototype-path li:nth-child(3) > span { background: var(--sage); }
 
-    .prototype-card .prototype-open {
-      width: 100%;
-      margin-top: 0;
-      box-sizing: border-box;
-    }
-
-    .prototype-card-branches {
-      display: grid;
-      align-content: center;
-      gap: clamp(.7rem, 1.25vh, 1rem);
-      margin: 1rem 0;
-    }
-
-    .prototype-card-branches .prototype-branch {
-      grid-template-columns: minmax(9rem, .9fr) minmax(0, 1.1fr);
-      padding: clamp(.7rem, 1vw, .95rem);
-    }
-
-    .prototype-card-branches .prototype-branch.check {
-      grid-template-columns: minmax(12rem, 1fr) minmax(0, 1fr);
-    }
-
-    @media (max-width: 700px) {
-      .prototype-card-grid {
-        grid-template-columns: .72fr .9fr 1.38fr;
-        gap: .45rem;
-        padding-top: .55rem;
-      }
-
-      .prototype-card { padding: .58rem; border-radius: .6rem; }
-      .prototype-card.import,
-      .prototype-card.planning { border-top-width: 3px; }
-      .prototype-card h3 { margin: .2rem 0 .25rem; font-size: .72rem; }
-      .prototype-card-copy { font-size: .34rem; line-height: 1.35; }
-      .prototype-card-steps { gap: .3rem; margin: .45rem 0; }
-      .prototype-card-steps li { gap: .28rem; font-size: .34rem; }
-      .prototype-card-steps span { width: .9rem; height: .9rem; font-size: .28rem; }
-      .prototype-card .prototype-flow-code { font-size: .3rem; }
-      .prototype-card .prototype-open { padding: .38rem .42rem; font-size: .31rem; }
-      .prototype-card-branches { gap: .35rem; margin: .45rem 0; }
-      .prototype-card-branches .prototype-branch,
-      .prototype-card-branches .prototype-branch.check {
-        grid-template-columns: 5.8rem 1fr;
-        gap: .38rem;
-        padding: .4rem;
-      }
-      .prototype-card-branches .prototype-branch.check h4 { font-size: .5rem; }
-    }
-
-    .branch-role {
+    .prototype-path strong {
       display: block;
-      margin-bottom: .35rem;
-      color: var(--indigo);
-      font-size: clamp(.5rem, .62vw, .68rem);
-      font-weight: 900;
-      letter-spacing: .1em;
+      margin-bottom: .3rem;
+      font-size: clamp(1.05rem, 1.6vw, 1.75rem);
+      line-height: 1.25;
+      letter-spacing: -.02em;
     }
 
-    .prototype-branch.check .branch-role { color: var(--sage); }
-
-    .prototype-branch h4 {
+    .prototype-path p {
       margin: 0;
-      font-family: var(--serif);
-      font-size: clamp(1.05rem, 1.5vw, 1.65rem);
-      line-height: 1.15;
+      color: var(--muted);
+      font-size: clamp(.8rem, 1.05vw, 1.15rem);
+      line-height: 1.6;
     }
 
-    .branch-steps {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: .35rem;
+    .prototype-hint {
+      max-width: 32em;
+      margin: .9rem 0 0;
       color: var(--muted);
       font-size: clamp(.62rem, .78vw, .86rem);
-      font-weight: 700;
-      line-height: 1.45;
+      line-height: 1.6;
     }
 
-    .branch-steps span:not(:last-child)::after {
-      content: "→";
-      margin-left: .35rem;
-      color: rgba(46, 42, 36, .32);
+    /* 手機外框：沿用第 13 頁 mockup 的描邊與陰影語言；高度佔滿右欄 */
+    .prototype-device {
+      position: relative;
+      height: 100%;
+      max-height: 100%;
+      aspect-ratio: 393 / 852;
+      border: 1px solid rgba(46, 42, 36, .14);
+      border-radius: clamp(1.4rem, 2.4vw, 2.6rem);
+      background: white;
+      box-shadow: 0 22px 60px rgba(46, 42, 36, .18);
+      overflow: hidden;
+    }
+
+    .prototype-screen,
+    .prototype-poster {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .prototype-screen { overflow: hidden; }
+    .prototype-poster { object-fit: cover; }
+
+    /* iframe 固定 393x852（Figma 1 倍、剛好填滿），再依手機框寬度等比縮放；略放大 0.8% 蓋住邊緣的 1px 內部黑底 */
+    .prototype-frame {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 393px;
+      height: 852px;
+      border: 0;
+      transform-origin: 0 0;
+      transform: scale(calc(var(--proto-scale, .7) * 1.008));
+      opacity: 0;
+      transition: opacity .45s ease;
+    }
+
+    .is-loaded .prototype-frame { opacity: 1; }
+
+    .prototype-screen::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(43, 36, 32, .38), rgba(43, 36, 32, 0) 48%);
+      pointer-events: none;
+    }
+
+    .prototype-start {
+      position: absolute;
+      z-index: 2;
+      left: 50%;
+      bottom: 12%;
+      padding: .85rem 1.7rem;
+      border: 0;
+      border-radius: 999px;
+      color: white;
+      background: var(--terracotta);
+      box-shadow: 0 12px 28px rgba(193, 99, 61, .35);
+      font-size: clamp(.72rem, .95vw, 1.05rem);
+      font-weight: 900;
+      letter-spacing: .08em;
+      white-space: nowrap;
+      cursor: pointer;
+      transform: translateX(-50%);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .prototype-start::before {
+      content: "▶";
+      margin-right: .55rem;
+      font-size: .7em;
+    }
+
+    .prototype-start:hover {
+      transform: translateX(-50%) translateY(-2px);
+      box-shadow: 0 16px 34px rgba(193, 99, 61, .42);
+    }
+
+    .prototype-start:focus-visible {
+      outline: 3px solid var(--indigo);
+      outline-offset: 3px;
+    }
+
+    .is-started .prototype-start,
+    .is-started .prototype-screen::after { display: none; }
+
+    .is-started:not(.is-loaded) .prototype-screen::before {
+      content: "載入中…";
+      position: absolute;
+      z-index: 2;
+      left: 50%;
+      bottom: 14%;
+      padding: .6rem 1.1rem;
+      border-radius: 999px;
+      color: var(--warm-black);
+      background: rgba(255, 253, 249, .92);
+      font-size: clamp(.6rem, .8vw, .9rem);
+      font-weight: 800;
+      transform: translateX(-50%);
+    }
+
+    /* 全螢幕／覆蓋整頁：手機置中、以螢幕高度為準 */
+    .prototype-exit {
+      display: none;
+      position: absolute;
+      z-index: 3;
+      top: 1.2rem;
+      right: 1.2rem;
+      width: 2.6rem;
+      height: 2.6rem;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      color: white;
+      background: var(--warm-black);
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .prototype-exit:focus-visible { outline: 3px solid var(--indigo); outline-offset: 3px; }
+
+    .prototype-device.is-expanded {
+      position: fixed;
+      inset: 0;
+      z-index: 60;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100vw;
+      height: 100vh;
+      max-height: none;
+      aspect-ratio: auto;
+      border: 0;
+      border-radius: 0;
+      background: var(--cream);
+      box-shadow: none;
+    }
+
+    .prototype-device.is-expanded .prototype-screen {
+      position: relative;
+      inset: auto;
+      width: auto;
+      height: min(94vh, calc(94vw * 852 / 393));
+      aspect-ratio: 393 / 852;
+      border: 1px solid rgba(46, 42, 36, .14);
+      border-radius: clamp(1.6rem, 3vw, 3rem);
+      box-shadow: 0 22px 60px rgba(46, 42, 36, .22);
+    }
+
+    .prototype-device.is-expanded .prototype-exit { display: grid; }
+
+    @media (max-width: 700px) {
+      .prototype-slide { gap: 1.2rem; }
+      .prototype-head { margin-bottom: .6rem; }
+      .prototype-path { gap: .5rem; margin-bottom: .6rem; }
+      .prototype-path li { grid-template-columns: 1.1rem minmax(0, 1fr); gap: .45rem; }
+      .prototype-path li > span { width: 1.1rem; height: 1.1rem; font-size: .34rem; }
+      .prototype-path strong { margin-bottom: .1rem; font-size: .62rem; }
+      .prototype-path p { font-size: .4rem; line-height: 1.45; }
+      .prototype-hint { margin-top: .4rem; font-size: .34rem; }
+      .prototype-start { padding: .45rem .9rem; font-size: .42rem; }
     }
 
     /* Validation plan */
@@ -4150,22 +4232,30 @@
       .validation-stage span { width: 1.15rem; height: 1.15rem; font-size: .32rem; }
       .validation-stage:not(:last-child)::after { right: -.25rem; }
 
-      .prototype-slide { gap: 2%; }
+      .prototype-slide {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto minmax(0, 1fr) auto;
+        justify-items: center;
+        gap: .6rem;
+      }
+      .prototype-side { display: contents; }
+      .prototype-head { grid-row: 1; justify-self: stretch; margin-bottom: 0; }
+      .prototype-meta { margin-bottom: .5rem; }
+      .prototype-meta .slide-index { font-size: .48rem; }
       .prototype-slide h2 {
         max-width: 12em;
         font-size: clamp(1.35rem, 6.3vw, 2rem);
         white-space: normal;
       }
       .prototype-lede { font-size: .46rem; }
-      .prototype-flow-code { font-size: .34rem; }
-      .prototype-open { margin-top: 0; padding: .4rem .52rem; font-size: .34rem; }
-      .prototype-branch { grid-template-columns: 5.8rem 1fr; gap: .4rem; padding: .45rem; border-left-width: 3px; border-radius: 0 .45rem .45rem 0; }
-      .prototype-branch.check { grid-template-columns: 7.8rem 1fr; }
-      .branch-role { margin-bottom: .18rem; font-size: .3rem; }
-      .prototype-branch h4 { font-size: .64rem; }
-      .prototype-branch.check h4 { font-size: .54rem; }
-      .branch-steps { gap: .2rem; font-size: .34rem; }
-      .branch-steps span:not(:last-child)::after { margin-left: .2rem; }
+      .prototype-device { grid-row: 2; }
+      .prototype-actions { grid-row: 3; justify-content: center; }
+      .prototype-path,
+      .prototype-hint { display: none; }
+      .prototype-open,
+      .prototype-restart,
+      .prototype-fullscreen { margin-top: 0; padding: .4rem .52rem; font-size: .34rem; }
+      .prototype-start { padding: .55rem 1rem; font-size: .5rem; }
 
       .conclusion-slide {
         grid-template-columns: 1fr;
@@ -4214,6 +4304,22 @@
       .slide { padding-top: 4vh; padding-bottom: 5vh; }
       .controls { right: .45rem; bottom: .35rem; }
       .control { width: 2.15rem; height: 2.15rem; }
+
+      /* 手機橫放：版面高度很小，收起說明並縮小按鈕，把空間留給 prototype */
+      .prototype-slide h2 { font-size: 1.3rem; margin-bottom: .2rem; }
+      .prototype-head { margin-bottom: .6rem; }
+      .prototype-meta { margin-bottom: .3rem; }
+      .prototype-lede,
+      .prototype-hint { display: none; }
+      .prototype-path { gap: .4rem; margin-bottom: .5rem; }
+      .prototype-path li { grid-template-columns: 1.1rem minmax(0, 1fr); gap: .45rem; }
+      .prototype-path li > span { width: 1.1rem; height: 1.1rem; font-size: .34rem; }
+      .prototype-path strong { margin-bottom: .1rem; font-size: .62rem; }
+      .prototype-path p { font-size: .4rem; line-height: 1.4; }
+      .prototype-start { bottom: 8%; padding: .4rem .8rem; font-size: .42rem; }
+      .prototype-open,
+      .prototype-restart,
+      .prototype-fullscreen { padding: .35rem .6rem; font-size: .4rem; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -4924,62 +5030,45 @@
     </section>
 
     <section class="slide prototype-slide" aria-label="Slide 15：Interactive Prototype">
-      <header class="slide-header">
-        <div>
-          <p class="eyebrow">Interactive Prototype</p>
-          <h2>三個操作入口，體驗完整產品流程</h2>
-          <p class="prototype-lede">點擊連結，從指定起始畫面開始操作。</p>
+      <div class="prototype-side">
+        <header class="prototype-head">
+          <div class="prototype-meta">
+            <p class="eyebrow">Interactive Prototype</p>
+            <span class="slide-index">14 — PROTOTYPE</span>
+          </div>
+          <h2>親手操作：從收藏到排出行程</h2>
+          <p class="prototype-lede">以京都 5 日遊為例，點擊「開始體驗」即可操作；想重來時按「重新開始」。建議用電腦瀏覽器開啟。</p>
+        </header>
+
+        <ol class="prototype-path" aria-label="體驗路徑">
+          <li>
+            <span>01</span>
+            <div><strong>匯入收藏</strong><p>貼上一則 Instagram 連結，看 AI 辨識出景點並收藏。</p></div>
+          </li>
+          <li>
+            <span>02</span>
+            <div><strong>加入行程</strong><p>把錦市場加進「京都 5 日遊」的 Day 2。</p></div>
+          </li>
+          <li>
+            <span>03</span>
+            <div><strong>AI 安排與健檢</strong><p>交給 AI 排出順路行程，或自己調整並查看衝突提醒。</p></div>
+          </li>
+        </ol>
+
+        <div class="prototype-actions">
+          <a class="prototype-open" href="https://www.figma.com/proto/zibVaGD0nePHsRTbO8X9bo/%E6%99%BA%E6%85%A7%E6%97%85%E8%A1%8C%E8%A6%8F%E5%8A%83%E6%95%B4%E5%90%88%E5%B9%B3%E5%8F%B0%E5%B0%88%E6%A1%88_Wireframe?node-id=1468-12139&amp;p=f&amp;scaling=scale-down&amp;content-scaling=fixed&amp;starting-point-node-id=1468%3A12139&amp;page-id=1446%3A8995" target="_blank" rel="noopener noreferrer">在 Figma 開啟</a>
+          <button class="prototype-restart" type="button" hidden>重新開始</button>
+          <button class="prototype-fullscreen" type="button" hidden>全螢幕</button>
         </div>
-        <div class="slide-index">14 — PROTOTYPE</div>
-      </header>
+        <p class="prototype-hint">操作時鍵盤會由 prototype 接管；要翻頁請點選畫面外的空白處，或使用右下角按鈕。</p>
+      </div>
 
-      <div class="prototype-card-grid">
-        <article class="prototype-card onboarding">
-          <div>
-            <small class="prototype-flow-code">FLOW 0 · ONBOARDING</small>
-            <h3>登入／註冊</h3>
-            <p class="prototype-card-copy">建立帳號或登入，進入個人化的旅行規劃空間。</p>
-          </div>
-          <ol class="prototype-card-steps" aria-label="登入註冊流程">
-            <li><span>01</span>選擇登入或註冊</li>
-            <li><span>02</span>輸入帳號資料</li>
-            <li><span>03</span>進入平台</li>
-          </ol>
-          <a class="prototype-open" href="https://www.figma.com/proto/P8P8AbsbsKqyPCSUFf32wj/%E6%99%BA%E6%85%A7%E6%97%85%E8%A1%8C%E8%A6%8F%E5%8A%83%E6%95%B4%E5%90%88%E5%B9%B3%E5%8F%B0%E5%B0%88%E6%A1%88_Wireframe--Copy-?node-id=1010-16597&amp;p=f&amp;t=EDMtuD9WQnIYpXCE-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;page-id=1010%3A16129&amp;starting-point-node-id=1010%3A16597" target="_blank" rel="noopener noreferrer">OPEN PROTOTYPE</a>
-        </article>
-
-        <article class="prototype-card import">
-          <div>
-            <small class="prototype-flow-code">FLOW A · IMPORT</small>
-            <h3>跨平台匯入收藏</h3>
-            <p class="prototype-card-copy">從空收藏開始，把外部旅行靈感轉成可使用的景點資料。</p>
-          </div>
-          <ol class="prototype-card-steps" aria-label="跨平台匯入收藏流程">
-            <li><span>01</span>匯入外部連結</li>
-            <li><span>02</span>AI 擷取資訊</li>
-            <li><span>03</span>確認並收藏</li>
-          </ol>
-          <a class="prototype-open" href="https://www.figma.com/proto/P8P8AbsbsKqyPCSUFf32wj/%E6%99%BA%E6%85%A7%E6%97%85%E8%A1%8C%E8%A6%8F%E5%8A%83%E6%95%B4%E5%90%88%E5%B9%B3%E5%8F%B0%E5%B0%88%E6%A1%88_Wireframe--Copy-?node-id=1010-8563&amp;t=ztQyWOwbQydHEElx-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;page-id=1010%3A3506&amp;starting-point-node-id=1010%3A8563&amp;show-proto-sidebar=1" target="_blank" rel="noopener noreferrer">OPEN PROTOTYPE</a>
-        </article>
-
-        <article class="prototype-card planning">
-          <div>
-            <small class="prototype-flow-code">FLOW B + C · PLANNING HUB</small>
-            <h3>行程規劃中心</h3>
-            <p class="prototype-card-copy">從同一個行程詳情頁，選擇交給 AI 安排或自行規劃。</p>
-          </div>
-          <div class="prototype-card-branches">
-            <section class="prototype-branch" aria-label="Flow B 交給 AI 安排">
-              <div><small class="branch-role">FLOW B · AI 是安排者</small><h4>交給 AI 安排</h4></div>
-              <div class="branch-steps"><span>選擇景點</span><span>設定條件</span><span>AI 建議順序</span><span>套用</span></div>
-            </section>
-            <section class="prototype-branch check" aria-label="Flow C 自己安排並由 AI 即時健檢">
-              <div><small class="branch-role">FLOW C · AI 是協作者</small><h4>自己安排，AI 即時健檢</h4></div>
-              <div class="branch-steps"><span>自行調整</span><span>偵測衝突</span><span>展開建議</span><span>手動修正</span></div>
-            </section>
-          </div>
-          <a class="prototype-open" href="https://www.figma.com/proto/P8P8AbsbsKqyPCSUFf32wj/%E6%99%BA%E6%85%A7%E6%97%85%E8%A1%8C%E8%A6%8F%E5%8A%83%E6%95%B4%E5%90%88%E5%B9%B3%E5%8F%B0%E5%B0%88%E6%A1%88_Wireframe--Copy-?node-id=850-2335&amp;p=f&amp;t=8YlaVL55zQo1KmJU-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;page-id=311%3A1462&amp;starting-point-node-id=850%3A2335&amp;show-proto-sidebar=1" target="_blank" rel="noopener noreferrer">OPEN PROTOTYPE</a>
-        </article>
+      <div class="prototype-device" data-embed="https://embed.figma.com/proto/zibVaGD0nePHsRTbO8X9bo/Trova?node-id=1468-12139&amp;starting-point-node-id=1468%3A12139&amp;page-id=1446%3A8995&amp;scaling=scale-down-width&amp;content-scaling=fixed&amp;device-frame=false&amp;footer=false&amp;hide-ui=1&amp;hotspot-hints=true&amp;show-proto-sidebar=false&amp;embed-host=trova-portfolio">
+        <div class="prototype-screen">
+          <img class="prototype-poster" src="../assets/slide15/prototype-poster.png" alt="Prototype 起始畫面：京都收藏列表">
+          <button class="prototype-start" type="button">開始體驗</button>
+        </div>
+        <button class="prototype-exit" type="button" aria-label="離開全螢幕">✕</button>
       </div>
     </section>
 
@@ -5143,6 +5232,70 @@
         showSlide(current + (deltaX < 0 ? 1 : -1));
       }
     }, { passive: true });
+
+    // 第 15 頁：Figma prototype 嵌入
+    // iframe 固定為 393x852（Figma 以 1 倍呈現、剛好填滿），再用 CSS 等比縮放到手機框大小，
+    // 因為 Figma 嵌入的縮放參數只能縮小、不能放大
+    const prototypeDevice = document.querySelector('.prototype-device');
+    if (prototypeDevice) {
+      const screen = prototypeDevice.querySelector('.prototype-screen');
+      const startButton = prototypeDevice.querySelector('.prototype-start');
+      const restartButton = document.querySelector('.prototype-restart');
+      const fullscreenButton = document.querySelector('.prototype-fullscreen');
+      const exitButton = prototypeDevice.querySelector('.prototype-exit');
+      let frame = null;
+
+      const fitScale = () => prototypeDevice.style.setProperty('--proto-scale', screen.clientWidth / 393);
+      fitScale();
+      new ResizeObserver(fitScale).observe(screen);
+
+      startButton.addEventListener('click', () => {
+        frame = document.createElement('iframe');
+        frame.className = 'prototype-frame';
+        frame.title = 'Trova 互動 Prototype';
+        frame.src = prototypeDevice.dataset.embed;
+        frame.setAttribute('allowfullscreen', '');
+        // iframe 的 load 事件早於 Figma 自己的載入畫面結束；多等一下再淡入，避免先看到一片白底
+        frame.addEventListener('load', () => setTimeout(() => prototypeDevice.classList.add('is-loaded'), 3500));
+        screen.append(frame);
+        prototypeDevice.classList.add('is-started');
+        restartButton.hidden = false;
+        fullscreenButton.hidden = false;
+      });
+
+      restartButton.addEventListener('click', () => {
+        if (!frame) return;
+        prototypeDevice.classList.remove('is-loaded');
+        frame.src = frame.src;
+      });
+
+      // 全螢幕：優先用瀏覽器的 Fullscreen API；不支援時（例如 iPhone Safari）改成覆蓋整頁
+      const requestFull = prototypeDevice.requestFullscreen || prototypeDevice.webkitRequestFullscreen;
+      const exitFull = () => (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+      const fullscreenElement = () => document.fullscreenElement || document.webkitFullscreenElement;
+
+      fullscreenButton.addEventListener('click', () => {
+        if (!requestFull) {
+          prototypeDevice.classList.add('is-expanded');
+          return;
+        }
+        const result = requestFull.call(prototypeDevice);
+        if (result && result.catch) result.catch(() => prototypeDevice.classList.add('is-expanded'));
+      });
+
+      const onFullscreenChange = () => prototypeDevice.classList.toggle('is-expanded', fullscreenElement() === prototypeDevice);
+      document.addEventListener('fullscreenchange', onFullscreenChange);
+      document.addEventListener('webkitfullscreenchange', onFullscreenChange);
+
+      const leaveFullscreen = () => {
+        if (fullscreenElement()) exitFull();
+        prototypeDevice.classList.remove('is-expanded');
+      };
+      exitButton.addEventListener('click', leaveFullscreen);
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && prototypeDevice.classList.contains('is-expanded')) leaveFullscreen();
+      });
+    }
 
     showSlide(0);
   </script>
