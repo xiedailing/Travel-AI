@@ -1,51 +1,65 @@
-# 智慧旅行規劃整合平台 — 設計文件
+# TROVA 智慧旅行規劃整合平台
 
-本資料夾整理自與 Claude 的設計討論，包含 IA 資訊架構與行動裝置 Wireframe。
+TROVA 是一款智慧旅行規劃整合平台，旨在降低使用者從收藏靈感、整理景點到安排實際行程之間的資訊整理成本。
 
-## 檔案結構
+![TROVA Logo](assets/LOGO/Frame.png)
 
-```
-Travel AI/
-├── README.md                          本說明文件
-├── IA_資訊架構_FigJam總覽.png          原始 FigJam IA 全覽截圖
-└── wireframe-screens/                 12 個核心畫面 Wireframe 截圖 (375x812)
-    ├── A1_探索主頁.png
-    ├── B1_已儲存的景點餐廳.png
-    ├── B2_待整理的匯入內容.png
-    ├── B3_匯入收藏內容.png
-    ├── C1_我的行程列表.png
-    ├── C2_行程詳情頁.png
-    ├── C3_AI行程安排小助理.png
-    ├── C4_行程地圖總覽.png
-    ├── C5_加入景點餐廳住宿.png
-    ├── C6_上傳訂購明細.png
-    ├── D1_我的帳戶主頁.png
-    └── D2_帳戶設定.png
-```
+## Project Overview
 
-## 原始檔案連結 (Figma / FigJam)
+TROVA 把散落在 Instagram、YouTube、Google Maps、小紅書等平台的旅遊收藏，轉換成順路、可執行又保有彈性的每日行程。本專題涵蓋使用者研究、資訊架構、Wireframe、UI 設計與互動原型，以及產品 Landing Page。
 
-- **IA 資訊架構 (FigJam)**：https://www.figma.com/board/9w3W4MR3tHUweYCY1a2bqX/智慧旅行規劃整合平台-IA資訊架構
-- **Wireframe (Figma Design)**：https://www.figma.com/design/xmcXH10RGmggz6fz6Z5NUK
+## Problem
 
-> 截圖僅為當下快照，若之後在 Figma 上持續編輯，請以上方連結內的最新版本為準。
+旅遊靈感無所不在，但資訊變多並不代表行程更好排。使用者不是找不到景點，而是**收藏之後排不進去**：
 
-## IA 資訊架構摘要
+`找景點（容易）→ 收藏（容易）→ 重新整理（斷點）→ 排行程（最大負擔）`
 
-平台分為四大模組：
 
-1. **收藏整合庫** — 待整理的匯入內容、匯入收藏內容/跨平台匯入、新增收藏資料夾、已儲存的景點/餐廳、搜尋/篩選已收藏內容
-2. **探索** — 單一頁面：地圖總覽 + 附近景點餐廳卡片 + AI 搜尋列 Chatbox
-3. **我的行程** — 行程內容設定、加入景點/餐廳/住宿、AI行程安排助手、新增旅程、候補景點清單、行程地圖總覽、上傳訂購明細、輸出行程PDF、行程協作共享
-4. **我的帳戶** — 帳戶設定、偏好設定、串接社群平台、串接Google Workspace、服務與隱私權條款、意見回饋、常見問題、操作指南、登出
+從「存下靈感」到「排成行程」之間，資訊無法自然延續，使用者只能重新整理一次。
 
-圖例：藍色 = 頁面/畫面（有獨立導覽路徑）；綠色 = 功能/元件（原地互動，不換頁）
+## Research
 
-## Wireframe 說明
+- **對象**：7 位具備自主規劃與跨平台收藏經驗的旅行者
+- **方法**：TA 界定 → 訪談（Interview）→ 親和圖整理（Affinity Mapping）
+- **Persona**：林思妤，26–35 歲，伴侶自由行，每年旅行 2–4 次。喜歡規劃也享受成就感，但卡在如何把多平台資訊整理成可行、順路的行程。
+- **Customer Journey**：骨架抵定 → 蒐集收藏 → 整理排序（高摩擦區、情緒最低點）→ 確認定案。
 
-- **裝置**：行動裝置 App（375×812，iPhone 尺寸）
-- **保真度**：低保真線框稿（灰階佔位 + 單一藍色強調色），聚焦資訊架構與版面配置
-- **導覽邏輯**：探索／收藏／我的行程／帳戶 四個 Hub 頁面共用底部導覽列；子頁面（如行程詳情、匯入流程、帳戶設定等）以返回箭頭堆疊方式呈現
+## Key Insights
+
+研究浮現三個共通斷點：
+
+1. **順路串接是最大的時間黑洞**：景點很多卻不知道怎麼分天，反覆查距離與交通仍怕排不順。
+2. **多平台反覆瀏覽**：收藏分散在不同平台，資訊需要重找、重看、重抄。
+3. **收藏與行程之間斷鏈**：存下來不等於排得進去，收藏成果無法直接延續。
+
+收斂為兩個核心痛點與對應的 How Might We：
+
+| 核心痛點 | HMW |
+|---|---|
+| 收藏資訊分散，整理成果無法延續到行程規劃 | 如何讓分散的跨平台收藏，順利延續到行程規劃？ |
+| 收藏景點難以直接轉換成順路、可執行的每日行程 | 如何減少使用者反覆調整景點順序與路線的時間？ |
+
+## Solution
+
+**不是增加另一個規劃工具，而是重新連接「收藏」與「行程」之間斷掉的旅程。**
+
+- **Collect**：貼上跨平台連結，AI 擷取景點資訊並統一收藏。
+- **Plan**：依位置、交通時間與營業時間，由 AI 安排成可執行的時間軸；或自行規劃，由 AI 即時檢查衝突。
+- **視覺系統**：暖陶土色（#8D432A）代表使用者操作，靛藍色（#4A5FC7）專門標示 AI 介入；字體採用 Noto Sans TC。
+
+### 資訊架構（IA）
+
+以三個核心模組承接規劃任務，並由探索與個人設定補足完整使用情境：
+
+1. **收藏**：跨平台收藏匯入與 AI 資訊擷取
+2. **AI 行程安排助手**：AI 行程規劃引擎
+3. **行程**：行程可行性檢查（交通、營業時間、時段衝突即時提醒）
+
+輔助入口：**探索**（搜尋景點、景點詳情）、**個人**（偏好、帳號設定）。
+
+> 下方 Wireframe 為早期低保真版本（行動裝置 375×812，灰階佔位 + 單一藍色強調色），採四個 Hub（探索／收藏／我的行程／帳戶）的資訊架構；最終簡報與原型的 IA 已收斂為上述版本。
+
+### Wireframe
 
 | 代號 | 畫面 | 所屬模組 |
 |------|------|----------|
@@ -61,3 +75,38 @@ Travel AI/
 | C6 | 上傳訂購明細 | 我的行程 |
 | D1 | 我的帳戶主頁 | 我的帳戶 |
 | D2 | 帳戶設定 | 我的帳戶 |
+
+## My Role
+
+**Individual Project / Sole Designer** — 本專題由我獨立完成，負責完整流程：
+
+- 使用者訪談與需求整理
+- Persona 與研究資料整理
+- IA / Sitemap / User Flow 規劃
+- Wireframe 設計
+- UI Mockup / Prototype 設計
+- Landing Page 視覺設計與前端切版
+- 專題簡報內容整理與製作
+
+## Deliverables
+
+```
+Travel-AI/
+├── README.md
+├── assets/                  簡報與 Landing Page 使用的圖像資源（LOGO、Persona、流程截圖等）
+├── wireframe-screens/       12 個核心畫面 Wireframe
+├── travo_landing_page/      Landing Page（index.html、style.css、asset/）
+└── docs/
+    └── trova-slides.html    專題簡報
+```
+
+## Links
+
+- IA 資訊架構（FigJam）：https://www.figma.com/board/9w3W4MR3tHUweYCY1a2bqX/智慧旅行規劃整合平台-IA資訊架構
+- Wireframe（Figma Design）：https://www.figma.com/design/xmcXH10RGmggz6fz6Z5NUK
+- Interactive Prototype
+  - [Flow 0：登入／註冊](https://www.figma.com/proto/P8P8AbsbsKqyPCSUFf32wj/%E6%99%BA%E6%85%A7%E6%97%85%E8%A1%8C%E8%A6%8F%E5%8A%83%E6%95%B4%E5%90%88%E5%B9%B3%E5%8F%B0%E5%B0%88%E6%A1%88_Wireframe--Copy-?node-id=1010-16597&p=f&t=EDMtuD9WQnIYpXCE-1&scaling=scale-down&content-scaling=fixed&page-id=1010%3A16129&starting-point-node-id=1010%3A16597)
+  - [Flow A：跨平台匯入收藏](https://www.figma.com/proto/P8P8AbsbsKqyPCSUFf32wj/%E6%99%BA%E6%85%A7%E6%97%85%E8%A1%8C%E8%A6%8F%E5%8A%83%E6%95%B4%E5%90%88%E5%B9%B3%E5%8F%B0%E5%B0%88%E6%A1%88_Wireframe--Copy-?node-id=1010-8563&t=ztQyWOwbQydHEElx-1&scaling=scale-down&content-scaling=fixed&page-id=1010%3A3506&starting-point-node-id=1010%3A8563&show-proto-sidebar=1)
+  - [Flow B + C：行程規劃中心](https://www.figma.com/proto/P8P8AbsbsKqyPCSUFf32wj/%E6%99%BA%E6%85%A7%E6%97%85%E8%A1%8C%E8%A6%8F%E5%8A%83%E6%95%B4%E5%90%88%E5%B9%B3%E5%8F%B0%E5%B0%88%E6%A1%88_Wireframe--Copy-?node-id=850-2335&p=f&t=8YlaVL55zQo1KmJU-1&scaling=scale-down&content-scaling=fixed&page-id=311%3A1462&starting-point-node-id=850%3A2335&show-proto-sidebar=1)
+
+> 截圖僅為當下快照，若 Figma 持續編輯，請以連結內的最新版本為準。
