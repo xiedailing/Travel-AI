@@ -2909,108 +2909,11 @@
       line-height: 1.5;
     }
 
-    .prototype-body {
-      display: grid;
-      grid-template-columns: minmax(18rem, .72fr) minmax(0, 1.28fr);
-      gap: clamp(1.2rem, 2.5vw, 2.8rem);
-      min-height: 0;
-      padding-top: clamp(1rem, 2vh, 1.5rem);
-      border-top: 1px solid var(--line);
-    }
-
-    .prototype-entry {
-      min-width: 0;
-      min-height: 0;
-    }
-
-    .import-entry {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      grid-template-rows: auto auto 1fr auto;
-      align-items: start;
-      column-gap: clamp(.75rem, 1.35vw, 1.25rem);
-      padding-right: clamp(.8rem, 1.7vw, 1.8rem);
-      border-right: 1px solid var(--line);
-    }
-
     .prototype-flow-code {
       color: var(--terracotta);
       font-size: clamp(.56rem, .7vw, .76rem);
       font-weight: 900;
       letter-spacing: .16em;
-    }
-
-    .prototype-entry h3 {
-      margin: .45rem 0 .55rem;
-      font-family: var(--serif);
-      font-size: clamp(1.45rem, 2.25vw, 2.45rem);
-      line-height: 1.16;
-    }
-
-    .import-entry h3 { white-space: nowrap; }
-
-    .prototype-entry-copy {
-      margin: 0;
-      color: var(--muted);
-      font-size: clamp(.72rem, .92vw, 1rem);
-      line-height: 1.5;
-    }
-
-    .prototype-qr-link {
-      display: block;
-      width: clamp(10.5rem, 13.2vw, 14rem);
-      padding: .7rem;
-      border: 1px solid rgba(46, 42, 36, .14);
-      border-radius: .8rem;
-      background: white;
-      box-shadow: 0 12px 28px rgba(46, 42, 36, .09);
-    }
-
-    .prototype-qr-link img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    .import-launch {
-      grid-column: 2;
-      grid-row: 1 / 5;
-      align-self: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: .75rem;
-    }
-
-    .prototype-steps {
-      align-self: end;
-      display: grid;
-      gap: .55rem;
-      margin: clamp(.9rem, 1.8vh, 1.35rem) 0 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .prototype-steps li {
-      display: grid;
-      grid-template-columns: 1.45rem 1fr;
-      align-items: center;
-      gap: .55rem;
-      color: var(--ink);
-      font-size: clamp(.7rem, .88vw, .96rem);
-      font-weight: 700;
-    }
-
-    .prototype-steps span {
-      display: grid;
-      place-items: center;
-      width: 1.7rem;
-      height: 1.7rem;
-      border-radius: 50%;
-      color: white;
-      background: var(--terracotta);
-      font-size: clamp(.46rem, .58vw, .64rem);
-      font-weight: 900;
     }
 
     .prototype-open {
@@ -3032,46 +2935,6 @@
 
     .prototype-open::after { content: "↗"; font-size: 1.05em; }
     .prototype-open:hover { color: white; background: var(--terracotta); }
-
-    .planning-entry {
-      display: grid;
-      grid-template-rows: auto minmax(0, 1fr);
-      gap: clamp(.9rem, 1.8vh, 1.35rem);
-    }
-
-    .planning-entry .prototype-flow-code { color: var(--indigo); }
-
-    .planning-shell {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      align-items: center;
-      gap: clamp(.9rem, 1.7vw, 1.7rem);
-      min-height: 0;
-    }
-
-    .planning-launch {
-      order: 2;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: .75rem;
-    }
-
-    .planning-launch .prototype-open {
-      margin-top: 0;
-      border-color: var(--indigo);
-      color: var(--indigo);
-    }
-
-    .planning-launch .prototype-open:hover { color: white; background: var(--indigo); }
-
-    .prototype-branches {
-      order: 1;
-      display: grid;
-      grid-template-rows: 1fr 1fr;
-      gap: clamp(.8rem, 1.6vh, 1.2rem);
-      min-height: 0;
-    }
 
     .prototype-branch {
       display: grid;
@@ -3194,8 +3057,6 @@
     .prototype-card-branches .prototype-branch.check {
       grid-template-columns: minmax(12rem, 1fr) minmax(0, 1fr);
     }
-
-    .prototype-legacy { display: none; }
 
     @media (max-width: 700px) {
       .prototype-card-grid {
@@ -4296,39 +4157,8 @@
         white-space: normal;
       }
       .prototype-lede { font-size: .46rem; }
-      .prototype-body {
-        grid-template-columns: 1fr;
-        grid-template-rows: .8fr 1.2fr;
-        gap: .5rem;
-        padding-top: .55rem;
-      }
-      .import-entry {
-        grid-template-columns: 6.4rem 1fr auto;
-        grid-template-rows: auto auto 1fr;
-        align-items: center;
-        column-gap: .55rem;
-        padding: 0 0 .45rem;
-        border-right: 0;
-        border-bottom: 1px solid var(--line);
-      }
-      .import-launch {
-        grid-column: 1;
-        grid-row: 1 / 5;
-        gap: .35rem;
-      }
       .prototype-flow-code { font-size: .34rem; }
-      .prototype-entry h3 { margin: .2rem 0; font-size: .78rem; }
-      .prototype-entry-copy { font-size: .38rem; }
-      .prototype-qr-link { width: 6.4rem; padding: .35rem; border-radius: .45rem; }
-      .prototype-steps { grid-column: 2; gap: .25rem; margin: .3rem 0 0; }
-      .prototype-steps li { grid-template-columns: 1rem 1fr; gap: .3rem; font-size: .36rem; }
-      .prototype-steps span { width: 1rem; height: 1rem; font-size: .28rem; }
-      .import-launch .prototype-open { margin-top: 0; }
       .prototype-open { margin-top: 0; padding: .4rem .52rem; font-size: .34rem; }
-      .planning-entry { grid-template-rows: auto 1fr; gap: .4rem; }
-      .planning-shell { grid-template-columns: 1fr auto; gap: .55rem; }
-      .planning-launch { gap: .35rem; }
-      .prototype-branches { gap: .35rem; }
       .prototype-branch { grid-template-columns: 5.8rem 1fr; gap: .4rem; padding: .45rem; border-left-width: 3px; border-radius: 0 .45rem .45rem 0; }
       .prototype-branch.check { grid-template-columns: 7.8rem 1fr; }
       .branch-role { margin-bottom: .18rem; font-size: .3rem; }
@@ -4622,7 +4452,7 @@
 
       <div class="persona-body">
         <figure class="persona-photo">
-          <img src="assets/persona/lin-siyu.webp.jpg" alt="林思妤在咖啡館整理旅行筆記與地圖">
+          <img src="../assets/persona/lin-siyu.webp.jpg" alt="林思妤在咖啡館整理旅行筆記與地圖">
           <figcaption class="persona-identity">
             <small>INDEPENDENT TRAVEL PLANNER</small>
             <strong>林思妤</strong>
@@ -4924,9 +4754,9 @@
             <span class="flow-role">共同起點</span>
           </div>
           <div class="mockup-pair" aria-label="貼上連結並由 AI 辨識景點">
-            <img src="assets/slide13/slide13-01-import-link.png" alt="貼上外部景點連結的畫面">
+            <img src="../assets/slide13/slide13-01-import-link.png" alt="貼上外部景點連結的畫面">
             <span class="pair-arrow" aria-hidden="true">→</span>
-            <img src="assets/slide13/slide13-02-ai-recognized.png" alt="AI 成功辨識景點資訊的畫面">
+            <img src="../assets/slide13/slide13-02-ai-recognized.png" alt="AI 成功辨識景點資訊的畫面">
           </div>
           <p class="flow-caption"><strong>從分散內容變成可用資料</strong>貼上連結，AI 自動擷取並整理景點資訊。</p>
         </article>
@@ -4940,9 +4770,9 @@
             <span class="flow-role">AI 是安排者</span>
           </div>
           <div class="mockup-pair" aria-label="設定條件並取得 AI 建議順序">
-            <img src="assets/slide13/slide13-03-route-settings.png" alt="設定 AI 順路安排條件的畫面">
+            <img src="../assets/slide13/slide13-03-route-settings.png" alt="設定 AI 順路安排條件的畫面">
             <span class="pair-arrow" aria-hidden="true">→</span>
-            <img src="assets/slide13/slide13-04-ai-route-result.png" alt="AI 產生建議行程順序的畫面">
+            <img src="../assets/slide13/slide13-04-ai-route-result.png" alt="AI 產生建議行程順序的畫面">
           </div>
           <p class="flow-caption"><strong>快速產生可執行的順路安排</strong>依地點、交通與時間條件提出建議順序。</p>
         </article>
@@ -4956,9 +4786,9 @@
             <span class="flow-role">AI 是協作者</span>
           </div>
           <div class="mockup-pair" aria-label="AI 偵測行程衝突並提供調整建議">
-            <img src="assets/slide13/slide13-05-conflict-detected.png" alt="行程中出現交通衝突提醒的畫面">
+            <img src="../assets/slide13/slide13-05-conflict-detected.png" alt="行程中出現交通衝突提醒的畫面">
             <span class="pair-arrow" aria-hidden="true">→</span>
-            <img src="assets/slide13/slide13-06-conflict-suggestion.png" alt="展開 AI 衝突原因與調整建議的畫面">
+            <img src="../assets/slide13/slide13-06-conflict-suggestion.png" alt="展開 AI 衝突原因與調整建議的畫面">
           </div>
           <p class="flow-caption"><strong>保留自主權，也避免不合理安排</strong>規劃過程即時指出衝突，展開即可查看建議。</p>
         </article>
@@ -4977,7 +4807,7 @@
 
       <div class="visual-system-body">
         <section class="identity-focus" aria-label="Trova 品牌識別">
-          <img class="identity-logo" src="assets/LOGO/Frame.png" alt="Trova 定位標記與星芒 Logo">
+          <img class="identity-logo" src="../assets/LOGO/Frame.png" alt="Trova 定位標記與星芒 Logo">
           <small class="identity-kicker">Brand Idea</small>
           <h3>定位旅行靈感，讓 AI 把它整理成旅程</h3>
           <p>定位標記代表旅行地點，星芒則象徵 AI 協助探索與整理。</p>
@@ -5151,64 +4981,6 @@
           <a class="prototype-open" href="https://www.figma.com/proto/P8P8AbsbsKqyPCSUFf32wj/%E6%99%BA%E6%85%A7%E6%97%85%E8%A1%8C%E8%A6%8F%E5%8A%83%E6%95%B4%E5%90%88%E5%B9%B3%E5%8F%B0%E5%B0%88%E6%A1%88_Wireframe--Copy-?node-id=850-2335&amp;p=f&amp;t=8YlaVL55zQo1KmJU-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;page-id=311%3A1462&amp;starting-point-node-id=850%3A2335&amp;show-proto-sidebar=1" target="_blank" rel="noopener noreferrer">OPEN PROTOTYPE</a>
         </article>
       </div>
-
-      <div class="prototype-body prototype-legacy" aria-hidden="true">
-        <article class="prototype-entry import-entry">
-          <div>
-            <small class="prototype-flow-code">FLOW A · IMPORT</small>
-            <h3>跨平台匯入收藏</h3>
-            <p class="prototype-entry-copy">從空收藏開始，把外部旅行靈感轉成可使用的景點資料。</p>
-          </div>
-
-          <div class="import-launch">
-          <a class="prototype-open" href="https://www.figma.com/proto/P8P8AbsbsKqyPCSUFf32wj/%E6%99%BA%E6%85%A7%E6%97%85%E8%A1%8C%E8%A6%8F%E5%8A%83%E6%95%B4%E5%90%88%E5%B9%B3%E5%8F%B0%E5%B0%88%E6%A1%88_Wireframe--Copy-?node-id=1010-8563&amp;t=ztQyWOwbQydHEElx-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;page-id=1010%3A3506&amp;starting-point-node-id=1010%3A8563&amp;show-proto-sidebar=1" target="_blank" rel="noopener noreferrer">OPEN PROTOTYPE</a>
-          </div>
-
-          <ol class="prototype-steps" aria-label="跨平台匯入收藏流程">
-            <li><span>01</span>空收藏</li>
-            <li><span>02</span>匯入外部連結</li>
-            <li><span>03</span>AI 擷取資訊</li>
-            <li><span>04</span>收藏成功</li>
-          </ol>
-
-        </article>
-
-        <article class="prototype-entry planning-entry">
-          <div>
-            <small class="prototype-flow-code">FLOW B + C · PLANNING HUB</small>
-            <h3>行程規劃中心</h3>
-            <p class="prototype-entry-copy">從同一個行程詳情頁，依規劃習慣選擇 AI 安排或自主安排。</p>
-          </div>
-
-          <div class="planning-shell">
-            <div class="planning-launch">
-          <a class="prototype-open" href="https://www.figma.com/proto/P8P8AbsbsKqyPCSUFf32wj/%E6%99%BA%E6%85%A7%E6%97%85%E8%A1%8C%E8%A6%8F%E5%8A%83%E6%95%B4%E5%90%88%E5%B9%B3%E5%8F%B0%E5%B0%88%E6%A1%88_Wireframe--Copy-?node-id=850-2335&amp;p=f&amp;t=8YlaVL55zQo1KmJU-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;page-id=311%3A1462&amp;starting-point-node-id=850%3A2335&amp;show-proto-sidebar=1" target="_blank" rel="noopener noreferrer">OPEN PROTOTYPE</a>
-            </div>
-
-            <div class="prototype-branches">
-              <section class="prototype-branch" aria-label="Flow B 交給 AI 安排">
-                <div>
-                  <small class="branch-role">FLOW B · AI 是安排者</small>
-                  <h4>交給 AI 安排</h4>
-                </div>
-                <div class="branch-steps">
-                  <span>選擇景點</span><span>設定條件</span><span>AI 建議順序</span><span>套用</span>
-                </div>
-              </section>
-
-              <section class="prototype-branch check" aria-label="Flow C 自己安排並由 AI 即時健檢">
-                <div>
-                  <small class="branch-role">FLOW C · AI 是協作者</small>
-                  <h4>自己安排，AI 即時健檢</h4>
-                </div>
-                <div class="branch-steps">
-                  <span>自行調整</span><span>偵測衝突</span><span>展開建議</span><span>手動修正</span>
-                </div>
-              </section>
-            </div>
-          </div>
-        </article>
-      </div>
     </section>
 
     <section class="slide validation-slide" aria-label="Slide 16：Validation Plan">
@@ -5292,7 +5064,7 @@
       </div>
 
       <div class="conclusion-brand">
-        <img class="conclusion-logo" src="assets/LOGO/Frame.png" alt="Trova Logo">
+        <img class="conclusion-logo" src="../assets/LOGO/Frame.png" alt="Trova Logo">
         <p class="conclusion-qa">Thank you · Q&amp;A</p>
       </div>
 
