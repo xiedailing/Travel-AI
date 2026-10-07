@@ -293,7 +293,7 @@ section.core-features {
 
 .phone-frame img {
     position: absolute;
-    top: 14%;
+    bottom: -3%;
     left: 50%;
     width: 56%;
     transform: translateX(-50%);
@@ -301,7 +301,7 @@ section.core-features {
 
 .feature:nth-child(2) .phone-frame img {
     position: absolute;
-    top: 10%;
+    bottom: -3%;
     left: 50%;
     width: 56%;
     transform: translateX(-50%);
