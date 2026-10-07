@@ -12,9 +12,12 @@
       rel="stylesheet"
     />
     <link rel="icon" href="./asset/Pin_Sparkle_Logo.svg" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
   </head>
-  <a href="#" class="scroll-top">↑</a>
   <body>
+    <a href="#" class="scroll-top" aria-label="回到頁面頂端">↑</a>
     <header>
       <nav>
         <a href="#" class="logo">
@@ -202,7 +205,7 @@
               <p class="label">INPUT｜收藏來源</p>
             </div>
             <h3>匯入收藏</h3>
-            <figrue>
+            <figure>
               <img
                 src="./asset/step1-sources.png"
                 alt="Instagram、小紅書、Threads 三個平台的貼文縮圖疊在一起"
@@ -210,7 +213,7 @@
               <figcaption class="desc">
                 貼上連結 AI 自動辨識內容，並將內容景點收藏
               </figcaption>
-            </figrue>
+            </figure>
           </div>
           <div class="card">
             <div class="tag-row">
@@ -401,5 +404,9 @@
         <p class="copyright">© 2026 Trova. All rights reserved.</p>
       </div>
     </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

@@ -821,6 +821,24 @@ footer {
 
 }
 
+/* ============================================================
+   動態效果
+   ============================================================ */
+
+/* 注意：不要在 html 上設 scroll-behavior: smooth。
+   ScrollTrigger 會程式化地設定捲動位置，與 CSS 平滑捲動衝突會造成卡頓與位置亂跳，
+   錨點的平滑捲動改由 script.js 處理 */
+
+/* JS 啟用時，先隱藏要播放進場動畫的元素，避免載入時閃一下。
+   script.js 在 GSAP 載入失敗或使用者偏好減少動態時會移除 .js */
+.js header,
+.js .hero-text > *,
+.js .hero-img-mobile,
+.js .hv-group,
+.js .scroll-top {
+    opacity: 0;
+}
+
 /* ------------------------------------------------------------
    Hero 右側：分層場景
    座標以 Figma Hero Visual 的 928 x 816 為基準，
@@ -1307,4 +1325,17 @@ footer {
 
 .hv-spark {
     position: absolute;
+}
+
+/* 會持續位移的圖層獨立成合成層，避免每幀重繪整個手機 */
+.hv-float,
+.hv-card,
+.hv-icon,
+.hv-spark {
+    will-change: transform;
+}
+
+/* 進場前元素會被推到畫面外，避免在窄螢幕撐出橫向捲軸（clip 不會建立捲動容器，sticky 不受影響） */
+main {
+    overflow-x: clip;
 }
